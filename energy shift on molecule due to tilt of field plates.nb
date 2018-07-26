@@ -1,0 +1,381 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     12672,        372]
+NotebookOptionsPosition[     11913,        340]
+NotebookOutlinePosition[     12259,        355]
+CellTagsIndexPosition[     12216,        352]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+NaCs
+
+plates are ITO coated quartz 80x30mm, separated by 12mm air, 8mm glass (=1mm \
+air, 4 mm glass, 10mm air, 4 mm glass, 1mm air)\
+\>", "Title",
+ CellChangeTimes->{{3.6188461513394513`*^9, 3.6188461525145187`*^9}, {
+  3.618848837195073*^9, 3.61884889081114*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.618850256731266*^9, 3.618850261532541*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"dx", " ", "=", 
+    RowBox[{"100", " ", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "6"}]]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "distance", " ", "over", " ", "which", " ", "we", " ", "care", " ", 
+    "about", " ", "the", " ", "field", " ", "gradient", " ", "in", " ", "m"}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"err", "=", "15"}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"machinig", " ", "error", " ", "in", " ", "mils"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"\[Theta]", "=", 
+    RowBox[{"ArcTan", "[", 
+     RowBox[{"err", "*", 
+      RowBox[{
+       RowBox[{"2.54", "/", "1000"}], "/", "3"}]}], "]"}]}], " ", ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"h", "=", 
+    RowBox[{"6.62606957", " ", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "34"}]]}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"angle", " ", 
+     RowBox[{"b", "/", "t"}], " ", "plates", " ", "due", " ", "to", " ", "30",
+      " ", "mils", " ", "machining", " ", "error", " ", "over", " ", "3", 
+     "cm"}], ",", " ", 
+    RowBox[{"in", " ", 
+     RowBox[{"degrees", "."}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"d", "=", 
+    RowBox[{"4", " ", "3.33564", "\[Times]", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "30"}]]}]}], " ", ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "dipole", " ", "moment", " ", "of", " ", "NaCs", " ", "in", " ", "C"}], 
+     "-", "m"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"EE", "=", 
+    RowBox[{"10", " ", 
+     RowBox[{
+      SuperscriptBox["10", "3"], "/", ".01"}]}]}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "electric", " ", "field", " ", "to", " ", "saturate", " ", "dipole", " ", 
+     "moment", " ", "in", " ", 
+     RowBox[{"V", "/", "m"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"ddAir", "=", ".012"}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"12", " ", "mm", " ", "air"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"ddQuartz", "=", ".008"}], ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", "=", "4"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "rel", " ", "permittivity", " ", "for", " ", "quartz", " ", "3.8", " ", 
+    "to", " ", "4.2"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"A", "=", 
+   RowBox[{".08", " ", ".03"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"area", " ", "of", " ", "capacitor", " ", "in", " ", 
+    RowBox[{"m", "^", "2"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"\[Epsilon]0", "=", 
+   RowBox[{"8.8542", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Cair", "=", " ", 
+   RowBox[{"\[Epsilon]0", " ", 
+    RowBox[{"A", " ", "/", "ddAir"}]}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"air", " ", "part"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Cquartz", " ", "=", " ", 
+   RowBox[{"k", " ", "\[Epsilon]0", " ", 
+    RowBox[{"A", " ", "/", "ddQuartz"}]}]}], " ", ";", 
+  RowBox[{"(*", 
+   RowBox[{"quartz", " ", "part"}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "figure", " ", "out", " ", "voltage", " ", "in", " ", "the", " ", "air", 
+     " ", "and", " ", "quartz", " ", "regions", " ", 
+     RowBox[{"separately", ".", " ", "Q"}]}], "=", 
+    RowBox[{
+    "CV", " ", "stored", " ", "on", " ", "caps", " ", "in", " ", "series", 
+     " ", "is", " ", 
+     RowBox[{"identical", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Vair", " ", "=", 
+   RowBox[{"EE", " ", "ddAir"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{"Vquartz", "=", 
+    FractionBox[
+     RowBox[{"Cair", " ", "Vair"}], "Cquartz"]}], " ", 
+   ";"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Vtot", "=", 
+    RowBox[{"Vair", "+", "Vquartz"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "now", " ", "keeping", " ", "Vtot", " ", "constant", " ", "calculate", " ",
+     "the", " ", "E", " ", "field", " ", "in", " ", "the", " ", "air", " ", 
+    "region", " ", "a", " ", "distance", " ", "dx", " ", 
+    RowBox[{"away", "."}]}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ddAir2", "=", 
+    RowBox[{"ddAir", "+", 
+     RowBox[{"dx", " ", 
+      RowBox[{"Tan", "[", "\[Theta]", "]"}]}]}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Cair2", "=", " ", 
+   RowBox[{"\[Epsilon]0", " ", 
+    RowBox[{"A", " ", "/", "ddAir2"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Cquartz2", "=", "Cquartz"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Vquartz2", "=", 
+     RowBox[{"Vtot", "-", "Vair2"}]}], ";", " ", "\[IndentingNewLine]", 
+    RowBox[{"Vquartz2", "=", 
+     FractionBox[
+      RowBox[{"Cair2", " ", "Vair2"}], "Cquartz2"]}], " ", ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Vair2", "=", 
+   RowBox[{"Vair22", "/.", 
+    RowBox[{
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Vtot", "-", "Vair22"}], "==", 
+        FractionBox[
+         RowBox[{"Cair2", " ", "Vair22"}], "Cquartz2"]}], ",", "Vair22"}], 
+      "]"}], " ", "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EE2", "=", 
+    FractionBox["Vair2", "ddAir2"]}], " ", ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"new", " ", "E", " ", "field", " ", "in", " ", 
+    RowBox[{"V", "/", "m"}]}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  FractionBox[
+   RowBox[{"EE2", "-", "EE"}], "h"], "d", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "frequency", " ", "shift", " ", "felt", " ", "by", " ", "Na", " ", "Cs", 
+    " ", "molecule", " ", "due", " ", "to", " ", "a", " ", "small", " ", 
+    "tilt", " ", "in", " ", "the", " ", "E", " ", "field", " ", "plates"}], 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdzE8oQwEAx/FnMjPKQY20hUIzlAMOTEI4jWe2w0ZtDftT1pDDsh1wkBKH
+yfxfSSFq+VOUprTT2IHGJltha9thIe9iJOP93uHb5/Yt0ZikQyyCIAR0kB97
+PNJ+Jlpai1IueC44voLuhb5bWDZmj8LxOD8OR7XdFDRvxlLwwCV719GGVCYK
+PikVPD20GBhnOP5aaPdsN8OPL28bDExutUPZhU0Cmwy7Sig8zdXAwi4RY8av
+cQI+lFkt8HCqyg5JWccKvKEcTljAzbxkftWVPth/JnmA0zX1Iejm6xk3lsTP
+sIE7GIbRTvMbfFHrKBj8VidhYzLnB0ojFGGgNbIDaZBnC7HhPcuRBbWLq/nQ
+yXYzcqRUOUx4SSGM1K2TUJU+q4DXd+IBeJKIMHYth/fg9NzOPnSVvjqhdc9/
+BEeKe7PNtPK/tVzoUeYJIBkbZhSVVvRA33xQDv8BOPoKAQ==
+  "]],
+
+Cell[BoxData[
+ RowBox[{"-", "1.8264991035146145`*^6"}]], "Output",
+ CellChangeTimes->{{3.6188514708458996`*^9, 3.6188515042098074`*^9}, {
+   3.618851611937969*^9, 3.6188516156121798`*^9}, {3.6188521671647263`*^9, 
+   3.6188521815455494`*^9}, 3.6188522259970913`*^9, {3.6188816292088594`*^9, 
+   3.6188816610246787`*^9}, 3.618881771661007*^9, {3.6188822233408413`*^9, 
+   3.6188822274690776`*^9}, 3.6188827333440123`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Theta]", " ", 
+  RowBox[{"180", "/", "\[Pi]"}]}]], "Input",
+ CellChangeTimes->{{3.618882734339069*^9, 3.6188827403274117`*^9}}],
+
+Cell[BoxData["0.7276172823680522`"], "Output",
+ CellChangeTimes->{{3.6188827350801115`*^9, 3.618882740738435*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+What voltage is required for 10kV/cm in vacuum? (2.5cm plate separation)\
+\>", "Title",
+ CellChangeTimes->{{3.6188461513394513`*^9, 3.6188461525145187`*^9}, {
+  3.618848837195073*^9, 3.61884889081114*^9}, {3.619234000692355*^9, 
+  3.619234004763588*^9}, {3.619234406164547*^9, 3.6192344491720066`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.618850256731266*^9, 3.618850261532541*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"EE", "=", 
+    RowBox[{"10", " ", 
+     RowBox[{
+      SuperscriptBox["10", "3"], "/", ".01"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "electric", " ", "field", " ", "to", " ", "saturate", " ", "dipole", " ", 
+    "moment", " ", "in", " ", 
+    RowBox[{"V", "/", "m"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ddAir", "=", ".017"}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"17", " ", "mm", " ", "air"}], "+", "vacuum"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"ddQuartz", "=", ".008"}], ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", "=", "4"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "rel", " ", "permittivity", " ", "for", " ", "quartz", " ", "3.8", " ", 
+    "to", " ", "4.2"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"A", "=", 
+   RowBox[{".08", " ", ".035"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"area", " ", "of", " ", "capacitor", " ", "in", " ", 
+    RowBox[{"m", "^", "2"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"\[Epsilon]0", "=", 
+   RowBox[{"8.8542", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Cair", "=", " ", 
+   RowBox[{"\[Epsilon]0", " ", 
+    RowBox[{"A", " ", "/", "ddAir"}]}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"air", " ", "part"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Cquartz", " ", "=", " ", 
+   RowBox[{"k", " ", "\[Epsilon]0", " ", 
+    RowBox[{"A", " ", "/", "ddQuartz"}]}]}], " ", ";", 
+  RowBox[{"(*", 
+   RowBox[{"quartz", " ", "part"}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "figure", " ", "out", " ", "voltage", " ", "in", " ", "the", " ", "air", 
+     " ", "and", " ", "quartz", " ", "regions", " ", 
+     RowBox[{"separately", ".", " ", "Q"}]}], "=", 
+    RowBox[{
+    "CV", " ", "stored", " ", "on", " ", "caps", " ", "in", " ", "series", 
+     " ", "is", " ", 
+     RowBox[{"identical", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Vair", " ", "=", 
+   RowBox[{"EE", " ", "ddAir"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{"Vquartz", "=", 
+    FractionBox[
+     RowBox[{"Cair", " ", "Vair"}], "Cquartz"]}], " ", 
+   ";"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Vtot", "=", 
+  RowBox[{"Vair", "+", "Vquartz"}]}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwd0UsowwEAx/EhM6OW1Ehbo0bzKgd2YPJ+XDYzczBqM+xRNOSwcGAHKXEg
+815JoalliNKUdsIONLZlK2zZDgv5X4zk8f/9D78+t9/lm6M2yPriaTQajxzk
+hO/tmo9oTS3v1wFPuQeX0DnXeQNzh83PcCTCicAhTQsBjRvhX7jnkL9pSQNK
+AwEfFB1sHRzTU04xPKXQfLFVBd8/XXXQO7HZAOVn82JYqd9RQMExSw2zJAWU
+iT8Do9CXOz4G9yeLzFAqb1yG14TFBjOZSefUX3GhG3adiH3QVCIMQCdHR7m+
+KHqE5czeIHxuMr7CJ5WWgP4vVQxWxFK/oSxE0PSkA3RvHGTPB+jwLt6SDDUL
+KxnQRndSMmREHoy6pAIYKluTQmXCdAe8uhX1wMNoiFKyFNyFppltK3TwX2xw
+fNdjh4PZbSlG0va/VRa8UKRzoTTcT1nAz2+F7ll/O2zUpFXzY2QP61E97FY9
+NcNlt1AC/wGAghps
+  "]],
+
+Cell[BoxData["19000.`"], "Output",
+ CellChangeTimes->{{3.6192344015122805`*^9, 3.619234417909219*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1265, 1042},
+WindowMargins->{{Automatic, 189}, {0, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 275, 7, 296, "Title"],
+Cell[857, 31, 139, 2, 31, "Input"],
+Cell[CellGroupData[{
+Cell[1021, 37, 6548, 180, 750, "Input"],
+Cell[7572, 219, 420, 6, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8029, 230, 153, 3, 31, "Input"],
+Cell[8185, 235, 114, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8348, 242, 312, 5, 166, "Title"],
+Cell[8663, 249, 139, 2, 31, "Input"],
+Cell[CellGroupData[{
+Cell[8827, 255, 2953, 78, 312, "Input"],
+Cell[11783, 335, 102, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

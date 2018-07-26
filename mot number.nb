@@ -1,0 +1,529 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     16942,        520]
+NotebookOptionsPosition[     15398,        460]
+NotebookOutlinePosition[     15779,        476]
+CellTagsIndexPosition[     15736,        473]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+fluorescence considering scattering of the cooling beams only....
+
+50mm focus,
+24 mm dia lens\
+\>", "Title",
+ CellChangeTimes->{{3.616995657041672*^9, 3.6169956612179112`*^9}, {
+  3.6169968136028233`*^9, 3.616996821363268*^9}, {3.6169975025152273`*^9, 
+  3.616997508611576*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"volts", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "3.25"}], ",", "0.1917"}], "}"}], "-", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "6.7"}], ",", "0.1672"}], "}"}]}], "}"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "volts", "]"}]}], "Input",
+ CellChangeTimes->{{3.616995652301401*^9, 3.6169956671312494`*^9}, {
+  3.616996133179906*^9, 3.616996137307142*^9}, {3.617152257031679*^9, 
+  3.6171522588347826`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"watts", "=", 
+  RowBox[{"volts", "/", 
+   RowBox[{"(", 
+    RowBox[{".55", " ", 
+     RowBox[{"(*", 
+      RowBox[{"A", "/", "W"}], "*)"}], "4.75", " ", 
+     SuperscriptBox["10", "6"]}], 
+    RowBox[{"(*", 
+     RowBox[{"V", "/", "A"}], "*)"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6169960823519983`*^9, 3.616996092762594*^9}, {
+  3.6169961470036964`*^9, 3.6169961604514656`*^9}, {3.6170194030398655`*^9, 
+  3.6170194031658726`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"3.8277511961722483`*^-7", " ", "volts"}]], "Output",
+ CellChangeTimes->{{3.616996157539299*^9, 3.616996161594531*^9}, 
+   3.6170194350036936`*^9, 3.6171522597508345`*^9, 3.6240091865904126`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"d", "=", " ", "16"}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "dia", " ", "of", " ", "imaging", " ", "lens", " ", "in", " ", "mm"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"L", "=", "90"}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"distance", " ", "to", " ", "MOT", " ", "in", " ", "mm"}], "*)"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Rsc", "=", 
+     RowBox[{
+      FractionBox["\[CapitalGamma]", "2"], 
+      FractionBox[
+       RowBox[{"i", "/", "iSAT"}], 
+       RowBox[{"1", "+", 
+        RowBox[{"4", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           FractionBox["\[CapitalDelta]", "\[CapitalGamma]"], ")"}], "2"]}], 
+        "+", 
+        RowBox[{"i", "/", "iSAT"}]}]]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[CapitalGamma]", "=", 
+     RowBox[{"32.815", " ", 
+      SuperscriptBox["10", "6"]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[CapitalDelta]", "=", 
+     RowBox[{"2", "\[Pi]", " ", "15", " ", 
+      SuperscriptBox["10", "6"]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"i", "=", 
+     RowBox[{"5.8", "/", "0.0314159265"}]}], " ", ";"}], 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"i", "/", "iSAT"}], " ", "in", " ", 
+      RowBox[{"mW", "/", 
+       RowBox[{"cm", "^", "2"}]}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"using", " ", "4", "mm", " ", "4", "\[Sigma]", " ", 
+       RowBox[{"dia", "--"}]}], ">", " ", 
+      RowBox[{"2", "mm", " ", "2", "\[Sigma]"}]}], ",", " ", 
+     RowBox[{"1", "mm", " ", "beam", " ", "radius"}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"iSAT", "=", "1.1"}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"mW", "/", 
+     RowBox[{"cm", "^", "2"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Ephot", " ", "=", " ", 
+     RowBox[{"2.33150902", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "19", " "}]]}]}], ";"}], 
+   RowBox[{"(*", 
+    RowBox[{
+    "852", " ", "nm", " ", "photon", " ", "energy", " ", "in", " ", "J"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"solidAngle", "=", 
+     FractionBox[
+      RowBox[{"\[Pi]", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{"d", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "3"}]]}], "2"], ")"}], "2"]}], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"L", " ", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "3"}]]}], ")"}], "2"]]}], ";"}], 
+   RowBox[{"(*", 
+    RowBox[{"approximately", ";", " ", 
+     RowBox[{
+     "denominator", " ", "is", " ", "supposed", " ", "to", " ", "be", " ", 
+      "slant", " ", "height", " ", "of", " ", 
+      RowBox[{"cone", "^", "2"}], " ", "and", " ", 
+      RowBox[{"num", ".", " ", "is"}], " ", "supposed", " ", "to", " ", "be", 
+      " ", "area", " ", "on", " ", "sphere"}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"nAtoms", "/.", 
+     RowBox[{
+      RowBox[{"Solve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Ephot", " ", "Rsc", " ", "nAtoms"}], " ", "\[Equal]", 
+         RowBox[{"watts", " ", 
+          FractionBox[
+           RowBox[{"4", "\[Pi]"}], "solidAngle"]}]}], ",", "nAtoms"}], " ", 
+       "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"\"\<mot number: \>\"", "<>", 
+    RowBox[{"ToString", "[", "%", "]"}]}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6169965437293878`*^9, 3.6169966840604143`*^9}, {
+  3.6169967616758537`*^9, 3.616996770829377*^9}, {3.6169968391092825`*^9, 
+  3.616996848181802*^9}, {3.6169969087822676`*^9, 3.6169969747800426`*^9}, {
+  3.6169970048777637`*^9, 3.616997026614007*^9}, {3.616997932900844*^9, 
+  3.6169980767270703`*^9}, {3.61701941289843*^9, 3.6170194247521076`*^9}, {
+  3.6229965694098854`*^9, 3.622996607352056*^9}}],
+
+Cell[BoxData["\<\"mot number:           7\\n6.09163 10  volts\"\>"], "Output",
+ CellChangeTimes->{3.616998061554202*^9, 3.617019435021695*^9, 
+  3.6171522606058836`*^9, 3.624009186756422*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     FractionBox["E", "photon"], "x", " ", "scattering", " ", "rate", " ", 
+     "x", " ", 
+     RowBox[{"no", ".", " ", "atoms"}]}], " ", "=", " ", 
+    RowBox[{
+     RowBox[{"total", " ", "power"}], " ", "=", " ", 
+     RowBox[{"actual", " ", "detected", " ", "power"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " 4\[Pi]/solid angle"
+}], "Subsubtitle",
+ CellChangeTimes->{{3.616997204028155*^9, 3.6169972374780684`*^9}, {
+  3.616997739043756*^9, 3.6169977535475855`*^9}, {3.6169978898613825`*^9, 
+  3.616997924507364*^9}, {3.616997988311013*^9, 3.616997988312013*^9}, {
+  3.616998094054061*^9, 3.6169981054917154`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["nAtoms"], "Input",
+ CellChangeTimes->{{3.617152265232148*^9, 3.61715226578718*^9}}],
+
+Cell[BoxData["nAtoms"], "Output",
+ CellChangeTimes->{3.624009186787424*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nAtoms", " ", "/.", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Ephot", " ", "Rsc", " ", "nAtoms"}], " ", "\[Equal]", 
+       RowBox[{"watts", " ", 
+        FractionBox[
+         RowBox[{"4", "\[Pi]"}], "solidAngle"]}]}], ",", "nAtoms"}], " ", 
+     "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6171522744166737`*^9, 3.617152329392818*^9}, 
+   3.617152360688608*^9, {3.617153042712618*^9, 3.6171530484799476`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"6.0916289540771335`*^7", " ", "volts"}]], "Output",
+ CellChangeTimes->{{3.617152276345784*^9, 3.6171523298508444`*^9}, 
+   3.617152362425708*^9, 3.617153049009978*^9, 3.624009186812425*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"8.3561439699274795`*^6", " ", ".001"}]], "Input",
+ CellChangeTimes->{{3.6171530570644383`*^9, 3.6171530576554728`*^9}}],
+
+Cell[BoxData["8356.14396992748`"], "Output",
+ CellChangeTimes->{3.6171530580634956`*^9, 3.624009186858428*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+fluorescence considering scattering of the cooling beams only....
+
+50mm focus,
+24 mm dia lens\
+\>", "Title",
+ CellChangeTimes->{{3.616995657041672*^9, 3.6169956612179112`*^9}, {
+  3.6169968136028233`*^9, 3.616996821363268*^9}, {3.6169975025152273`*^9, 
+  3.616997508611576*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"volts", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "3.25"}], ",", "0.1917"}], "}"}], "-", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "6.7"}], ",", "0.1672"}], "}"}]}], "}"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "volts", "]"}]}], "Input",
+ CellChangeTimes->{{3.616995652301401*^9, 3.6169956671312494`*^9}, {
+  3.616996133179906*^9, 3.616996137307142*^9}, {3.617152257031679*^9, 
+  3.6171522588347826`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"watts", "=", 
+  RowBox[{"volts", "/", 
+   RowBox[{"(", 
+    RowBox[{".55", " ", 
+     RowBox[{"(*", 
+      RowBox[{"A", "/", "W"}], "*)"}], "4.75", " ", 
+     SuperscriptBox["10", "6"]}], 
+    RowBox[{"(*", 
+     RowBox[{"V", "/", "A"}], "*)"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6169960823519983`*^9, 3.616996092762594*^9}, {
+  3.6169961470036964`*^9, 3.6169961604514656`*^9}, {3.6170194030398655`*^9, 
+  3.6170194031658726`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"3.8277511961722483`*^-7", " ", "volts"}]], "Output",
+ CellChangeTimes->{{3.616996157539299*^9, 3.616996161594531*^9}, 
+   3.6170194350036936`*^9, 3.6171522597508345`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Rsc", "=", 
+   RowBox[{
+    FractionBox["\[CapitalGamma]", "2"], 
+    FractionBox[
+     RowBox[{"i", "/", "iSAT"}], 
+     RowBox[{"1", "+", 
+      RowBox[{"4", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox["\[CapitalDelta]", "\[CapitalGamma]"], ")"}], "2"]}], 
+      "+", 
+      RowBox[{"i", "/", "iSAT"}]}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalGamma]", "=", 
+   RowBox[{"32.815", " ", 
+    SuperscriptBox["10", "6"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]", "=", 
+   RowBox[{"2", "\[Pi]", " ", "15", " ", 
+    SuperscriptBox["10", "6"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"i", "=", 
+    RowBox[{"5.8", "/", "0.0314159265"}]}], " ", ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"i", "/", "iSAT"}], " ", "in", " ", 
+     RowBox[{"mW", "/", 
+      RowBox[{"cm", "^", "2"}]}]}], ",", " ", 
+    RowBox[{
+     RowBox[{"using", " ", "4", "mm", " ", "4", "\[Sigma]", " ", 
+      RowBox[{"dia", "--"}]}], ">", " ", 
+     RowBox[{"2", "mm", " ", "2", "\[Sigma]"}]}], ",", " ", 
+    RowBox[{"1", "mm", " ", "beam", " ", "radius"}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"iSAT", "=", "1.1"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"mW", "/", 
+    RowBox[{"cm", "^", "2"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Ephot", " ", "=", " ", 
+   RowBox[{"2.33150902", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "19", " "}]]}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "852", " ", "nm", " ", "photon", " ", "energy", " ", "in", " ", "J"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"solidAngle", "=", 
+   FractionBox[
+    RowBox[{"\[Pi]", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{"24", " ", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "3"}]]}], "2"], ")"}], "2"]}], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"50", " ", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "3"}]]}], ")"}], "2"]]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"approximately", ";", " ", 
+    RowBox[{
+    "denominator", " ", "is", " ", "supposed", " ", "to", " ", "be", " ", 
+     "slant", " ", "height", " ", "of", " ", 
+     RowBox[{"cone", "^", "2"}], " ", "and", " ", 
+     RowBox[{"num", ".", " ", "is"}], " ", "supposed", " ", "to", " ", "be", 
+     " ", "area", " ", "on", " ", "sphere"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"nAtoms", "/.", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Ephot", " ", "Rsc", " ", "nAtoms"}], " ", "\[Equal]", 
+       RowBox[{"watts", " ", 
+        FractionBox[
+         RowBox[{"4", "\[Pi]"}], "solidAngle"]}]}], ",", "nAtoms"}], " ", 
+     "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\"\<mot number: \>\"", "<>", 
+  RowBox[{"ToString", "[", "%", "]"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6169965437293878`*^9, 3.6169966840604143`*^9}, {
+  3.6169967616758537`*^9, 3.616996770829377*^9}, {3.6169968391092825`*^9, 
+  3.616996848181802*^9}, {3.6169969087822676`*^9, 3.6169969747800426`*^9}, {
+  3.6169970048777637`*^9, 3.616997026614007*^9}, {3.616997932900844*^9, 
+  3.6169980767270703`*^9}, {3.61701941289843*^9, 3.6170194247521076`*^9}}],
+
+Cell[BoxData["\<\"mot number:           6\\n8.35614 10  volts\"\>"], "Output",
+ CellChangeTimes->{3.616998061554202*^9, 3.617019435021695*^9, 
+  3.6171522606058836`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     FractionBox["E", "photon"], "x", " ", "scattering", " ", "rate", " ", 
+     "x", " ", 
+     RowBox[{"no", ".", " ", "atoms"}]}], " ", "=", " ", 
+    RowBox[{
+     RowBox[{"total", " ", "power"}], " ", "=", " ", 
+     RowBox[{"actual", " ", "detected", " ", "power"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " 4\[Pi]/solid angle"
+}], "Subsubtitle",
+ CellChangeTimes->{{3.616997204028155*^9, 3.6169972374780684`*^9}, {
+  3.616997739043756*^9, 3.6169977535475855`*^9}, {3.6169978898613825`*^9, 
+  3.616997924507364*^9}, {3.616997988311013*^9, 3.616997988312013*^9}, {
+  3.616998094054061*^9, 3.6169981054917154`*^9}}],
+
+Cell[BoxData["nAtoms"], "Input",
+ CellChangeTimes->{{3.617152265232148*^9, 3.61715226578718*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"nAtoms", " ", "/.", 
+    RowBox[{
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Ephot", " ", "Rsc", " ", "nAtoms"}], " ", "\[Equal]", 
+        RowBox[{"watts", " ", 
+         FractionBox[
+          RowBox[{"4", "\[Pi]"}], "solidAngle"]}]}], ",", "nAtoms"}], " ", 
+      "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "/.", 
+   RowBox[{"volts", "\[Rule]", ".15"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6171522744166737`*^9, 3.617152329392818*^9}, 
+   3.617152360688608*^9, {3.617153042712618*^9, 3.6171530484799476`*^9}, {
+   3.617155983778837*^9, 3.6171559870750256`*^9}}],
+
+Cell[BoxData["1.253421595489122`*^6"], "Output",
+ CellChangeTimes->{{3.617152276345784*^9, 3.6171523298508444`*^9}, 
+   3.617152362425708*^9, 3.617153049009978*^9, {3.6171559814937067`*^9, 
+   3.6171559875500526`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{944, 773},
+WindowMargins->{{110, Automatic}, {-1, Automatic}},
+Magnification->1.3000000715255737`,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 288, 8, 468, "Title"],
+Cell[870, 32, 608, 17, 65, "Input"],
+Cell[CellGroupData[{
+Cell[1503, 53, 464, 12, 44, "Input"],
+Cell[1970, 67, 218, 3, 41, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2225, 75, 3964, 107, 572, "Input"],
+Cell[6192, 184, 191, 2, 65, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6420, 191, 705, 17, 49, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[7150, 212, 97, 1, 39, "Input"],
+Cell[7250, 215, 75, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7362, 221, 553, 14, 96, "Input"],
+Cell[7918, 237, 213, 3, 41, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8168, 245, 143, 2, 39, "Input"],
+Cell[8314, 249, 110, 1, 39, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8485, 257, 288, 8, 468, "Title"],
+Cell[8776, 267, 608, 17, 65, "Input"],
+Cell[CellGroupData[{
+Cell[9409, 288, 464, 12, 44, "Input"],
+Cell[9876, 302, 194, 3, 41, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10107, 310, 3315, 90, 493, "Input"],
+Cell[13425, 402, 169, 2, 65, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13631, 409, 705, 17, 49, "Subsubtitle"],
+Cell[14339, 428, 97, 1, 39, "Input"],
+Cell[CellGroupData[{
+Cell[14461, 433, 676, 17, 96, "Input"],
+Cell[15140, 452, 218, 3, 41, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

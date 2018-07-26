@@ -1,0 +1,825 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     33446,        816]
+NotebookOptionsPosition[     31619,        754]
+NotebookOutlinePosition[     31966,        769]
+CellTagsIndexPosition[     31923,        766]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["MOT calbration", "Title",
+ CellChangeTimes->{{3.6311197537773905`*^9, 3.6311197569845743`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"mv", "=", 
+    RowBox[{"{", 
+     RowBox[{"10", ",", " ", "0", ",", " ", "5", ",", 
+      RowBox[{"-", "3"}], ",", 
+      RowBox[{"-", "7"}], ",", " ", "2"}], "}"}]}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"control", " ", "voltage", " ", "in", " ", "V"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"mh", "=", 
+    RowBox[{"{", 
+     RowBox[{"101.292", ",", " ", "0.057", ",", " ", "51.305", ",", 
+      RowBox[{"-", "30.72"}], ",", 
+      RowBox[{"-", "71.739"}], ",", " ", "20.565"}], "}"}]}], ";", 
+   RowBox[{"(*", 
+    RowBox[{"hall", " ", "probe", " ", "voltage", " ", "in", " ", "mV"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"mA", "=", 
+    RowBox[{"mh", "/", "34.2857"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"current", " ", "in", " ", "Amps"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gradB", "=", 
+   RowBox[{"4.79", "mA"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"B", " ", "field", " ", "gradient", " ", "in", " ", 
+    RowBox[{"G", "/", "cm"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"MOT", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"mv", ",", "gradB"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "=", 
+   RowBox[{"a", " ", "x"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fit", "=", 
+   RowBox[{"FindFit", "[", 
+    RowBox[{"MOT", ",", "fitfn", ",", 
+     RowBox[{"{", "a", "}"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ListPlot", "[", 
+      RowBox[{"MOT", ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<control [V]\>\"", ",", "\"\<gradient [G/cm]\>\""}], 
+         "}"}]}]}], "]"}], ",", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"fitfn", "/.", "fit"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}]}], "}"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<G/cm/ControlV\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"a", "/.", "fit"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<gradent in G/cm for 9V control voltage\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "/.", "fit"}], "/.", 
+  RowBox[{"x", "\[Rule]", 
+   RowBox[{"-", "9", " "}]}]}]}], "Input",
+ CellChangeTimes->{{3.6311188436983376`*^9, 3.631118978904071*^9}, {
+  3.631119142236413*^9, 3.6311192554058857`*^9}, {3.631119601377674*^9, 
+  3.631119630750354*^9}, {3.6311196765459733`*^9, 3.631119746755989*^9}, {
+  3.6311203628382273`*^9, 3.631120381840314*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     PointBox[{{10., 14.151342396392666`}, {0., 0.0079633783180743}, {5., 
+      7.167739028224595}, {-3., -4.291841788267412}, {-7., \
+-10.022540301058461`}, {2., 2.8731030721262805`}}]}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwt1Gs01Hkcx/FJJjQuTcwwGs3lV5Pm/xchbejMV+XotOUatSplQsgtlzar
+UU4uhS1MyGX2lBCr0qYyqW1+omxYXXZRq6TkOm3rPuqMZu05++BzPs9eD988
+cbR3sBaFQtkxv/9eMrRjQqNBeKq9c23RURIPJjGne9QI73XKUHNjSey+5K2q
+/jPCTdXftFRFkpi7IWYuehJhaXrJXnkQiR9m5un2DSJsA4EZ3d4k1l3TvRz/
+jnBk3cfXDGsSn48/8O3JEoSHixaezhsicM2CuHLKeoRfh6ztzdpNYGqwmy1r
+Hx//bDD8PoovxMYvH0WU5fLwd3db+3opq7F3U/HB1a1cPNooVak/rMJJ/2yM
+yOnn4MDu+hDaLwIs/744vNZjOZaP6zytzF2J3fN8uV+L2HjGrO6crf8K7Cb7
+1X3rR3PMlG0Ji7BEuLIlsStuDwszBFrOdjQ+Dkg9z3haZYrV98wPjXZycfKB
+hddpxkycfu0Bc184B1OsOIrNaSb4ZalJrou9Bf4rqyijpnMpnqng3l/UYY7Z
+i0OrpzbRcZc89dVAjhk+vE5I7WEb4ZSBn65UICY+uL63qqmJhsfb0q40Nhpj
+4TFHTVS5Lubdby5SnabjS298mhNdqNg5Oy6RDYZ4KIXh7GamhevrDMolWA83
+5Fu6DvvNKZ4Ymthc7NPGNiOvpqxlM4rgN3WcJFMK3tLQozfnN6bQOaEzbOyi
+UsRU187SjfsVAzs1laErlQq/EHTpxfEniuzJ/bwJ/gtFS/urTDuf30RhgrhP
+qz2eixytGm96FvaLnnvFJsreKUVaRxmvg1hjItvABPvDIzMiHX3PFPGnGZGg
+6Gr8Ji8KnOrr2hx7eU4kNExTMk2pcKMk3TN5YgHURF+T1GfqQXRZ0JIPflTI
+l4VdLwgwhIDwYouMFF342uM4x42hwxmvoxvsSmkQZR1/pLjCGLRN8gdPfDEE
+epjK3o7GhO62tLFUIzpMXuAvuulmBr5JYofipqWgV1so8LxlDhE0Jb/D3wQO
+3Lu1808VGzg1jwsWjTJgzIDqpbbmQJJ8s49RiSn4X/bo4LVzIaYy4o6DNQve
+NIz9IFfyQF9rvXjNgDkkPnJ4GoAQuEbuzBdK2WAbV7B4l+8KMLtrEe26Yjno
+s1u3P4xdCXmxp3NtujmgqS9z2FglAO90DyvZHS7QPTxWEU9WgXBPqm+5hAcu
+Zxia8A+W0DWoVyb15UP2nZPJDaZC6BAPuCzlIJjuVWhLHAh4p31lNp+P4LpD
+fILEiYCpytBalgBByFnLQQkQwFIq2TwrBJ0bc1uStxEQFDehsnZCcLtUnHky
+gIAvpzTXduxCkOBPXZKaToCggmV+5ty837ltWVYXARvcep7pS+d9K01WVg8B
+20dKM3IK5v20OnVWHwFHrLjThbJ5357dmz1KwP3bgmeVNfO+9O+LZ78S4P3Y
+Lr25Zd73yhHkCUgIDp123tqGYE31lsI8goRji+sn2zoQDFI+60htSJC5Owb+
+0YnA90bgiNSRhOEucH7fj2Cdkd3VfHcSvhzTmgweQvAxZIhd4EOCwbLm6pFR
+BBUPSn4s2E2C7X430/FxBCZR2tGFYhJcF+h1xE8jaH8kf1t4iITdl1tTZ2cR
+pFlEel6IICHcNdvpuBqBcwKv8cIREv7vF/zfL/gXYEE2Uw==
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"control [V]\"", TraditionalForm], 
+    FormBox["\"gradient [G/cm]\"", TraditionalForm]},
+  AxesOrigin->{0., 0.},
+  Method->{},
+  PlotRange->{{-7., 10.}, {-10.022540301058461`, 14.151342396392666`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.34, 0.34}, {0.48347765394902253`, 
+   0.48347765394902253`}}]], "Output",
+ CellChangeTimes->{
+  3.6311188922901163`*^9, {3.631118960963044*^9, 3.6311189790620794`*^9}, 
+   3.63111916053846*^9, {3.6311192057940483`*^9, 3.631119228754361*^9}, 
+   3.631119633008483*^9, {3.631119669893593*^9, 3.631119694951026*^9}, {
+   3.6311197399235983`*^9, 3.631119747402026*^9}, 3.63112032792223*^9, 
+   3.631120382767367*^9}],
+
+Cell[BoxData["\<\"G/cm/ControlV\"\>"], "Print",
+ CellChangeTimes->{
+  3.6311196949880285`*^9, {3.6311197399305987`*^9, 3.631119747412027*^9}, 
+   3.6311203279282303`*^9, 3.6311203827773676`*^9}],
+
+Cell[BoxData["1.4231638113449931`"], "Output",
+ CellChangeTimes->{
+  3.6311188922901163`*^9, {3.631118960963044*^9, 3.6311189790620794`*^9}, 
+   3.63111916053846*^9, {3.6311192057940483`*^9, 3.631119228754361*^9}, 
+   3.631119633008483*^9, {3.631119669893593*^9, 3.631119694951026*^9}, {
+   3.6311197399235983`*^9, 3.631119747402026*^9}, 3.63112032792223*^9, 
+   3.6311203827783675`*^9}],
+
+Cell[BoxData["\<\"gradent in G/cm for 9V control voltage\"\>"], "Print",
+ CellChangeTimes->{
+  3.6311196949880285`*^9, {3.6311197399305987`*^9, 3.631119747412027*^9}, 
+   3.6311203279282303`*^9, 3.6311203827793674`*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "12.808474302104939`"}]], "Output",
+ CellChangeTimes->{
+  3.6311188922901163`*^9, {3.631118960963044*^9, 3.6311189790620794`*^9}, 
+   3.63111916053846*^9, {3.6311192057940483`*^9, 3.631119228754361*^9}, 
+   3.631119633008483*^9, {3.631119669893593*^9, 3.631119694951026*^9}, {
+   3.6311197399235983`*^9, 3.631119747402026*^9}, 3.63112032792223*^9, 
+   3.631120382780368*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["x shim calibration", "Title",
+ CellChangeTimes->{{3.631119760968802*^9, 3.63111976460001*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"xv", "=", 
+    RowBox[{"{", 
+     RowBox[{"10", ",", 
+      RowBox[{"-", "7"}], ",", 
+      RowBox[{"-", "10"}], ",", " ", "2", ",", " ", "7"}], "}"}]}], ";"}], 
+  " ", 
+  RowBox[{"(*", 
+   RowBox[{"control", " ", "voltage", " ", "in", " ", "V"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"xh", "=", 
+    RowBox[{"{", 
+     RowBox[{"35.058", ",", 
+      RowBox[{"-", "24.487"}], ",", 
+      RowBox[{"-", "34.995"}], ",", " ", "7.045", ",", " ", "24.583"}], 
+     "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"hall", " ", "probe", " ", "voltage", " ", "in", " ", "mV"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"xA", "=", 
+    RowBox[{"xh", "/", "34.2857"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"current", " ", "in", " ", "Amps"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"xB", "=", 
+   RowBox[{"11.99", "xA"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"B", " ", "field", " ", "in", " ", "G"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"xShim", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"xv", ",", "xB"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "=", 
+   RowBox[{"a", " ", "x"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fit", "=", 
+   RowBox[{"FindFit", "[", 
+    RowBox[{"xShim", ",", "fitfn", ",", 
+     RowBox[{"{", "a", "}"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ListPlot", "[", 
+      RowBox[{"xShim", ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<control x [V]\>\"", ",", "\"\<Bx field [G]\>\""}], 
+         "}"}]}]}], "]"}], ",", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"fitfn", "/.", "fit"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}]}], "}"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<G/ControlV\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"a", "/.", "fit"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  "\"\<B field in G for -0.07 V control voltage (exp params)\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fitfn", "/.", "fit"}], "/.", 
+   RowBox[{"x", "\[Rule]", 
+    RowBox[{"-", ".07"}]}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  "\"\<B field in G for 0.13 V control voltage (zero the field)\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "/.", "fit"}], "/.", 
+  RowBox[{"x", "\[Rule]", ".13"}]}]}], "Input",
+ CellChangeTimes->{{3.631119781699988*^9, 3.631119916231683*^9}, {
+  3.631119988354808*^9, 3.6311200089669867`*^9}, {3.63112039681017*^9, 
+  3.6311204204175205`*^9}, {3.6311204519923267`*^9, 3.631120456113562*^9}, {
+  3.6311205301717978`*^9, 3.631120563040678*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     PointBox[{{10., 
+      12.260079858366609`}, {-7., -8.563311526379803}, {-10., \
+-12.238048224186759`}, {2., 2.4636962348734315`}, {7., 
+      8.596883540368141}}]}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwtlH0w1HkcgNdeKy+b920ta9f6avd3OtVlkLfbDzI0ZRPRlUJeui60wmlL
+RImku7wXpSacmL3LjptS3Wk/RREl0w3q6ErOe12KRezmupn+eOb59/nrEURK
+A2PoNBrN/xP/O23E//3iIsFNxCEgNJPC4dTlqj41QVfHOqdjaRRKjF7MNn4g
+KPLlW9UdotDaJUEjnSJIj9UfnzlA4d1ThTovhwk2NgweL4ykUGdVLw8fESRe
+xY0PvCksTo7YmHGe4EKEirdOm0K5VlI1zZlg3cXGN2Z5ImTE+K7l7LLBjJKN
+cewMIZo+vRdXWSBA9ceOwI7sFRjYXB71Zbs1xji85UUV2mLqW4+4/EE++g0K
+HnrnErxxsHxf/WYePmZ4DnQX2KCkMNj6YxkXu6qkvYoTAvStaJL4vbZAJdPz
+N2m6Nda0HupJCuVgVZfmjdKYj2FZxazHtWxsSj/nvFbDxfSIL67qmy5HYsLc
+spRpiTR7vtL7hBlGuN1zrLbl4F95ZTnybhMsCK3of2LKRq7e3rppL2M02C0J
+ihayMNbRjtHHNcS0XbzTOYamGOX8d21zsz7ee+uQn0g3RjuZ6+L+ah1UdK5v
+y/jaAC8/D2o55MnAJnn4tFhfD0cyWe6+5nQMD/oKW1Zq460Symc0RKMcHXUy
+iv+ghWvGnk2vrphR+mwte7Ph2oJy/a0+XU3IpHI4lppfz5hWJtTVzxmbDipr
+b+/hGYSPKEP2kMtPjjxQHhYbWlW5Pla2Pnx2yiGoTVyOD3rmHj0Su9rfaQg4
+OygunlMI2FqjYnoKqz+aMykOWpnc+vDmlHgpMyAz8t8Z8ZmPRar75mrx8Zc9
+3olVGrFjk2QhgKKD4nx2QPp7LchTCPplGgZIK6ON/glhgPra9XVpK/QgbF+5
+VU6mDnRPlql+1zaA3C0pLg4X9GFxce5Hx3EjWGJWMnx03gAuG2mHp86bQG/H
+icksQ2OYcXONCBsxg+DUSKfyZhPYnrD5Ur1mOcTpT9h07jCDA8o8g4uT5sCX
+3y/VHmdBvexYQ8szC0i94R1keJ4NatcdxdtfcyGhJu6602oOaNjba/L6eMCk
+O0euGrIAxlHuAuuwNfjEby2xK+IC/8r3HscyBWB+00rqY8uDkp3tbI+DNlCY
+eLJgTS8f8kstjeszCQRmb7avuG4NQ7syKqWHbcEuNCu4Ok0Akh1ekk37V0DP
+sG5lUbANfNM3bf4yRQidkUOeJnwCJ8dupd6NF8HAkitzJTYEpO3MF0aJIpiu
+2VvPERLYJg/zCk8RAWdigiuwJ2AbT9dVp4sgOun97Go3AncmN5Q65otg/vji
+r/7bCHyYfaqobRCB8GeORe4ZArHas0M/zYrAxbevi1n0qXPEb8PzBRFsGruQ
+k19KwKWt/JeVNAoO2FurzlYQWHrqm6Q2HQr+uCbsqpETqFqWTaNbUBB43yG7
+pZVAvxnL8gd3CmL2qtz9Ogi0qPakNwMFMr3GqY5OAvKeGwPGPhRUSFx3/9lN
+QHZuZ+1VfwpGe8D91SABFrfacTSMgnkZfSpmhMCCWnXOKYqCZZYtdWPjBF49
+91VnfUfB2nBf9rt3BBSXJu4KEijw0dLtTFYROJvhIUxIpuDbqvasuTkCR3ef
+yb0to2Cfz2m3I2oCMV4Dr5lpFHz+F3z+F/wHa1Qzdg==
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"control x [V]\"", TraditionalForm], 
+    FormBox["\"Bx field [G]\"", TraditionalForm]},
+  AxesOrigin->{0., 0.},
+  Method->{},
+  PlotRange->{{-10., 10.}, {-12.238048224186759`, 12.260079858366609`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.4, 0.4}, {0.4899625616510674, 
+   0.4899625616510674}}]], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120326718161*^9, {
+   3.631120403133532*^9, 3.6311204220076113`*^9}, {3.631120454483469*^9, 
+   3.6311204568526044`*^9}, {3.631120553023105*^9, 3.6311205632336893`*^9}}],
+
+Cell[BoxData["\<\"G/ControlV\"\>"], "Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311203267231617`*^9, {
+   3.631120403148533*^9, 3.6311204220226126`*^9}, {3.631120454490469*^9, 
+   3.631120456867605*^9}, {3.6311205530321054`*^9, 3.6311205632416897`*^9}}],
+
+Cell[BoxData["1.2252650290149543`"], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120326718161*^9, {
+   3.631120403133532*^9, 3.6311204220076113`*^9}, {3.631120454483469*^9, 
+   3.6311204568526044`*^9}, {3.631120553023105*^9, 3.6311205632436895`*^9}}],
+
+Cell[BoxData["\<\"B field in G for -0.07 V control voltage (exp \
+params)\"\>"], "Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311203267231617`*^9, {
+   3.631120403148533*^9, 3.6311204220226126`*^9}, {3.631120454490469*^9, 
+   3.631120456867605*^9}, {3.6311205530321054`*^9, 3.6311205632456894`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.0857685520310468`"}]], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120326718161*^9, {
+   3.631120403133532*^9, 3.6311204220076113`*^9}, {3.631120454483469*^9, 
+   3.6311204568526044`*^9}, {3.631120553023105*^9, 3.63112056324769*^9}}],
+
+Cell[BoxData["\<\"B field in G for 0.13 V control voltage (zero the \
+field)\"\>"], "Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311203267231617`*^9, {
+   3.631120403148533*^9, 3.6311204220226126`*^9}, {3.631120454490469*^9, 
+   3.631120456867605*^9}, {3.6311205530321054`*^9, 3.63112056324969*^9}}],
+
+Cell[BoxData["0.15928445377194406`"], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120326718161*^9, {
+   3.631120403133532*^9, 3.6311204220076113`*^9}, {3.631120454483469*^9, 
+   3.6311204568526044`*^9}, {3.631120553023105*^9, 3.63112056325069*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["y shim calibration", "Title",
+ CellChangeTimes->{{3.631119760968802*^9, 3.63111976460001*^9}, 
+   3.631120026352981*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"yv", "=", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10", ",", 
+      RowBox[{"-", "10"}], ",", " ", "2", ",", 
+      RowBox[{"-", "5"}], ",", " ", "7"}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"control", " ", "voltage", " ", "in", " ", "V"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"yh", "=", 
+    RowBox[{"{", 
+     RowBox[{"0.044", ",", " ", "35.287", ",", 
+      RowBox[{"-", "35.225"}], ",", " ", "7.096", ",", 
+      RowBox[{"-", "17.593"}], ",", " ", "24.717"}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"hall", " ", "probe", " ", "voltage", " ", "in", " ", "mV"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"yA", "=", 
+    RowBox[{"yh", "/", "34.2857"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"current", " ", "in", " ", "Amps"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"yB", "=", 
+    RowBox[{"7.18", "yA"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"B", " ", "field", " ", "in", " ", "G"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"yShim", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"yv", ",", "yB"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "=", 
+   RowBox[{"a", " ", "x"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fit", "=", 
+   RowBox[{"FindFit", "[", 
+    RowBox[{"yShim", ",", "fitfn", ",", 
+     RowBox[{"{", "a", "}"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ListPlot", "[", 
+      RowBox[{"yShim", ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<control y [V]\>\"", ",", "\"\<By field [G]\>\""}], 
+         "}"}]}]}], "]"}], ",", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"fitfn", "/.", "fit"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}]}], "}"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<G/ControlV\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"a", "/.", "fit"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  "\"\<B field in G for -0.8 V control voltage (exp params)\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fitfn", "/.", "fit"}], "/.", 
+   RowBox[{"x", "\[Rule]", 
+    RowBox[{"-", ".8"}]}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  "\"\<B field in G for -.49 V control voltage (zero the field)\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "/.", "fit"}], "/.", 
+  RowBox[{"x", "\[Rule]", 
+   RowBox[{"-", ".49"}]}]}]}], "Input",
+ CellChangeTimes->{{3.631119781699988*^9, 3.631119916231683*^9}, {
+  3.631119988354808*^9, 3.6311200089669867`*^9}, {3.631120041943873*^9, 
+  3.6311201071846046`*^9}, {3.631120292137183*^9, 3.6311202988325663`*^9}, {
+  3.631120426754883*^9, 3.631120445969982*^9}, {3.631120574301322*^9, 
+  3.6311205888521547`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     PointBox[{{0., 0.009214337172640488}, {10., 
+      7.389688995703748}, {-10., -7.376705156960483}, {2., 
+      1.4860212858422024`}, {-5., -3.68426895177873}, {7., 
+      5.176153906730794}}]}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwt1Ps3lHkcwHG5ZRrXGcMMz2OGb2vbaV2iJUnzwWpUS8JMt91WY6Y6sohC
+kThuMbaUpkL2rMvamFNT2ylpt/N8i9RmV20tbS65TAYptxrkYHb3nH54n/d/
+8HKUxIfL9PX09EL+6/8fGwqZ0ukQVu5dXt5SQGJNmo22ax7h+KOdbiiXxKGW
+vTMNHxBedbK4+XgmiXk+CQvx7xBuvDH/dk0Kie8VnjHp0yB837AdlFISm7g+
+d8B/Itxflas5JSDx2UNRmzPLEWb3albt0BJYuSSpRs8b4dxtdQ9HowhsJBN6
+cL5xwv40j6tsrj1m/nM/tuq0IzabmV5fOsXB4U1l0Z894uHOmVNPFlvZOG3c
+L7ZYzcUFjZ8TsUW2+FZKWYxqiwMWNhhZuEhscOgZEW+xlMAjhwd+1TqwsLDi
+TmjwGzssF5YcqO5n4toHRzqSdnGwryjzXk0jA+/OOct6fMkWP0YHn11OtcIZ
+UQZX6EwbnOj6g3xZiCXWc+FSgbnWeOWF9d9fCDXHnfLSfGU7A68RBaes/IuO
+iWX7694HWOHowkcqWQYNH/iCb9RFWOBI/8ivVR+McbT3y0tNTXS8wSHPvCnT
+EPNT1+riakywKMndIsNDH1f2RDQf8TfC4rPNS09LddRQFmudkK2P13twTh5q
+nKNuK1YEDYsXqGvP0ueT67WU+8iL924V05TzXfdks+sT1Je3u2gL4gnqip+S
+M+g4TCXUqWatmGoqTM/ZtXNlNyXeiyqfpv9OxRUl+mx8eo968MeLQs+Ih4KG
+/Fcns6bvCta63P0l7LxagKk9cv54t0A/mdUt5UwIdtxpefumZUiw1DQsSzI2
+LejZ2CsxGJ8QZPd1BCZWLwhMRwoD5we0gqvleWEZU0tg8XxQfm3WnCC+Smr5
+SmwEewMnB1bl6AS7Y8rI/CwTCNa1hzWw9aFga7KP50U6dHvJ6+XRhmBordAc
+nzMH5Zs1xWF9xvC8NXcix8IKdvLjPo3zoIEoTeJV1sSAIE35pvSbdIiljzq1
+7bQGBn8rV21hDlxlyznj1ywYQ24zlKslpN0KjLAot4XJyWs1eXFWkFAbe9PL
+jQOD2bP1Hy4wwFTfW+I6aAfTkb4z0m4mBH0XqeCXEGDMrIdRDgvYjWR80HIH
+MFF0D5ABNnAm8cRp9+dccBbTW4OzbSE8b4tLxU0erO5aoPNUbODvyhHVHHOE
+wBBiE6OdAx0aWlWJyAniF73a5pn20CYZ9GdwEciTWMoSPwL6DX+eVTgh2K5q
+T24OIOB97X4VxxnBJ6OKAK2QAM7oKOHoguCOxKZTHE6ANGlqxs0XwfhWW5rd
+PgLmsnWXQ7YhiHDn7PuxmADnnzh2BacQEG8JdFlNgI+w64lpCYKRFT1jPcME
+fDVyMb/4HIIb0orb5mMEHHThac9XIAjtJsMTZgn47Ybzk1olgsxWhyxPMxLC
+Wzzzmh8geFXH6230IkG2X7suuBXBtcG++te+JKQua3jX2oYgw7Ey2d6fhIrQ
+tXuetSOwKXU0P7aZhOEOWDegRhB8wskPokiYS9V/JxtCYN08YHJQRoKZfXPd
+yGsE/bqqvytjSPD4Vmg7OYngSAqKNThMQtASWtshLYIN19Xeq4+SsL36Uc7s
+LALmeLWB7DgJMUFFvunzCF7ypY8VOSR89As++gX/ArbkNgU=
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"control y [V]\"", TraditionalForm], 
+    FormBox["\"By field [G]\"", TraditionalForm]},
+  AxesOrigin->{0., 0.},
+  Method->{},
+  PlotRange->{{-10., 10.}, {-7.376705156960483, 7.389688995703748}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.4, 0.4}, {0.2953278830532846, 
+   0.2953278830532846}}]], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, {
+   3.631120325712104*^9, 3.6311203292863083`*^9}, {3.6311204410997033`*^9, 
+   3.631120458055673*^9}, 3.6311205893981857`*^9}],
+
+Cell[BoxData["\<\"G/ControlV\"\>"], "Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311201167541523`*^9, {
+   3.631120325717104*^9, 3.6311203292933083`*^9}, {3.631120441108704*^9, 
+   3.6311204580636735`*^9}, 3.631120589407186*^9}],
+
+Cell[BoxData["0.738454698576748`"], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, {
+   3.631120325712104*^9, 3.6311203292863083`*^9}, {3.6311204410997033`*^9, 
+   3.631120458055673*^9}, 3.6311205894091864`*^9}],
+
+Cell[BoxData["\<\"B field in G for -0.8 V control voltage (exp params)\"\>"], \
+"Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311201167541523`*^9, {
+   3.631120325717104*^9, 3.6311203292933083`*^9}, {3.631120441108704*^9, 
+   3.6311204580636735`*^9}, 3.6311205894101863`*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.5907637588613984`"}]], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, {
+   3.631120325712104*^9, 3.6311203292863083`*^9}, {3.6311204410997033`*^9, 
+   3.631120458055673*^9}, 3.6311205894121866`*^9}],
+
+Cell[BoxData["\<\"B field in G for -.49 V control voltage (zero the \
+field)\"\>"], "Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311201167541523`*^9, {
+   3.631120325717104*^9, 3.6311203292933083`*^9}, {3.631120441108704*^9, 
+   3.6311204580636735`*^9}, 3.6311205894141865`*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.3618428023026065`"}]], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, {
+   3.631120325712104*^9, 3.6311203292863083`*^9}, {3.6311204410997033`*^9, 
+   3.631120458055673*^9}, 3.631120589415187*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["z shim calibration", "Title",
+ CellChangeTimes->{{3.631119760968802*^9, 3.63111976460001*^9}, 
+   3.631120026352981*^9, 3.6311201370963154`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"zv", "=", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10", ",", 
+      RowBox[{"-", "10"}], ",", " ", "2", ",", 
+      RowBox[{"-", "5"}], ",", " ", "7"}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"control", " ", "voltage", " ", "in", " ", "V"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"zh", "=", 
+    RowBox[{"{", 
+     RowBox[{"0.045", ",", " ", "35.291", ",", 
+      RowBox[{"-", "35.224"}], ",", " ", "7.098", ",", 
+      RowBox[{"-", "17.595"}], ",", " ", "24.717"}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"hall", " ", "probe", " ", "voltage", " ", "in", " ", "mV"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"zA", "=", 
+    RowBox[{"zh", "/", "34.2857"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"current", " ", "in", " ", "Amps"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"zB", "=", 
+    RowBox[{"12.79", "zA"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"B", " ", "field", " ", "in", " ", "G"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"zShim", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"zv", ",", "zB"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "=", 
+   RowBox[{"a", " ", "x"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fit", "=", 
+   RowBox[{"FindFit", "[", 
+    RowBox[{"zShim", ",", "fitfn", ",", 
+     RowBox[{"{", "a", "}"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ListPlot", "[", 
+      RowBox[{"zShim", ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<control z [V]\>\"", ",", "\"\<Bz field [G]\>\""}], 
+         "}"}]}]}], "]"}], ",", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"fitfn", "/.", "fit"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}]}], "}"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<G/ControlV\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"a", "/.", "fit"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  "\"\<B field in G for 1.35 V control voltage (exp params)\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fitfn", "/.", "fit"}], "/.", 
+   RowBox[{"x", "\[Rule]", "1.35"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  "\"\<B field in G for 0.26 V control voltage (zero the field)\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitfn", "/.", "fit"}], "/.", 
+  RowBox[{"x", "\[Rule]", ".26"}]}]}], "Input",
+ CellChangeTimes->{{3.631119781699988*^9, 3.631119916231683*^9}, {
+  3.631119988354808*^9, 3.6311200089669867`*^9}, {3.631120041943873*^9, 
+  3.6311201071846046`*^9}, {3.631120150237067*^9, 3.631120191483426*^9}, {
+  3.631120253454971*^9, 3.631120259839336*^9}, {3.631120311345282*^9, 
+  3.6311203161075544`*^9}, {3.631120491937611*^9, 3.631120496649881*^9}, {
+  3.6311205983266964`*^9, 3.631120613739578*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     PointBox[{{0., 0.016786881994534163`}, {10., 
+      13.165018943757891`}, {-10., -13.14002514167714}, {2., 
+      2.647850853271189}, {-5., -6.5636708598628575`}, {7., 
+      9.220474716864464}}]}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwtlH0w1HkcgEWKvK+Xtax98dXy+2X14jC0d/uR0FUIR69K23IG2aRBXusS
+epny3oTd8brH7Dm6Kbruuv2WtyJy14SoO3LkpbJhvQ32upn+eOb59/nrYQtE
+AWHqampqPp/536nvfGZUKoSzba9lBvuReCzZTDm4gnCDsGT4q30k9jX8Z6Fp
+CeG+chnP2JvELNczq6JZhDn0ZzPPvyHx46t5WkNjCDcb6p341oHEWg59DNyF
+sGrphgtPj8QF50L3XShBOOFZ3ji7k8CydXFVai4Ih8cW7/3gRWDNMO8dtBBr
+bFHY8L2XnR027m+Nrshl4xSv00kSui0OaC4+RXSw8LREUelsxsHJ019H54ww
+seufSZzcJRt8P6E4st6PgbfnyiST0wj75gWx1m7TsdqWEdGGHmvsLX7ou+e9
+BR6OGj4ouMfG0vbzvXFHaTjGLdPpYR0LH88oMH1eQ8XS1lP9d5lMnBaq8bOO
+sRnu2q61/YO2FVbjMuUel02w6XvXpuo1Czxw7XaW7CUF6xw5P/22zRzTN0XU
+zu0ywsdHNI0Z98xwlBOpOUg3wCGssvE38Sb4lMvfNc3NOjhd1j5l5UHBZKKb
+KqZKC6/68waOOhni8jeBLefdNbH/oVQlb14Hv7toyvM2V8ehHnS9P7o24geF
+dp7jwavyzsLe7D37NfC2iVdzW8Xz8jmtg3KpfFW++8Gg9mqwQv440MnibppS
+fqa2ftHIeER+Y6AgqYY6IQ8OR+V/pTyVz/b4OTc098jbn7266hj4hO8giDwx
+qHrOd+M++uXArRE+ShG5lbVO8NXjTV8LaQp+9GMfdh1Xyd+oe+Ci4OM832DR
+PiSBXONfGur1OFu5yi9MiootS9OAhpLMA2kz6yBqlzREu3QjiCqEhv8Ga8Jo
+RetoBEUXjkcWW2Vd1ILA8Op94QxDuOIf7+pYqgPGdQPzVIIC600Kx9KX9cEG
+1BW7Q02gr/OyIsPACPqbXq/GxZpBULLAubiZAkPJtYcZ9eYQrTNl3X3EBK7b
+EB0dbRbAlLUVbZg0BZN0S72FF3RIvu8RaFBCBcVmNYlEjwlnpNGNzltpcL+/
+k12VwwJddReBw6gFlLfklDQ2sMHz9HeFZD4dErVvrmV3WoP5r1YiTxsGVOKx
+qGMvEOSdzc7d1scEpdjlwulPNhCQ6ccVN7Kg+MOwJH1lM5BHM4KqUtnALWqV
++qvbQu+YdkV+kDVMCiuCTjLsoFsw6k5hIliq7tc/a0vA8PofFwutEahETWVG
+9gTMSSPqaRwEG9yKdtzZRgBtaorO5iKgdAcGK1wJEMbNLGzdiWDLfLc4Zj8B
+y5dUdT4HEYR4tdpHxRLAqaZZXLmJ4NHYnb3C3whw9R7s0c1H8KQh57UGJmD/
+RGlWThGC7iRRTGULAbFclvKWGMGAPjfvbRcBv9/j9EhlCGada16FDhEQ0OaY
+2dKOgJMliQjRJCEsQsnb04nA3j91eUWbhMRNTbOd3QgcLY9dL9UnQezrdvLF
+SwT8elrDIJWE8V7gvR1BcKivYOEwScJyovps2LvPveVxV5YcSNCzbKmdmEQg
+jAqwvO1Iwo4T3tRPnxCIVAb8fh4Jnuu0u88pEcQ//diT4E7CocqOjMVFBKn5
+XQKqFwmRntd3pqwg+CHkp7nGvSR8+Rd8+Rf8B5fwNaY=
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"control z [V]\"", TraditionalForm], 
+    FormBox["\"Bz field [G]\"", TraditionalForm]},
+  AxesOrigin->{0., 0.},
+  Method->{},
+  PlotRange->{{-10., 10.}, {-13.14002514167714, 13.165018943757891`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.4, 0.4}, {0.5261008817087006, 
+   0.5261008817087006}}]], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, 
+   3.63112026603269*^9, {3.631120319584753*^9, 3.631120330322367*^9}, 
+   3.6311204974619274`*^9, 3.6311206143746142`*^9}],
+
+Cell[BoxData["\<\"G/ControlV\"\>"], "Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311201167541523`*^9, 
+   3.63112026603769*^9, {3.6311203195907536`*^9, 3.631120330336368*^9}, 
+   3.6311204974759283`*^9, 3.6311206143836145`*^9}],
+
+Cell[BoxData["1.3154957549577637`"], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, 
+   3.63112026603269*^9, {3.631120319584753*^9, 3.631120330322367*^9}, 
+   3.6311204974619274`*^9, 3.631120614384615*^9}],
+
+Cell[BoxData["\<\"B field in G for 1.35 V control voltage (exp params)\"\>"], \
+"Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311201167541523`*^9, 
+   3.63112026603769*^9, {3.6311203195907536`*^9, 3.631120330336368*^9}, 
+   3.6311204974759283`*^9, 3.631120614386615*^9}],
+
+Cell[BoxData["1.775919269192981`"], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, 
+   3.63112026603269*^9, {3.631120319584753*^9, 3.631120330322367*^9}, 
+   3.6311204974619274`*^9, 3.6311206143876147`*^9}],
+
+Cell[BoxData["\<\"B field in G for 0.26 V control voltage (zero the \
+field)\"\>"], "Print",
+ CellChangeTimes->{{3.6311199042389965`*^9, 3.6311199167317114`*^9}, {
+   3.631119989453871*^9, 3.631120010962101*^9}, 3.6311201167541523`*^9, 
+   3.63112026603769*^9, {3.6311203195907536`*^9, 3.631120330336368*^9}, 
+   3.6311204974759283`*^9, 3.6311206143886147`*^9}],
+
+Cell[BoxData["0.34202889628901856`"], "Output",
+ CellChangeTimes->{{3.631119904226996*^9, 3.6311199167207108`*^9}, {
+   3.6311199894438705`*^9, 3.6311200109551*^9}, 3.631120116741151*^9, 
+   3.63112026603269*^9, {3.631120319584753*^9, 3.631120330322367*^9}, 
+   3.6311204974619274`*^9, 3.6311206143906155`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 857},
+WindowMargins->{{Automatic, -938}, {-24, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 101, 1, 101, "Title"],
+Cell[CellGroupData[{
+Cell[705, 27, 2692, 72, 312, "Input"],
+Cell[3400, 101, 2817, 52, 258, "Output"],
+Cell[6220, 155, 194, 3, 23, "Print"],
+Cell[6417, 160, 387, 6, 31, "Output"],
+Cell[6807, 168, 219, 3, 23, "Print"],
+Cell[7029, 173, 402, 7, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7480, 186, 100, 1, 101, "Title"],
+Cell[CellGroupData[{
+Cell[7605, 191, 2959, 85, 372, "Input"],
+Cell[10567, 278, 2742, 51, 217, "Output"],
+Cell[13312, 331, 340, 4, 23, "Print"],
+Cell[13655, 337, 338, 4, 31, "Output"],
+Cell[13996, 343, 385, 5, 23, "Print"],
+Cell[14384, 350, 352, 5, 63, "Output"],
+Cell[14739, 357, 385, 5, 23, "Print"],
+Cell[15127, 364, 336, 4, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15512, 374, 126, 2, 101, "Title"],
+Cell[CellGroupData[{
+Cell[15663, 380, 3073, 87, 372, "Input"],
+Cell[18739, 469, 2746, 51, 217, "Output"],
+Cell[21488, 522, 314, 4, 23, "Print"],
+Cell[21805, 528, 313, 4, 31, "Output"],
+Cell[22121, 534, 360, 5, 23, "Print"],
+Cell[22484, 541, 331, 5, 63, "Output"],
+Cell[22818, 548, 364, 5, 23, "Print"],
+Cell[23185, 555, 329, 5, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23563, 566, 150, 2, 101, "Title"],
+Cell[CellGroupData[{
+Cell[23738, 572, 3135, 87, 372, "Input"],
+Cell[26876, 661, 2743, 51, 218, "Output"],
+Cell[29622, 714, 313, 4, 23, "Print"],
+Cell[29938, 720, 307, 4, 63, "Output"],
+Cell[30248, 726, 355, 5, 23, "Print"],
+Cell[30606, 733, 308, 4, 31, "Output"],
+Cell[30917, 739, 361, 5, 23, "Print"],
+Cell[31281, 746, 310, 4, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

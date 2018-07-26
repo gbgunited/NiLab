@@ -1,0 +1,98 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2645,         89]
+NotebookOptionsPosition[      2330,         73]
+NotebookOutlinePosition[      2674,         88]
+CellTagsIndexPosition[      2631,         85]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"current", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], 
+     "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"setting", " ", "on", " ", "dial"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"power", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "2.2", ",", "7.0", ",", "12.2", ",", "46.9", ",", "108.9", ",", 
+     "126.6"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"current", ",", "power"}], "}"}], "]"}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"PointSize", "[", ".05", "]"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<current [dial setting]\>\"", ",", "\"\<power [mA]\>\""}], 
+     "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.616692196393545*^9, 3.6166922285413837`*^9}, {
+  3.6166923882375174`*^9, 3.616692519534027*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], PointSize[0.05], 
+    PointBox[{{0., 0.}, {1., 2.2}, {2., 7.}, {3., 12.2}, {4., 46.9}, {5., 
+     108.9}, {6., 126.6}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"current [dial setting]\"", TraditionalForm], 
+    FormBox["\"power [mA]\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  ImageSize->{547., Automatic},
+  Method->{},
+  PlotRange->{{0, 6.}, {0, 126.6}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.12, 0.12}, {2.532, 2.532}}]], "Output",
+ CellChangeTimes->{{3.616692414816038*^9, 3.6166924725213385`*^9}, 
+   3.616692520730096*^9, 3.6191494445624523`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 867},
+WindowMargins->{{23, Automatic}, {Automatic, 24}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 1013, 29, 92, "Input"],
+Cell[1595, 53, 719, 17, 316, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

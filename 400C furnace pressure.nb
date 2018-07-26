@@ -1,0 +1,126 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3640,        117]
+NotebookOptionsPosition[      3323,        101]
+NotebookOutlinePosition[      3668,        116]
+CellTagsIndexPosition[      3625,        113]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"temp", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"2.5", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "7"}]]}], ",", 
+     RowBox[{"1.0", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "7"}]]}], ",", 
+     RowBox[{"9.5", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "8"}]]}], ",", 
+     RowBox[{"8.2", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "8"}]]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hr", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"min", "=", 
+   RowBox[{"1", "/", "60"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"time", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"12", "hr"}], "+", 
+      RowBox[{"32", "min"}], "+", 
+      RowBox[{"1", "hr"}], "+", 
+      RowBox[{"3", "min"}]}], ",", 
+     RowBox[{
+      RowBox[{"12", "hr"}], "+", 
+      RowBox[{"32", "min"}], "+", 
+      RowBox[{"1", "hr"}], "+", 
+      RowBox[{"2", " ", "hr"}], "+", 
+      RowBox[{"23", " ", "min"}]}], ",", 
+     RowBox[{
+      RowBox[{"12", "hr"}], "+", 
+      RowBox[{"32", "min"}], "+", 
+      RowBox[{"1", "hr"}], "+", 
+      RowBox[{"5", " ", "hr"}], "+", 
+      RowBox[{"22", " ", "min"}]}]}], " ", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"time", ",", " ", "temp"}], "}"}], "]"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<time [hr]\>\"", ",", "\"\<pressure [Torr]\>\""}], "}"}]}]}],
+   "]"}]}], "Input",
+ CellChangeTimes->{{3.6138667710630555`*^9, 3.6138668118543887`*^9}, {
+  3.6138668526457214`*^9, 3.613866915334307*^9}, {3.6138669809510603`*^9, 
+  3.613867044222679*^9}, {3.613867104672137*^9, 3.613867115471754*^9}, {
+  3.613867150079734*^9, 3.6138671828876104`*^9}, {3.613878369264435*^9, 
+  3.6138783696724577`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+    PointBox[{{0., 2.5*^-7}, {13.583333333333334`, 1.*^-7}, {
+     15.916666666666666`, 9.5*^-8}, {18.9, 8.199999999999999*^-8}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"time [hr]\"", TraditionalForm], 
+    FormBox["\"pressure [Torr]\"", TraditionalForm]},
+  AxesOrigin->{0, 8.199999999999999*^-8},
+  ImageSize->{547., Automatic},
+  Method->{},
+  PlotRange->{{0, 18.9}, {8.199999999999999*^-8, 2.5*^-7}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.378, 0.378}, {3.36*^-9, 3.36*^-9}}]], "Output",
+ CellChangeTimes->{{3.613867032414004*^9, 3.613867045202735*^9}, {
+   3.6138671520278454`*^9, 3.61386718322863*^9}, 3.6138783699334726`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 867},
+WindowMargins->{{347, Automatic}, {40, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 1928, 57, 154, "Input"],
+Cell[2510, 81, 797, 17, 330, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
