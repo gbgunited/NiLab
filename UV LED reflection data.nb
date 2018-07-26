@@ -1,0 +1,524 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     17782,        515]
+NotebookOptionsPosition[     16707,        472]
+NotebookOutlinePosition[     17050,        487]
+CellTagsIndexPosition[     17007,        484]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.612682621381405*^9, 3.6126826399204655`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"Plot", ",", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Arial\>\""}], ",", 
+       RowBox[{"FontSize", "\[Rule]", "18"}]}], "}"}]}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Red", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Blue", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Green", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Black", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Orange", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Magenta", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"TicksStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"Black", ",", "10"}], "]"}]}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"ListPlot", ",", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}], ",", 
+       RowBox[{"FontSize", "\[Rule]", "18"}]}], "}"}]}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Red", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Blue", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Green", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Black", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Orange", ",", "Thick"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Magenta", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"TicksStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"Black", ",", "10"}], "]"}]}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"LogPlot", ",", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}], ",", 
+       RowBox[{"FontSize", "\[Rule]", "18"}]}], "}"}]}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", "Thick", "}"}]}], ",", 
+    RowBox[{"TicksStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"Black", ",", "10"}], "]"}]}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"LogLogPlot", ",", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}], ",", 
+       RowBox[{"FontSize", "\[Rule]", "18"}]}], "}"}]}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", "Thick", "}"}]}], ",", 
+    RowBox[{"TicksStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"Black", ",", "10"}], "]"}]}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6126827480066476`*^9, 3.6126827480066476`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+transmission of glass cell
+didn\[CloseCurlyQuote]t readjust focus; optimized focus of imaging lens at \
+AOI = 0, so other data is a lower bound and not necessarily proportional, but \
+it should be the same order of magnitude (redid roughly while refocusing to \
+confirm)\
+\>", "Title",
+ CellChangeTimes->{{3.6126813491976404`*^9, 3.6126813527978463`*^9}, {
+  3.6126814462311907`*^9, 3.612681485773452*^9}, {3.612682249502135*^9, 
+  3.612682266398101*^9}, {3.612682315782926*^9, 3.6126823484067917`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AOI", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "188", ",", "180", ",", "170", ",", "160", ",", "150", ",", "144", ",", 
+      "190", ",", "200", ",", "210", ",", "220", ",", "232"}], "}"}], "-", 
+    "188"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"t", "=", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "119", ",", "52.2", ",", "29.8", ",", "29.5", ",", "41.3", ",", "43.6", 
+       ",", "109", ",", "44.3", ",", "27.9", ",", "25.2", ",", "49.8"}], 
+      "}"}], " ", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "3"}]], "/", "1.54"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataT", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"AOI", ",", "t"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataT", "=", 
+   RowBox[{"SortBy", "[", 
+    RowBox[{"dataT", ",", "First"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"dataT", ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<AOI (deg)\>\"", ",", "\"\<Power trans\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6126753818363266`*^9, 3.612675468450281*^9}, {
+   3.6126757162844563`*^9, 3.6126757476422496`*^9}, {3.6126813550069723`*^9, 
+   3.6126814280641513`*^9}, {3.612682393225355*^9, 3.61268242390711*^9}, 
+   3.6126828725547714`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[1, 0, 0], Thickness[Large], 
+     LineBox[{{-44., 0.028311688311688312`}, {-38., 
+      0.026818181818181817`}, {-28., 0.019155844155844155`}, {-18., 
+      0.01935064935064935}, {-8., 0.033896103896103896`}, {0., 
+      0.07727272727272727}, {2., 0.07077922077922078}, {12., 
+      0.028766233766233763`}, {22., 0.018116883116883115`}, {32., 
+      0.01636363636363636}, {44., 0.03233766233766234}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"AOI (deg)\"", TraditionalForm], 
+    FormBox["\"Power trans\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  BaseStyle->{FontFamily -> "Times", FontSize -> 18},
+  Frame->True,
+  FrameLabel->{None, None},
+  Method->{},
+  PlotRange->{All, {0, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic},
+  TicksStyle->Directive[
+    GrayLevel[0], 10]]], "Output",
+ CellChangeTimes->{{3.612675490197525*^9, 3.612675517863107*^9}, {
+   3.6126757242959146`*^9, 3.6126757559087224`*^9}, {3.6126813611703253`*^9, 
+   3.612681428288164*^9}, 3.612682395530487*^9, 3.6126824312205286`*^9, 
+   3.6126826433606625`*^9, 3.612682751353839*^9, 3.612682878636119*^9, 
+   3.6127271783339167`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+reflection of glass cell. Re optimized focus of imaging lens at each AOI\
+\>", "Title",
+ CellChangeTimes->{{3.6126823104626217`*^9, 3.612682366830846*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AOI", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "234", ",", "220", ",", "210", ",", "142", ",", "150", ",", "160", ",", 
+      "168"}], "}"}], "-", "188"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"r", "=", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      ".973", ",", "1.05", ",", "1.07", ",", ".985", ",", "1.01", ",", "1.06",
+        ",", "1.01"}], "}"}], "/", "1.54"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataR", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"AOI", ",", "r"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"dataR", "=", 
+  RowBox[{"SortBy", "[", 
+   RowBox[{"dataR", ",", "First"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"dataR", ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<AOI (deg)\>\"", ",", "\"\<Power refl\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6126811579437013`*^9, 3.6126812196072283`*^9}, 
+   3.612681272344245*^9, {3.6126814089750595`*^9, 3.612681420624726*^9}, {
+   3.6126823738012447`*^9, 3.6126824117784166`*^9}, 3.6126828745538855`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "46"}], ",", "0.6396103896103896`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "38"}], ",", "0.6558441558441559`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "28"}], ",", "0.6883116883116883`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "20"}], ",", "0.6558441558441559`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"22", ",", "0.6948051948051949`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"32", ",", "0.6818181818181819`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"46", ",", "0.6318181818181818`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6126812198242407`*^9, 3.612681272674264*^9, {3.612681414347367*^9, 
+   3.612681429578238*^9}, {3.612682385369906*^9, 3.612682432438598*^9}, 
+   3.6126826449947557`*^9, 3.612682753276949*^9, 3.612682879647177*^9, 
+   3.612727178350918*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[1, 0, 0], Thickness[Large], 
+     LineBox[{{-46., 0.6396103896103896}, {-38., 0.6558441558441559}, {-28., 
+      0.6883116883116883}, {-20., 0.6558441558441559}, {22., 
+      0.6948051948051949}, {32., 0.6818181818181819}, {46., 
+      0.6318181818181818}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"AOI (deg)\"", TraditionalForm], 
+    FormBox["\"Power refl\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  BaseStyle->{FontFamily -> "Times", FontSize -> 18},
+  Frame->True,
+  FrameLabel->{None, None},
+  Method->{},
+  PlotRange->{All, {0, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic},
+  TicksStyle->Directive[
+    GrayLevel[0], 10]]], "Output",
+ CellChangeTimes->{
+  3.6126812198242407`*^9, 3.612681272674264*^9, {3.612681414347367*^9, 
+   3.612681429578238*^9}, {3.612682385369906*^9, 3.612682432438598*^9}, 
+   3.6126826449947557`*^9, 3.612682753276949*^9, 3.612682879647177*^9, 
+   3.6127271783549185`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+reflection of glass cylinder. Re optimized focus of imaging lens at each AOI\
+\>", "Title",
+ CellChangeTimes->{{3.6126823104626217`*^9, 3.612682366830846*^9}, {
+  3.6126824766711283`*^9, 3.6126824777021875`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AOI", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"188", ",", "180", ",", "170", ",", "160"}], "}"}], "-", 
+    "188"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"t2", "=", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{".999", ",", "1.11", ",", "1.14", ",", ".783"}], "}"}], "/", 
+     "1.75"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataT2", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"AOI", ",", "t2"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataT2", "=", 
+   RowBox[{"SortBy", "[", 
+    RowBox[{"dataT2", ",", "First"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"dataT2", ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<AOI (deg)\>\"", ",", "\"\<Power trans\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.612682495073181*^9, 3.61268256149798*^9}, {
+   3.6126826096657352`*^9, 3.6126826121448765`*^9}, {3.6126826614326963`*^9, 
+   3.6126826625417595`*^9}, 3.61268287689702*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[1, 0, 0], Thickness[Large], 
+     LineBox[{{-28., 0.4474285714285714}, {-18., 0.6514285714285714}, {-8., 
+      0.6342857142857143}, {0., 0.5708571428571428}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"AOI (deg)\"", TraditionalForm], 
+    FormBox["\"Power trans\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  BaseStyle->{FontFamily -> "Times", FontSize -> 18},
+  Frame->True,
+  FrameLabel->{None, None},
+  Method->{},
+  PlotRange->{All, {0, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic},
+  TicksStyle->Directive[
+    GrayLevel[0], 10]]], "Output",
+ CellChangeTimes->{
+  3.612682561758995*^9, {3.6126825938568306`*^9, 3.6126826123298874`*^9}, {
+   3.612682646426838*^9, 3.6126826680710754`*^9}, 3.6126827546650286`*^9, 
+   3.612682880673236*^9, 3.612727178372919*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+transmission of glass cell 2 (larger angles)\
+\>", "Title",
+ CellChangeTimes->{{3.6126813491976404`*^9, 3.6126813527978463`*^9}, {
+  3.6126814462311907`*^9, 3.612681485773452*^9}, {3.612682249502135*^9, 
+  3.612682266398101*^9}, {3.612682315782926*^9, 3.6126823484067917`*^9}, {
+  3.612727090138872*^9, 3.6127270979063168`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AOI", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "146", ",", "160", ",", "170", ",", "180", ",", "190", ",", "200", ",", 
+      "209"}], "}"}], "-", "146"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"t", "=", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "90.5", ",", "38.7", ",", "25.4", ",", "28.4", ",", "53.1", ",", "65.9",
+        ",", "79"}], "}"}], " ", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "3"}]], "/", "1.6"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataT3", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"AOI", ",", "t"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataT3", "=", 
+   RowBox[{"SortBy", "[", 
+    RowBox[{"dataT3", ",", "First"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"dataT3", ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<AOI (deg)\>\"", ",", "\"\<Power trans\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6126753818363266`*^9, 3.612675468450281*^9}, {
+   3.6126757162844563`*^9, 3.6126757476422496`*^9}, {3.6126813550069723`*^9, 
+   3.6126814280641513`*^9}, {3.612682393225355*^9, 3.61268242390711*^9}, 
+   3.6126828725547714`*^9, {3.612727102980607*^9, 3.6127271667162523`*^9}, 
+   3.6127272104207525`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[1, 0, 0], Thickness[Large], 
+     LineBox[{{0., 0.0565625}, {14., 0.0241875}, {24., 0.015875}, {34., 
+      0.01775}, {44., 0.0331875}, {54., 0.0411875}, {63., 0.049375}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"AOI (deg)\"", TraditionalForm], 
+    FormBox["\"Power trans\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  BaseStyle->{FontFamily -> "Times", FontSize -> 18},
+  Frame->True,
+  FrameLabel->{None, None},
+  Method->{},
+  PlotRange->{All, {0, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic},
+  TicksStyle->Directive[
+    GrayLevel[0], 10]]], "Output",
+ CellChangeTimes->{{3.612675490197525*^9, 3.612675517863107*^9}, {
+   3.6126757242959146`*^9, 3.6126757559087224`*^9}, {3.6126813611703253`*^9, 
+   3.612681428288164*^9}, 3.612682395530487*^9, 3.6126824312205286`*^9, 
+   3.6126826433606625`*^9, 3.612682751353839*^9, 3.612682878636119*^9, {
+   3.6127271593688326`*^9, 3.61272717838492*^9}, 3.6127272106307645`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1198, 867},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 141, 2, 31, "Input"],
+Cell[701, 24, 3123, 83, 192, "Input"],
+Cell[CellGroupData[{
+Cell[3849, 111, 513, 9, 361, "Title"],
+Cell[CellGroupData[{
+Cell[4387, 124, 1677, 46, 155, "Input"],
+Cell[6067, 172, 1262, 28, 271, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7378, 206, 165, 3, 166, "Title"],
+Cell[CellGroupData[{
+Cell[7568, 213, 1415, 38, 132, "Input"],
+Cell[8986, 253, 946, 25, 31, "Output"],
+Cell[9935, 280, 1065, 26, 271, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11049, 312, 222, 4, 166, "Title"],
+Cell[CellGroupData[{
+Cell[11296, 320, 1319, 36, 132, "Input"],
+Cell[12618, 358, 922, 23, 255, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13589, 387, 338, 6, 101, "Title"],
+Cell[CellGroupData[{
+Cell[13952, 397, 1644, 45, 155, "Input"],
+Cell[15599, 444, 1080, 24, 287, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,132 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3684,        122]
+NotebookOptionsPosition[      3256,        103]
+NotebookOutlinePosition[      3598,        118]
+CellTagsIndexPosition[      3555,        115]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mNa", "=", 
+   RowBox[{"3.8", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "26"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x0", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalOmega]", "=", 
+   RowBox[{
+    FractionBox["1", "\[HBar]"], "e", " ", "E0", " ", "X12"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\[HBar]", "=", 
+  RowBox[{"6.62606957", " ", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["10", 
+      RowBox[{"-", "34"}]], "/", "2"}], "/", 
+    "\[Pi]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"e", "=", 
+   RowBox[{"1.60217657", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "19"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]", "=", 
+   RowBox[{"30", " ", 
+    SuperscriptBox["10", "6"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     SuperscriptBox["\[CapitalOmega]", "2"], "\[CapitalDelta]"], "\[Equal]", 
+    RowBox[{
+     FractionBox["1", "2"], "mNa", " ", 
+     SuperscriptBox["\[Omega]z", "2"], 
+     SuperscriptBox["x0", "2"]}]}], ",", "\[Omega]z"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.606232958952655*^9, 3.6062330010680637`*^9}, {
+  3.6062330806716166`*^9, 3.6062332191555376`*^9}, {3.6062332531654825`*^9, 
+  3.6062332560056458`*^9}}],
+
+Cell[BoxData["1.0545717253362896`*^-34"], "Output",
+ CellChangeTimes->{{3.606233176154078*^9, 3.6062332058927794`*^9}, 
+   3.6062332564776726`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.606233176135077*^9, 3.606233205939782*^9}, 
+   3.6062332565256753`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[Omega]z", "\[Rule]", 
+     RowBox[{
+      RowBox[{"-", "2.012318989511847`*^30"}], " ", "E0", " ", "X12"}]}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Omega]z", "\[Rule]", 
+     RowBox[{"2.012318989511847`*^30", " ", "E0", " ", "X12"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.606233176154078*^9, 3.6062332058927794`*^9}, 
+   3.606233256527675*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.6062329730524616`*^9}]
+},
+WindowSize->{707, 817},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 1395, 42, 188, "Input"],
+Cell[1977, 66, 147, 2, 31, "Output"],
+Cell[2127, 70, 575, 12, 39, "Message"],
+Cell[2705, 84, 443, 13, 89, "Output"]
+}, Open  ]],
+Cell[3163, 100, 89, 1, 52, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

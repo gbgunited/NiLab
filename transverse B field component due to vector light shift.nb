@@ -1,0 +1,204 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5985,        196]
+NotebookOptionsPosition[      5629,        179]
+NotebookOutlinePosition[      5975,        194]
+CellTagsIndexPosition[      5932,        191]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kHz", "=", 
+   SuperscriptBox["10", "3"]}], ";", 
+  RowBox[{"nm", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "9"}]]}], ";", 
+  RowBox[{"mK", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "3"}]]}], ";", 
+  RowBox[{"uK", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";", 
+  RowBox[{"us", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"um", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kB", "=", 
+   RowBox[{"1.38064852", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "23"}]]}]}], ";", 
+  RowBox[{"\[HBar]", "=", 
+   RowBox[{"1.0545718", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "34"}]]}]}], ";", 
+  RowBox[{"amu", "=", 
+   RowBox[{"1.66054", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "27"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mCs", "=", 
+   RowBox[{"132.90545", " ", "amu"}]}], ";", 
+  RowBox[{"mNa", " ", "=", " ", 
+   RowBox[{"23", "amu"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a0", "=", " ", 
+   RowBox[{"5.2917721067", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "11"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Epsilon]0", "=", 
+   RowBox[{"8.854187817", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "=", "299792458"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cm", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "2"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ms", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "3"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]B", "=", 
+   RowBox[{"9.274009994", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "24"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Omega]rCs", "=", 
+   RowBox[{"2", "\[Pi]", " ", "145", "kHz"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lho", "=", 
+   SqrtBox[
+    FractionBox["\[HBar]", 
+     RowBox[{"mCs", " ", "\[Omega]rCs"}]]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"U0", "=", 
+   RowBox[{"kB", " ", "1.2", "mK"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]", "=", ".55"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fD2", "=", 
+   FractionBox["c", 
+    RowBox[{"852", "nm"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fD1", "=", 
+   FractionBox["c", 
+    RowBox[{"894", "nm"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fTrap", "=", 
+    FractionBox["c", 
+     RowBox[{"976", "nm"}]]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fTrap", "=", 
+   FractionBox["c", 
+    RowBox[{"815", "nm"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"cc", "=", "  ", 
+    RowBox[{"2.6", " ", "\[Alpha]", " ", 
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Alpha]", "]"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"c", "/", "fTrap"}], ")"}]}], " ", "um"}]}], " ", ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"in", " ", 
+    RowBox[{"um", "^", 
+     RowBox[{"-", "1"}]}]}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]1", "=", 
+   RowBox[{"fD1", "-", "fTrap"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]2", "=", 
+   RowBox[{"fD2", "-", "fTrap"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Beffy", "=", 
+    RowBox[{
+     SuperscriptBox["10", "4"], 
+     FractionBox[
+      RowBox[{
+       RowBox[{"-", " ", "U0"}], 
+       FractionBox[
+        RowBox[{"\[Delta]1", "-", "\[Delta]2"}], 
+        RowBox[{"\[Delta]1", "+", "\[Delta]2"}]], "cc"}], 
+      RowBox[{"\[Mu]B", " "}]]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"in", " ", 
+    RowBox[{"G", "/", "um"}]}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.738055559643704*^9, 3.7380556493560896`*^9}, {
+   3.7380556819656105`*^9, 3.7380557130223303`*^9}, {3.73805575313758*^9, 
+   3.7380557564914613`*^9}, {3.738056574034258*^9, 3.7380565791332164`*^9}, {
+   3.7380569463639727`*^9, 3.738056985968017*^9}, {3.7380570415609956`*^9, 
+   3.7380570770449924`*^9}, 3.7380571174786587`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Beffy", "  ", 
+  RowBox[{"lho", "/", "um", "  ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "effective", " ", "B", " ", "field", " ", "in", " ", "G", " ", "at", " ", 
+     "edge", " ", "of", " ", "gnd", " ", "state", " ", "radial", " ", 
+     "wavefunction"}], "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.7380569878816314`*^9, 3.738057006752082*^9}, {
+  3.738057114012723*^9, 3.7380571207011395`*^9}, {3.7380571727522097`*^9, 
+  3.7380571915157433`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.12794371623704973`"}]], "Output",
+ CellChangeTimes->{{3.7380569886548133`*^9, 3.738056995680317*^9}, 
+   3.7380571209411793`*^9, 3.738086162553635*^9}]
+}, Open  ]]
+},
+WindowSize->{644, 709},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4374, 137, 666, "Input"],
+Cell[CellGroupData[{
+Cell[4957, 161, 471, 10, 50, "Input"],
+Cell[5431, 173, 182, 3, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+

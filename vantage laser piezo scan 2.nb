@@ -1,0 +1,266 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9674,        257]
+NotebookOptionsPosition[      9311,        240]
+NotebookOutlinePosition[      9658,        255]
+CellTagsIndexPosition[      9615,        252]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"V", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "10", ",", "13", ",", "23.96", ",", "30", ",", "40", ",", 
+     "48.76", ",", "57.66", ",", "60", ",", "70", ",", "80", ",", "85.4", ",",
+      "92.74", ",", "100"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f", "=", 
+   RowBox[{"351000", "+", 
+    RowBox[{"{", 
+     RowBox[{
+     "674.46", ",", "680.2", ",", "682.6", ",", "690.5", ",", "694.87", ",", 
+      "703.1", ",", "710.66", ",", "718.31", ",", "719.5", ",", "726.77", ",",
+       "734", ",", "739.03", ",", "748.47", ",", "752.1"}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Lambda]", "=", 
+    RowBox[{"299792458", "/", "f"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fdata", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"V", ",", "f"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Lambda]data", "=", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"V", ",", "\[Lambda]"}], "}"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"edges", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "13", ",", "23.96", ",", "48.76", ",", "57.66", ",", "85.4", 
+     ",", "92.74", ",", "100"}], "}"}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "voltages", " ", "where", " ", "it", " ", "transitions", " ", "mm", " ", 
+     "to", " ", "sm", " ", "or", " ", "vice", " ", "versa"}], ";", " ", 
+    RowBox[{"include", " ", "0", " ", "and", " ", "100."}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"fdataPart", "=", 
+   RowBox[{
+    RowBox[{"Reap", "[", "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Sow", "[", "\[IndentingNewLine]", 
+        RowBox[{"Cases", "[", 
+         RowBox[{"fdata", ",", 
+          RowBox[{"x_", "/;", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"x", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "\[GreaterEqual]", " ", 
+             RowBox[{"edges", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}], "&&", 
+            RowBox[{
+             RowBox[{"x", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "\[LessEqual]", 
+             RowBox[{"edges", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", "+", "1"}], "]"}], "]"}]}]}]}]}], "]"}], 
+        "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Length", "[", "edges", "]"}], "-", "1"}], ",", "2"}], 
+        "}"}]}], "]"}], "\[IndentingNewLine]", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"fdataPart", ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<piezo[V]\>\"", ",", "\"\<f [GHz]\>\"", ",", " ", 
+       "\"\<F3 laser VT-0021\>\""}], "}"}]}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Lambda]dataPart", "=", 
+   RowBox[{
+    RowBox[{"Reap", "[", "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Sow", "[", "\[IndentingNewLine]", 
+        RowBox[{"Cases", "[", 
+         RowBox[{"\[Lambda]data", ",", 
+          RowBox[{"x_", "/;", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"x", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "\[GreaterEqual]", " ", 
+             RowBox[{"edges", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}], "&&", 
+            RowBox[{
+             RowBox[{"x", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "\[LessEqual]", 
+             RowBox[{"edges", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", "+", "1"}], "]"}], "]"}]}]}]}]}], "]"}], 
+        "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Length", "[", "edges", "]"}], "-", "1"}], ",", "2"}], 
+        "}"}]}], "]"}], "\[IndentingNewLine]", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"\[Lambda]dataPart", ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<piezo[V]\>\"", ",", "\"\<\[Lambda] [nm]\>\"", ",", " ", 
+      "\"\<F3 laser VT-0021\>\""}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6635978351893673`*^9, 3.6635980475895157`*^9}, {
+  3.6635985560055957`*^9, 3.6635986602065554`*^9}, {3.663599946263114*^9, 
+  3.663599966255257*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{0., 351674.46}, {10., 351680.2}, {13., 351682.6}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{23.96, 351690.5}, {30., 351694.87}, {40., 351703.1}, {48.76, 
+      351710.66}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{57.66, 351718.31}, {60., 351719.5}, {70., 351726.77}, {80., 
+      351734.}, {85.4, 351739.03}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{92.74, 351748.47}, {100., 351752.1}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 351670.57800000004`},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox["\"f [GHz]\"", TraditionalForm], None}, {
+     FormBox["\"piezo[V]\"", TraditionalForm], 
+     FormBox["\"F3 laser VT-0021\"", TraditionalForm]}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0, 100.}, {351674.46, 351752.1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.663598036404876*^9, 3.6635980477675257`*^9}, {
+   3.6635986070115128`*^9, 3.6635986603295627`*^9}, 3.6635999663932652`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{0., 852.4715101574336}, {10., 852.4575964185643}, {13., 
+      852.4517789620527}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{23.96, 852.4326303951913}, {30., 852.4220384562334}, {40., 
+      852.4020914231351}, {48.76, 852.3837690901948}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{57.66, 852.3652294360222}, {60., 852.3623455623017}, {70., 
+      852.344727698719}, {80., 852.3272074920252}, {85.4, 
+      852.3150188934108}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{92.74, 852.2921450091881}, {100., 852.283349552142}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 852.2739415218774},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox["\"\[Lambda] [nm]\"", TraditionalForm], None}, {
+     FormBox["\"piezo[V]\"", TraditionalForm], 
+     FormBox["\"F3 laser VT-0021\"", TraditionalForm]}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0, 100.}, {852.283349552142, 852.4715101574336}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.663598036404876*^9, 3.6635980477675257`*^9}, {
+   3.6635986070115128`*^9, 3.6635986603295627`*^9}, 3.663599966422267*^9}]
+}, Open  ]]
+},
+WindowSize->{767, 873},
+WindowMargins->{{Automatic, 568}, {104, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5048, 129, 632, "Input"],
+Cell[5631, 153, 1755, 40, 253, "Output"],
+Cell[7389, 195, 1906, 42, 256, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

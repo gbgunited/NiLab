@@ -1,0 +1,392 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     14688,        382]
+NotebookOptionsPosition[     14107,        357]
+NotebookOutlinePosition[     14449,        372]
+CellTagsIndexPosition[     14406,        369]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+simple focal shift estimate using gaussian optics and linear optics\
+\>", "Title",
+ CellChangeTimes->{{3.66654191268511*^9, 3.6665419232137117`*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", "q"], TraditionalForm]]],
+ "=",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"R", "(", "z", ")"}]], "-", 
+    RowBox[{"i", 
+     FractionBox["\[Lambda]0", 
+      SuperscriptBox[
+       RowBox[{"\[Pi]nw", "(", "z", ")"}], "2"]]}]}], TraditionalForm]]]
+}], "Subtitle",
+ CellChangeTimes->{{3.6628696707152834`*^9, 3.662869692547532*^9}, {
+  3.6628824681632557`*^9, 3.6628824696873426`*^9}, {3.664391875746388*^9, 
+  3.6643918775963907`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kHz", "=", 
+   SuperscriptBox["10", "3"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nm", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "9"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mm", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "3"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"um", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cm", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "2"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kB", "=", 
+   RowBox[{"1.38064852", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "23"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[HBar]", "=", 
+   RowBox[{"1.0545718", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "34"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"amu", "=", 
+   RowBox[{"1.66054", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "27"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Lambda]", "=", 
+   RowBox[{"775", "nm"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"n", "=", "1"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R", " ", "=", " ", 
+   RowBox[{"z", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", 
+          SuperscriptBox["w0", "2"]}], 
+         RowBox[{"\[Lambda]", " ", "z"}]], ")"}], "2"]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{"w0", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\[Lambda]", " ", "z"}], 
+         RowBox[{"\[Pi]", " ", 
+          SuperscriptBox["w0", "2"]}]], ")"}], "2"]}]]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f", "=", 
+   RowBox[{"16", "mm"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"w0", "=", 
+   RowBox[{"1000", 
+    RowBox[{"um", "/", "2"}]}]}], ";", " ", 
+  RowBox[{"(*", "approx", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"z", "=", 
+   RowBox[{"20", "cm"}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "approx", " ", "distance", " ", "from", " ", "fiber", " ", "collimator", 
+    " ", "to", " ", "objective"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"q1", "=", " ", 
+   FractionBox["1", 
+    RowBox[{
+     FractionBox["1", "R"], "-", 
+     FractionBox[
+      RowBox[{"I", " ", "\[Lambda]"}], 
+      RowBox[{"\[Pi]", " ", 
+       SuperscriptBox["w", "2"]}]]}]]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "q", " ", "beam", " ", "param", " ", "of", " ", "input", " ", "AT", " ", 
+    "the", " ", "lens"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"q2", "=", 
+   FractionBox["1", 
+    RowBox[{
+     FractionBox["1", "q1"], "-", 
+     FractionBox["1", "f"]}]]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"right", " ", "after", " ", "lens"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"dat", "=", " ", 
+   RowBox[{
+    RowBox[{"Reap", "[", "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"q3", "=", 
+         RowBox[{"q2", "+", "\[CapitalDelta]z"}]}], ";", " ", 
+        RowBox[{"(*", 
+         RowBox[{
+         "after", " ", "propagating", " ", "some", " ", "distance", " ", 
+          "\[CapitalDelta]z"}], "*)"}], "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"w", "=", 
+         SqrtBox[
+          RowBox[{"-", 
+           FractionBox["\[Lambda]", 
+            RowBox[{"\[Pi]", " ", "n", " ", 
+             RowBox[{"Im", "[", 
+              FractionBox["1", "q3"], "]"}]}]]}]]}], ";", 
+        RowBox[{"(*", 
+         RowBox[{"get", " ", "waist"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Sow", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[CapitalDelta]z", "-", "f"}], ")"}], "/", "um"}], ",", 
+           RowBox[{"w", "/", "um"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"\[CapitalDelta]z", ",", 
+         RowBox[{".99", "f"}], ",", 
+         RowBox[{"1.01", "f"}], ",", 
+         RowBox[{".001", "mm"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+     "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"dat", ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\[CapitalDelta]z-f [um]\>\"", ",", "\"\<beam waist[um]\>\""}], 
+     "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6664148119472227`*^9, 3.6664148765203924`*^9}, {
+  3.6664149180014563`*^9, 3.6664149668695307`*^9}, {3.6664150624134183`*^9, 
+  3.6664151322627773`*^9}, {3.666415187479335*^9, 3.6664152378044596`*^9}, {
+  3.6664152814137435`*^9, 3.666415299654789*^9}, {3.666415334637842*^9, 
+  3.6664153892439685`*^9}, {3.6664154406450453`*^9, 3.666415442265047*^9}, {
+  3.666416596711316*^9, 3.666416779393609*^9}, {3.666541682040918*^9, 
+  3.6665417466636143`*^9}, {3.666541892195938*^9, 3.6665418924159503`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], PointBox[CompressedData["
+1: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
+0/nanv4w7/3yQo2k2NeVTDwWBnV+J6EV18+ONj241jSnUsI8HvC2NPXHHj2G
+PJIUfW2ow/eTbzW7Jyn6qelcnFWL1zclLGmg31fRX3PGvH91WVLkMypYhvXN
+ioS89lR5eXCLIQUS/uEBbk52Y24n5pyUcJontBklBD6/3OWowLek5fZOzsX7
+xfnvSe7TsTgtW8IGE/5BkqzOrE7IFOu3Ba2NaGfCRgkGyq/jyNUt0zPq993y
+q7xeFC+T0OkpN8DN7dIGz26p9d9HI9sXDofm18vHpXSfM4GzJKR81O+bIv1o
+zFez6fX6Q7NlqeGnSfX2oXzd+dLa8fX2Y5Bm10r1WAkVnFDKOHlrQv+EUfX+
+g9PNBs+ua+v9C5fUiu0jIsT3O2Hvl/4pDcLr7wc6QjfralD9/eGQ0V95+f6S
+uF/seJ7c/6KvBONa/fnuSN3Vr0WNlyTiA7cPh7n7DJRE/CD+l61leW4SDPn3
+e2JM2dQ3GhehnyNav3syz9BJEvGJjfcWZ5b2Fvr2QULFsqCrPSUR33heVbSr
+orsk4h/3L67JVHeTRH5g2sa3fnM7C3ucgIixR792kkR+YbxGfW9bR2GfC8oT
+Sq9EqyWRn/ix5saqQbIk8hfpDT5285Ukkd9oU3vi14lWksh/jPe0apzfTieP
+1xcg4S8KtLEU/gDM/y5Jy7WQRH3B4viGJ2PNhX880MPmWJljG0nUJ+wwOV1n
+01oS9Qt3e66QXcwkUd/QcJyDV7Kp8N9ANPVyTLrcShL1Ed5F+du9Wwl/eiLJ
+b/b9xyYS/tbbM8cT6ycWyLt0a6X+Iqg2eNIi3Vqpz2hZklWSqlsr9Ru7Szf1
+Oahbq/m+N76qLuz9YCL8r1vfcu6k1clT3gfs9Nh84Llu/S/3nw+61lr136DT
+V3lfsOVT6pUxOnuU9wc9DveMHa6zV3mf0HqwUfW4NuK+fCFfTVy0Q+cv5X1D
+/tiFTT9biPvTIHPr3cXJOn8/5/ZpcHzNtjfN20vi/YTx+OXul3X3pbyv0Cz/
+PHW/7j6V9xc/NypakqO77978+/5wehWffFUt7tsfTUqedjWzkcT7jtcW5QdT
+bCW85/YNRdnGZe+MukiCH6CiOudlji4eFf6A5F5b1093kAS/QGcEVI52FPER
+ANv5/ncm95EEP8HKySdGZDuJeAlEKTziP+ryZbZ+vyAQa+IGvE2AJPgPvMLW
+vKrT5ZvCj7BqQFHQcW9J8Cfk73xrutxPwk6OD8JKu2LrX4aK+ApC38C907cH
+S4KfoXTATKMyXT2Yz/0RDO9FJcecIiXB71BWXTLvRLQk+B9epXhHhI2WBD/E
+s4odPdskiHgMQc2zlzXVEyTBL1F188a2mmQRn6Fov3uXWbsZEhZz+0PhUh7q
+GzVbEvwVTZbP7n5ugST4LSKtInO9lkiC/8Ji2o3CF8slwY/x7PW4oCNrRDyH
+ofdgre/6TZLg1+h3dvGmrVkS0rn9YQg0/cmhcLck+DkM090+GR+QBH/HPNPH
+/07MlZDA9Q+HRvP0dk2eiP9wvM6aX5hJkugPUBGbvS7+gsiHYYh69qLfkBIJ
+Kzh+GP63O3td8C1J9B+4H31r04z7kuhPEOrW06GgXOTLcATW2bpbv5BEf4Mk
+y7ITv1aJ/BkOwyq72ZrPkuiPMOPr9TPfGzJkcPwIzPnv8tUa3Xut9Fdo9kN6
+/Cfde864/yJgtyZx2g/NGCZx/SNQ+/F0ta2J4JMR2Gmx9k54ayb6Ozyq/dRy
+XVvBXyKhSizJKNfxjQ0cH4mAFbdDoGKif8S2GSe9c2yY6C/xqOyLtlMXwW8j
+cWVri1VHujPRnyI4ASW+vQQfHom10eeN3+v4ktLfImPPEad9rgxbOH4kkpoZ
++yd5MNEfo232EWdPbyb6Z1jGTa6y1TDM5PpH4c2phj+2CxR8LQpWLobL24cx
+0Z/jR/sXYV0jBJ/XItq+x2++0QxZHK+F3cXOm6eNZqL/h5+F5X9HE5iYD8A9
+suuFL4lMqQfR6Lw+5V3IFCbmC/hqYzwuP4WJ+QPCo67YOsxlYj6Bn6x2tc1d
+xMT8AhfGRjoMSmdivoF7DXOjylcyMf/AtUYh61auYzin35diEJRw70+/LUzM
+TzBz/61nZjuYmK+gaRg9frFH8N0YpG00PnLtABPzGTy823rA+Vwm5jeY6tln
+1vk8JuY70I7I1V4vYEr9iUHfOX/efvkHE/Mh3E3Pvtn6MhPzIziGJXprbjAx
+X8JBV6hX3mFi/oSaY7bD/n3AxHwKBsXdS92eMDG/wqUjwav2v2Ao4vbH4vqg
+tGnWVYLfx6L58rMp+2qYmI/hms8/6a51DMe5/XGwGFW0uayhLOZrWLBgyOa0
+prKYv+HzrMEzB5nKYj6HZ/dSuzaxFP1sHGKCb2U+YLKY72H+wP/9caaT6H9H
+oXe3PSv228v4PxWR3Yk=
+     "]]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  AxesOrigin->{0., 7.7671106208575384`},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"beam waist[um]\"", TraditionalForm], None}, {
+     FormBox["\"\[CapitalDelta]z-f [um]\"", TraditionalForm], None}},
+  Method->{},
+  PlotRange->{{-160.00000000000043`, 160.00000000000043`}, {
+   7.7671106208575384`, 10.122921077900102`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{6.400000000000017, 6.400000000000017}, {
+   0.047116209140851274`, 0.047116209140851274`}}]], "Output",
+ CellChangeTimes->{{3.6664167703735943`*^9, 3.6664167803636107`*^9}, {
+   3.666541748919743*^9, 3.666541764623641*^9}, 3.666541893083989*^9}]
+}, Open  ]],
+
+Cell["\<\
+simple ray optics estimate of deviation from focus 
+from http : // www.newport.com/Focusing - and - \
+Collimating/141191/1033/content.aspx\
+\>", "Text",
+ CellChangeTimes->{{3.666416416941004*^9, 3.666416442775048*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"w0", "=", 
+   RowBox[{"1200", 
+    RowBox[{"um", "/", "2"}]}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"estimate", " ", "of", " ", "input", " ", "waist"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"f", "=", 
+   RowBox[{"16", "mm"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Theta]1", "=", " ", 
+   RowBox[{".5", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "3"}]]}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"measured", " ", "divergence", " ", "angle"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"\[Theta]2", "=", 
+   RowBox[{"w0", "/", "f"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]z", "=", 
+   RowBox[{
+    RowBox[{"1.", " ", 
+     FractionBox["w0", 
+      RowBox[{"Tan", "[", "\[Theta]2", "]"}]]}], "-", "f"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "distance", " ", "of", " ", "projected", " ", "waist", " ", "from", " ", 
+    "focus"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"\[CapitalDelta]z", "/", "um"}]}]}], "Input",
+ CellChangeTimes->{{3.6664160786857004`*^9, 3.66641615408982*^9}, {
+  3.6664163579408407`*^9, 3.666416495974134*^9}, {3.666541789897087*^9, 
+  3.6665418420320687`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "7.500703219181365`"}]], "Output",
+ CellChangeTimes->{{3.666416397875922*^9, 3.666416404345932*^9}, {
+   3.6664164491290617`*^9, 3.666416496164134*^9}, {3.6665417756202703`*^9, 
+   3.666541851685621*^9}, 3.666541895693138*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{716, 597},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 159, 3, 166, "Title"],
+Cell[741, 27, 528, 17, 62, "Subtitle"],
+Cell[CellGroupData[{
+Cell[1294, 48, 5333, 154, 796, "Input"],
+Cell[6630, 204, 5707, 98, 247, "Output"]
+}, Open  ]],
+Cell[12352, 305, 228, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[12605, 314, 1217, 33, 170, "Input"],
+Cell[13825, 349, 254, 4, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

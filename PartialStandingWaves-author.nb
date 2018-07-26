@@ -1,0 +1,1027 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     41409,       1018]
+NotebookOptionsPosition[     37163,        886]
+NotebookOutlinePosition[     38768,        937]
+CellTagsIndexPosition[     38448,        925]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Partial Standing Waves", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.481316265953125*^9, 3.481316270171875*^9}, 
+   3.481919356966011*^9}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Plot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Af", "*", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"x", "-", "t"}], "]"}]}], "+", 
+           RowBox[{"Ab", "*", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"x", "+", "t"}], "]"}]}]}], ",", 
+          RowBox[{"Af", "*", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"x", "-", "t"}], "]"}]}], ",", 
+          RowBox[{"Ab", "*", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"x", "+", "t"}], "]"}]}], ",", 
+          RowBox[{"Abs", "[", 
+           RowBox[{
+            RowBox[{"Ab", "*", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"\[ImaginaryI]", "*", 
+               RowBox[{"(", 
+                RowBox[{"x", "+", " ", 
+                 RowBox[{"\[Pi]", "/", "2"}]}], ")"}]}]]}], "+", 
+            RowBox[{"Af", "*", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               RowBox[{"-", "\[ImaginaryI]"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"x", "+", 
+                 RowBox[{"\[Pi]", "/", "2"}]}], ")"}]}]]}]}], "]"}], ",", 
+          RowBox[{"-", 
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Ab", "*", " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"\[ImaginaryI]", "*", 
+                RowBox[{"(", 
+                 RowBox[{"x", "+", " ", 
+                  RowBox[{"\[Pi]", "/", "2"}]}], ")"}]}]]}], "+", 
+             RowBox[{"Af", "*", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], "*", 
+                RowBox[{"(", 
+                 RowBox[{"x", "+", 
+                  RowBox[{"\[Pi]", "/", "2"}]}], ")"}]}]]}]}], "]"}]}]}], 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "0", ",", 
+          RowBox[{"4", "*", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", " ", 
+         RowBox[{"{", 
+          RowBox[{"Red", ",", "Yellow", ",", "Yellow", ",", 
+           RowBox[{"{", 
+            RowBox[{"Dashed", ",", "Blue"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Dashed", ",", "Blue"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", "2.001"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", " ", 
+         RowBox[{"{", 
+          RowBox[{"500", ",", "250"}], "}"}]}]}], "]"}], ",", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Thick", ",", 
+          RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+          RowBox[{"Arrow", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Af", "*", 
+                 RowBox[{"Cos", "[", 
+                  RowBox[{"-", "t"}], "]"}]}], "+", 
+                RowBox[{"Ab", "*", 
+                 RowBox[{"Cos", "[", "t", "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"Af", "*", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{"-", "t"}], "]"}]}], "+", 
+                RowBox[{"Ab", "*", 
+                 RowBox[{"Sin", "[", "t", "]"}]}]}]}], "}"}]}], "}"}], 
+           "]"}]}], "}"}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", "2"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", " ", 
+         RowBox[{"{", 
+          RowBox[{"500", ",", "100"}], "}"}]}]}], "]"}]}], "}"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0.", ",", "\"\<time\>\""}], "}"}], ",", "0", ",", 
+     "6.28", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Af", ",", "1.", ",", "\"\<forward wave amplitude\>\""}], "}"}],
+      ",", "0", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Ab", ",", "0.5", ",", "\"\<backward wave amplitude\>\""}], 
+      "}"}], ",", "0", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.48131629815625*^9, {3.481316587625*^9, 
+   3.48131659053125*^9}, {3.4816299686230617`*^9, 3.481630129859511*^9}, {
+   3.4819177437477007`*^9, 3.481917757770076*^9}, {3.481917798419044*^9, 
+   3.481917822202732*^9}, {3.481917917441145*^9, 3.481917933263146*^9}, {
+   3.481917986695822*^9, 3.4819180425733433`*^9}, {3.481918089588646*^9, 
+   3.481918121436636*^9}, {3.481918157964738*^9, 3.481918240170648*^9}, {
+   3.481918289834837*^9, 3.481918419857354*^9}, {3.4819184511047792`*^9, 
+   3.4819184518549547`*^9}, {3.4819184906241693`*^9, 3.481918538134247*^9}, 
+   3.48191856868692*^9, {3.481918607094483*^9, 3.481918643660388*^9}, {
+   3.481918791612074*^9, 3.4819187936983557`*^9}, 3.481918830323626*^9, {
+   3.481918877091301*^9, 3.4819189387786303`*^9}, {3.4819189773782597`*^9, 
+   3.481918991264811*^9}, {3.4819190351456327`*^9, 3.481919079767432*^9}, {
+   3.4819192450235023`*^9, 3.4819193022869864`*^9}, {3.4822558350625*^9, 
+   3.482255872875*^9}, {3.4822580054375*^9, 3.482258040875*^9}, {
+   3.482258120484375*^9, 3.482258121171875*^9}, {3.4822591914269505`*^9, 
+   3.4822592425130587`*^9}, {3.4822687435023165`*^9, 3.482268769251822*^9}, {
+   3.4822688087198143`*^9, 3.482268842844159*^9}, {3.6665549847996*^9, 
+   3.666555003262656*^9}, {3.666555057018731*^9, 3.6665550584018097`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Ab$$ = 0.5, $CellContext`Af$$ = 
+    1., $CellContext`t$$ = 3.29, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`t$$], 0., "time"}, 0, 6.28}, {{
+       Hold[$CellContext`Af$$], 1., "forward wave amplitude"}, 0, 1}, {{
+       Hold[$CellContext`Ab$$], 0.5, "backward wave amplitude"}, 0, 1}}, 
+    Typeset`size$$ = {500., {175., 180.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`t$6276$$ =
+     0, $CellContext`Af$6277$$ = 0, $CellContext`Ab$6278$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Ab$$ = 0.5, $CellContext`Af$$ = 
+        1., $CellContext`t$$ = 0.}, "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$6276$$, 0], 
+        Hold[$CellContext`Af$$, $CellContext`Af$6277$$, 0], 
+        Hold[$CellContext`Ab$$, $CellContext`Ab$6278$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Plot[{$CellContext`Af$$ 
+            Sin[$CellContext`x - $CellContext`t$$] + $CellContext`Ab$$ 
+            Sin[$CellContext`x + $CellContext`t$$], $CellContext`Af$$ 
+           Sin[$CellContext`x - $CellContext`t$$], $CellContext`Ab$$ 
+           Sin[$CellContext`x + $CellContext`t$$], 
+           
+           Abs[$CellContext`Ab$$ 
+             E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+             E^((-I) ($CellContext`x + Pi/2))], -
+           Abs[$CellContext`Ab$$ 
+              E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+              E^((-I) ($CellContext`x + Pi/2))]}, {$CellContext`x, 0, 4 Pi}, 
+          PlotStyle -> {Red, Yellow, Yellow, {Dashed, Blue}, {Dashed, Blue}}, 
+          PlotRange -> 2.001, ImageSize -> {500, 250}], 
+         Graphics[{Thick, 
+           Arrowheads[Medium], 
+           
+           Arrow[{{0, 
+             0}, {$CellContext`Af$$ 
+               Cos[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Cos[$CellContext`t$$], $CellContext`Af$$ 
+               Sin[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Sin[$CellContext`t$$]}}]}, PlotRange -> 2, 
+          ImageSize -> {500, 100}]}], 
+      "Specifications" :> {{{$CellContext`t$$, 0., "time"}, 0, 6.28, 
+         Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`Af$$, 1., "forward wave amplitude"}, 0, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`Ab$$, 0.5, "backward wave amplitude"}, 0, 
+         1, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{545., {254., 259.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.66654622598647*^9, 3.666546266781804*^9, 3.6665549535638137`*^9, {
+   3.66655499197301*^9, 3.6665550035746737`*^9}, 3.6665550587078276`*^9},
+ CellID->10852202]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+This Demonstration shows an interactive dynamic plot of the partial standing \
+wave generated by two sinusoids of equal speed and frequency traveling in \
+opposite directions. The forward and backward traveling waves are initialized \
+to have amplitudes 1 and 0.5. A full standing wave corresponds to the case \
+where both amplitudes are equal. A regular traveling wave corresponds to the \
+case where one amplitude is 0. The dashed lines represent the envelope of the \
+wave. The arrow represents the motion of the related phasor.\
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.48131638196875*^9, 3.48131654696875*^9}, {
+   3.4816301774664154`*^9, 3.4816301934620547`*^9}, {3.481630258495145*^9, 
+   3.4816302597352695`*^9}, {3.481915624446707*^9, 3.481915627837332*^9}, {
+   3.481915664165457*^9, 3.481915683743582*^9}, 3.481919168375907*^9, {
+   3.482257224859375*^9, 3.482257230671875*^9}, {3.482257267453125*^9, 
+   3.4822572690625*^9}, {3.482257358203125*^9, 3.48225754403125*^9}, {
+   3.4822575759375*^9, 3.482257628265625*^9}, {3.4822578960625*^9, 
+   3.482257897046875*^9}, {3.4822592924650536`*^9, 3.4822593062354307`*^9}, {
+   3.4822593693217382`*^9, 3.482259371377944*^9}, {3.4822687144872484`*^9, 
+   3.4822687326431503`*^9}, {3.4822689162177505`*^9, 3.482268974529131*^9}, 
+   3.4822690239656816`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Ab$$ = 0.5, $CellContext`Af$$ = 
+    1, $CellContext`t$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`t$$], 0, "time"}, 0, 6.28}, {{
+       Hold[$CellContext`Af$$], 1, "forward wave amplitude"}, 0, 1}, {{
+       Hold[$CellContext`Ab$$], 0.5, "backward wave amplitude"}, 0, 1}}, 
+    Typeset`size$$ = {500., {175., 180.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`t$44684$$ = 0, $CellContext`Af$44685$$ = 
+    0, $CellContext`Ab$44686$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Ab$$ = 0.5, $CellContext`Af$$ = 
+        1, $CellContext`t$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$44684$$, 0], 
+        Hold[$CellContext`Af$$, $CellContext`Af$44685$$, 0], 
+        Hold[$CellContext`Ab$$, $CellContext`Ab$44686$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Plot[{$CellContext`Af$$ 
+            Sin[$CellContext`x - $CellContext`t$$] + $CellContext`Ab$$ 
+            Sin[$CellContext`x + $CellContext`t$$], 
+           
+           Abs[$CellContext`Ab$$ 
+             E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+             E^((-I) ($CellContext`x + Pi/2))], -
+           Abs[$CellContext`Ab$$ 
+              E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+              E^((-I) ($CellContext`x + Pi/2))]}, {$CellContext`x, 0, 4 Pi}, 
+          PlotStyle -> {Red, {Dashed, Blue}, {Dashed, Blue}}, PlotRange -> 
+          2.001, ImageSize -> {500, 250}], 
+         Graphics[{Thick, 
+           Arrowheads[Medium], 
+           
+           Arrow[{{0, 
+             0}, {$CellContext`Af$$ 
+               Cos[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Cos[$CellContext`t$$], $CellContext`Af$$ 
+               Sin[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Sin[$CellContext`t$$]}}]}, PlotRange -> 2, 
+          ImageSize -> {500, 100}]}], 
+      "Specifications" :> {{{$CellContext`t$$, 0, "time"}, 0, 6.28, 
+         Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`Af$$, 1, "forward wave amplitude"}, 0, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`Ab$$, 0.5, "backward wave amplitude"}, 0, 
+         1, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{545., {254., 259.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->760402],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.482255823609375*^9, 3.482255823671875*^9}},
+ CellID->1714523141]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Ab$$ = 0.5, $CellContext`Af$$ = 
+    1, $CellContext`t$$ = 1.0555751316061706`, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`t$$], 1.0555751316061706`, "time"}, 0, 6.28}, {{
+       Hold[$CellContext`Af$$], 1, "forward wave amplitude"}, 0, 1}, {{
+       Hold[$CellContext`Ab$$], 0.5, "backward wave amplitude"}, 0, 1}}, 
+    Typeset`size$$ = {500., {175., 180.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`t$44746$$ = 0, $CellContext`Af$44747$$ = 
+    0, $CellContext`Ab$44748$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Ab$$ = 0.5, $CellContext`Af$$ = 
+        1, $CellContext`t$$ = 1.0555751316061706`}, "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$44746$$, 0], 
+        Hold[$CellContext`Af$$, $CellContext`Af$44747$$, 0], 
+        Hold[$CellContext`Ab$$, $CellContext`Ab$44748$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Plot[{$CellContext`Af$$ 
+            Sin[$CellContext`x - $CellContext`t$$] + $CellContext`Ab$$ 
+            Sin[$CellContext`x + $CellContext`t$$], 
+           
+           Abs[$CellContext`Ab$$ 
+             E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+             E^((-I) ($CellContext`x + Pi/2))], -
+           Abs[$CellContext`Ab$$ 
+              E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+              E^((-I) ($CellContext`x + Pi/2))]}, {$CellContext`x, 0, 4 Pi}, 
+          PlotStyle -> {Red, {Dashed, Blue}, {Dashed, Blue}}, PlotRange -> 
+          2.001, ImageSize -> {500, 250}], 
+         Graphics[{Thick, 
+           Arrowheads[Medium], 
+           
+           Arrow[{{0, 
+             0}, {$CellContext`Af$$ 
+               Cos[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Cos[$CellContext`t$$], $CellContext`Af$$ 
+               Sin[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Sin[$CellContext`t$$]}}]}, PlotRange -> 2, 
+          ImageSize -> {500, 100}]}], 
+      "Specifications" :> {{{$CellContext`t$$, 1.0555751316061706`, "time"}, 
+         0, 6.28, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`Af$$, 1, "forward wave amplitude"}, 0, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`Ab$$, 0.5, "backward wave amplitude"}, 0, 
+         1, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{545., {254., 259.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->289967471],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Ab$$ = 0.528, $CellContext`Af$$ = 
+    0.248, $CellContext`t$$ = 3.141592653589793, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`t$$], 3.141592653589793, "time"}, 0, 6.28}, {{
+       Hold[$CellContext`Af$$], 0.248, "forward wave amplitude"}, 0, 1}, {{
+       Hold[$CellContext`Ab$$], 0.528, "backward wave amplitude"}, 0, 1}}, 
+    Typeset`size$$ = {500., {175., 180.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`t$44808$$ = 0, $CellContext`Af$44809$$ = 
+    0, $CellContext`Ab$44810$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Ab$$ = 0.528, $CellContext`Af$$ = 
+        0.248, $CellContext`t$$ = 3.141592653589793}, "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$44808$$, 0], 
+        Hold[$CellContext`Af$$, $CellContext`Af$44809$$, 0], 
+        Hold[$CellContext`Ab$$, $CellContext`Ab$44810$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Plot[{$CellContext`Af$$ 
+            Sin[$CellContext`x - $CellContext`t$$] + $CellContext`Ab$$ 
+            Sin[$CellContext`x + $CellContext`t$$], 
+           
+           Abs[$CellContext`Ab$$ 
+             E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+             E^((-I) ($CellContext`x + Pi/2))], -
+           Abs[$CellContext`Ab$$ 
+              E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+              E^((-I) ($CellContext`x + Pi/2))]}, {$CellContext`x, 0, 4 Pi}, 
+          PlotStyle -> {Red, {Dashed, Blue}, {Dashed, Blue}}, PlotRange -> 
+          2.001, ImageSize -> {500, 250}], 
+         Graphics[{Thick, 
+           Arrowheads[Medium], 
+           
+           Arrow[{{0, 
+             0}, {$CellContext`Af$$ 
+               Cos[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Cos[$CellContext`t$$], $CellContext`Af$$ 
+               Sin[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Sin[$CellContext`t$$]}}]}, PlotRange -> 2, 
+          ImageSize -> {500, 100}]}], 
+      "Specifications" :> {{{$CellContext`t$$, 3.141592653589793, "time"}, 0, 
+         6.28, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`Af$$, 0.248, "forward wave amplitude"}, 0, 
+         1, Appearance -> 
+         "Labeled"}, {{$CellContext`Ab$$, 0.528, "backward wave amplitude"}, 
+         0, 1, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{545., {254., 259.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->272652571],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Ab$$ = 1., $CellContext`Af$$ = 
+    1., $CellContext`t$$ = 5.0516809869723875`, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`t$$], 5.0516809869723875`, "time"}, 0, 6.28}, {{
+       Hold[$CellContext`Af$$], 1., "forward wave amplitude"}, 0, 1}, {{
+       Hold[$CellContext`Ab$$], 1., "backward wave amplitude"}, 0, 1}}, 
+    Typeset`size$$ = {500., {175., 180.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`t$44870$$ = 0, $CellContext`Af$44871$$ = 
+    0, $CellContext`Ab$44872$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Ab$$ = 1., $CellContext`Af$$ = 
+        1., $CellContext`t$$ = 5.0516809869723875`}, "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$44870$$, 0], 
+        Hold[$CellContext`Af$$, $CellContext`Af$44871$$, 0], 
+        Hold[$CellContext`Ab$$, $CellContext`Ab$44872$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Plot[{$CellContext`Af$$ 
+            Sin[$CellContext`x - $CellContext`t$$] + $CellContext`Ab$$ 
+            Sin[$CellContext`x + $CellContext`t$$], 
+           
+           Abs[$CellContext`Ab$$ 
+             E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+             E^((-I) ($CellContext`x + Pi/2))], -
+           Abs[$CellContext`Ab$$ 
+              E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+              E^((-I) ($CellContext`x + Pi/2))]}, {$CellContext`x, 0, 4 Pi}, 
+          PlotStyle -> {Red, {Dashed, Blue}, {Dashed, Blue}}, PlotRange -> 
+          2.001, ImageSize -> {500, 250}], 
+         Graphics[{Thick, 
+           Arrowheads[Medium], 
+           
+           Arrow[{{0, 
+             0}, {$CellContext`Af$$ 
+               Cos[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Cos[$CellContext`t$$], $CellContext`Af$$ 
+               Sin[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Sin[$CellContext`t$$]}}]}, PlotRange -> 2, 
+          ImageSize -> {500, 100}]}], 
+      "Specifications" :> {{{$CellContext`t$$, 5.0516809869723875`, "time"}, 
+         0, 6.28, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`Af$$, 1., "forward wave amplitude"}, 0, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`Ab$$, 1., "backward wave amplitude"}, 0, 
+         1, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{545., {254., 259.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->19016802],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Ab$$ = 0., $CellContext`Af$$ = 
+    1, $CellContext`t$$ = 6.006725153663685, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`t$$], 6.006725153663685, "time"}, 0, 6.28}, {{
+       Hold[$CellContext`Af$$], 1, "forward wave amplitude"}, 0, 1}, {{
+       Hold[$CellContext`Ab$$], 0., "backward wave amplitude"}, 0, 1}}, 
+    Typeset`size$$ = {500., {175., 180.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`t$44932$$ = 0, $CellContext`Af$44933$$ = 
+    0, $CellContext`Ab$44934$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Ab$$ = 0., $CellContext`Af$$ = 
+        1, $CellContext`t$$ = 6.006725153663685}, "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$44932$$, 0], 
+        Hold[$CellContext`Af$$, $CellContext`Af$44933$$, 0], 
+        Hold[$CellContext`Ab$$, $CellContext`Ab$44934$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Plot[{$CellContext`Af$$ 
+            Sin[$CellContext`x - $CellContext`t$$] + $CellContext`Ab$$ 
+            Sin[$CellContext`x + $CellContext`t$$], 
+           
+           Abs[$CellContext`Ab$$ 
+             E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+             E^((-I) ($CellContext`x + Pi/2))], -
+           Abs[$CellContext`Ab$$ 
+              E^(I ($CellContext`x + Pi/2)) + $CellContext`Af$$ 
+              E^((-I) ($CellContext`x + Pi/2))]}, {$CellContext`x, 0, 4 Pi}, 
+          PlotStyle -> {Red, {Dashed, Blue}, {Dashed, Blue}}, PlotRange -> 
+          2.001, ImageSize -> {500, 250}], 
+         Graphics[{Thick, 
+           Arrowheads[Medium], 
+           
+           Arrow[{{0, 
+             0}, {$CellContext`Af$$ 
+               Cos[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Cos[$CellContext`t$$], $CellContext`Af$$ 
+               Sin[-$CellContext`t$$] + $CellContext`Ab$$ 
+               Sin[$CellContext`t$$]}}]}, PlotRange -> 2, 
+          ImageSize -> {500, 100}]}], 
+      "Specifications" :> {{{$CellContext`t$$, 6.006725153663685, "time"}, 0, 
+         6.28, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`Af$$, 1, "forward wave amplitude"}, 0, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`Ab$$, 0., "backward wave amplitude"}, 0, 
+         1, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{545., {254., 259.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->578082678]
+}, Open  ]],
+
+Cell["", "DetailsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4813163056875*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.481915708118582*^9},
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9, 
+  3.481630201367371*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.481915706181082*^9},
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["optics", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.48225933973578*^9}},
+ CellID->8237928],
+
+Cell["wave", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.482259344947301*^9}},
+ CellID->68775931],
+
+Cell["waves", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.4822593469274993`*^9}},
+ CellID->369031302],
+
+Cell["partial standing waves", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.4822593498087873`*^9}},
+ CellID->568800209],
+
+Cell["standing waves", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.4822593522330294`*^9}},
+ CellID->603879804],
+
+Cell["light", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.482259354368243*^9}},
+ CellID->576029173],
+
+Cell["travelling wave", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.482259356870493*^9}},
+ CellID->202987106],
+
+Cell["electromagnetic", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.482255733921875*^9, 3.48225578071875*^9}, {
+   3.4822593391987267`*^9, 3.482259356868493*^9}},
+ CellID->92584899]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Phasor",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Phasor.html"], None},
+ ButtonNote->"http://mathworld.wolfram.com/Phasor.html"]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.481630217663023*^9, 3.481630222788228*^9}},
+ CellID->409581160],
+
+Cell[TextData[ButtonBox["Standing Wave",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://scienceworld.wolfram.com/physics/StandingWave.html"], None},
+ ButtonNote->
+  "http://scienceworld.wolfram.com/physics/StandingWave.html"]], \
+"RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4816302399489145`*^9, 3.4816302465691795`*^9}},
+ CellID->781905861]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Justin Dove",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Justin+Dove"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Justin+Dove"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.481316320203125*^9, 3.481316321359375*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1214, 728},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[28498, 636, 372, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[28873, 647, 678, 16, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[29554, 665, 340, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[29897, 678, 637, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[30537, 695, 906, 22, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[31446, 719, 393, 10, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[31842, 731, 1526, 32, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[33371, 765, 908, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 37556, 898},
+ {"RotateAndZoomIn3D", 37664, 901},
+ {"DragLocators", 37773, 904},
+ {"CreateAndDeleteLocators", 37888, 907},
+ {"SliderZoom", 38001, 910},
+ {"GamepadControls", 38106, 913},
+ {"AutomaticAnimation", 38219, 916},
+ {"BookmarkAnimation", 38335, 919}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 159, 3, 74, "DemoTitle"],
+Cell[729, 27, 33, 0, 287, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[787, 31, 29, 0, 194, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[841, 35, 5897, 138, 229, "Input"],
+Cell[6741, 175, 3543, 70, 525, "Output",
+ CellID->10852202]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10333, 251, 36, 0, 169, "ManipulateCaptionSection"],
+Cell[10372, 253, 1351, 20, 67, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11760, 278, 28, 0, 173, "ThumbnailSection"],
+Cell[11791, 280, 3221, 66, 525, "Output",
+ CellID->760402],
+Cell[15015, 348, 113, 2, 27, "Input",
+ CellID->1714523141]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15165, 355, 28, 0, 138, "SnapshotsSection"],
+Cell[15196, 357, 3296, 66, 527, "Output",
+ CellID->289967471],
+Cell[18495, 425, 3312, 66, 527, "Output",
+ CellID->272652571],
+Cell[21810, 493, 3295, 66, 527, "Output",
+ CellID->19016802],
+Cell[25108, 561, 3284, 66, 527, "Output",
+ CellID->578082678]
+}, Open  ]],
+Cell[28407, 630, 26, 0, 332, "DetailsSection"],
+Cell[CellGroupData[{
+Cell[28458, 634, 37, 0, 108, "ControlSuggestionsSection"],
+Cell[28498, 636, 372, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[28873, 647, 678, 16, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[29554, 665, 340, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[29897, 678, 637, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[30537, 695, 906, 22, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[31446, 719, 393, 10, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[31842, 731, 1526, 32, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[33371, 765, 908, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34316, 791, 30, 0, 152, "SearchTermsSection"],
+Cell[34349, 793, 187, 4, 22, "SearchTerms",
+ CellID->8237928],
+Cell[34539, 799, 187, 4, 22, "SearchTerms",
+ CellID->68775931],
+Cell[34729, 805, 191, 4, 22, "SearchTerms",
+ CellID->369031302],
+Cell[34923, 811, 208, 4, 22, "SearchTerms",
+ CellID->568800209],
+Cell[35134, 817, 200, 4, 22, "SearchTerms",
+ CellID->603879804],
+Cell[35337, 823, 189, 4, 22, "SearchTerms",
+ CellID->576029173],
+Cell[35529, 829, 199, 4, 22, "SearchTerms",
+ CellID->202987106],
+Cell[35731, 835, 198, 4, 22, "SearchTerms",
+ CellID->92584899]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35966, 844, 31, 0, 138, "RelatedLinksSection"],
+Cell[36000, 846, 317, 7, 22, "RelatedLinks",
+ CellID->409581160],
+Cell[36320, 855, 367, 9, 22, "RelatedLinks",
+ CellID->781905861]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36724, 869, 25, 0, 136, "AuthorSection"],
+Cell[36752, 871, 383, 11, 22, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

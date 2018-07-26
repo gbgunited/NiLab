@@ -1,0 +1,184 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5458,        174]
+NotebookOptionsPosition[      5064,        156]
+NotebookOutlinePosition[      5409,        171]
+CellTagsIndexPosition[      5366,        168]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "units", " ", "and", " ", "constants", " ", "for", " ", "trap", " ", 
+    "depth", " ", "mostly"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"kHz", "=", 
+     SuperscriptBox["10", "3"]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"nm", "=", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "9"}]]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mK", "=", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "3"}]]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"uK", "=", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "6"}]]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"us", "=", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "6"}]]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MHz", " ", "=", " ", 
+     SuperscriptBox["10", "6"]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ms", "=", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "3"}]]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"kB", "=", 
+     RowBox[{"1.38064852", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "23"}]]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[HBar]", "=", 
+     RowBox[{"1.0545718", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "34"}]]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"amu", "=", 
+     RowBox[{"1.66054", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "27"}]]}]}], ";"}], "\[IndentingNewLine]", 
+   StyleBox[
+    RowBox[{
+     RowBox[{"\[Lambda]trap", "=", 
+      RowBox[{"970", " ", "nm"}]}], ";"}],
+    Background->RGBColor[1, 1, 0]], "\[IndentingNewLine]", 
+   StyleBox[
+    RowBox[{
+     RowBox[{"m", "=", 
+      RowBox[{"132.90545", " ", "amu"}]}], ";"}],
+    Background->RGBColor[1, 1, 0]], 
+   StyleBox["\[IndentingNewLine]",
+    Background->RGBColor[1, 1, 0]], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"\[CapitalGamma]", " ", "=", 
+      RowBox[{"2", " ", "\[Pi]", " ", "5", "MHz"}]}], ";"}],
+    Background->RGBColor[1, 1, 0]], 
+   StyleBox["\[IndentingNewLine]",
+    Background->RGBColor[1, 1, 0]], 
+   RowBox[{
+    RowBox[{"U", " ", "=", 
+     RowBox[{"kB", " ", "1.2", "mK"}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{"\[HBar]", " ", 
+      FractionBox[
+       SuperscriptBox["\[CapitalOmega]", "2"], 
+       RowBox[{"4", " ", "\[CapitalDelta]"}]]}], "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalDelta]", "=", 
+     RowBox[{"\[CapitalDelta]", "/.", 
+      RowBox[{
+       RowBox[{"Solve", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"852", "nm", 
+           FractionBox["\[CapitalDelta]", 
+            RowBox[{"3", " ", 
+             SuperscriptBox["10", "8"]}]]}], "==", 
+          FractionBox[
+           RowBox[{"975", "-", "852"}], "852"]}], ",", "\[CapitalDelta]"}], 
+        "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "1"}], "]"}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"\[Gamma]s", 
+    RowBox[{"(*", 
+     RowBox[{"=", " ", 
+      FractionBox[
+       RowBox[{"\[CapitalGamma]", " ", 
+        SuperscriptBox["\[CapitalOmega]", "2"]}], 
+       RowBox[{"4", 
+        SuperscriptBox["\[CapitalDelta]", "2"]}]]}], "*)"}], " ", "=", " ", 
+    RowBox[{"\[CapitalGamma]", 
+     FractionBox["U", 
+      RowBox[{"\[HBar]", " ", "\[CapitalDelta]"}]]}]}], "\[IndentingNewLine]", 
+   RowBox[{"1.", " ", 
+    RowBox[{"1", "/", "100"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6856514102358055`*^9, 3.6856515073668056`*^9}, {
+  3.6856909421322017`*^9, 3.6856909504952016`*^9}, {3.6856910643572016`*^9, 
+  3.6856911344732018`*^9}, {3.6856911648592014`*^9, 3.6856911886822014`*^9}, {
+  3.6856916746492014`*^9, 3.6856916928212013`*^9}}],
+
+Cell[BoxData["97.09367064817171`"], "Output",
+ CellChangeTimes->{
+  3.6856911890882015`*^9, {3.6856916906122017`*^9, 3.6856916931522017`*^9}}],
+
+Cell[BoxData["0.01`"], "Output",
+ CellChangeTimes->{
+  3.6856911890882015`*^9, {3.6856916906122017`*^9, 3.6856916931532016`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"http", ":"}], "//", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"journals", ".", "aps", ".", "org"}], "/", "pra"}], "/", 
+       "pdf"}], "/", "10.1103"}], "/", "PhysRevA"}], 
+    RowBox[{".47", ".", "R4567"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.685690915655202*^9, 3.6856909166462016`*^9}}]
+},
+WindowSize->{778, 640},
+WindowMargins->{{219, Automatic}, {-17, Automatic}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3792, 109, 437, "Input"],
+Cell[4375, 133, 142, 2, 31, "Output"],
+Cell[4520, 137, 129, 2, 64, "Output"]
+}, Open  ]],
+Cell[4664, 142, 396, 12, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

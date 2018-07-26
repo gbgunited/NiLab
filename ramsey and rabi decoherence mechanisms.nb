@@ -1,0 +1,146 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4863,        137]
+NotebookOptionsPosition[      4618,        124]
+NotebookOutlinePosition[      4965,        139]
+CellTagsIndexPosition[      4922,        136]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "Two level system. \[CapitalOmega] (drive) and \[Delta] (detuning)\n\nfrom \
+Yichao:\nRabi: when you look for resonance you actually sit@ \[Delta] -> \
+\[Delta]0 - \[Delta]'\n\n\[Delta]0 = free space value\n\[Delta]\
+\[CloseCurlyQuote] = Ac stark shift, coming from 1) beam power and 2) matrix \
+Element\n\[CapitalDelta]\[Delta]\[CloseCurlyQuote] =  fluctuations due to eg. \
+beam power fluctuations--also results in \[CapitalDelta]\[CapitalOmega]\n\
+\[CapitalDelta]\[Delta]0 =  fluctuations due to eg. B field fluctuations\n\n",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[CapitalOmega]", "+", "\[CapitalDelta]\[CapitalOmega]"}], 
+       ")"}], "2"], "+", " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\[Delta]0", "-", 
+          RowBox[{"\[Delta]", "'"}]}], ")"}], "+", "\[CapitalDelta]\[Delta]0",
+         "+", 
+        RowBox[{"\[CapitalDelta]\[Delta]", "'"}]}], ")"}], "2"]}]], 
+   TraditionalForm]]],
+ "\n\[Delta]0-\[Delta]\[CloseCurlyQuote] = 0 on Rabi resonance.\n\n=",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[CapitalOmega]", "+", "\[CapitalDelta]\[CapitalOmega]"}], 
+       ")"}], "2"], "+", " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[CapitalDelta]\[Delta]0", "+", 
+        RowBox[{"\[CapitalDelta]\[Delta]", "'"}]}], ")"}], "2"]}]], 
+   TraditionalForm]]],
+ "\n~",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["\[CapitalOmega]", "2"], "+", 
+     RowBox[{"2", "\[CapitalOmega]\[CapitalDelta]\[CapitalOmega]"}], "+", " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[CapitalDelta]\[Delta]0", "+", 
+        RowBox[{"\[CapitalDelta]\[Delta]", "'"}]}], ")"}], "2"]}]], 
+   TraditionalForm]]],
+ " (to first order in \[CapitalDelta]\[CapitalOmega])\n=",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalOmega]", 
+    SqrtBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        FractionBox[
+         RowBox[{"2", "\[CapitalDelta]\[CapitalOmega]"}], 
+         "\[CapitalOmega]"]}], ")"}], "+", " ", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"\[CapitalDelta]\[Delta]0", "+", 
+          RowBox[{"\[CapitalDelta]\[Delta]", "'"}]}], ")"}], "2"], 
+       SuperscriptBox["\[CapitalOmega]", "2"]]}]]}], TraditionalForm]]],
+ "\n~ ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalOmega]", "+", 
+    RowBox[{"2", "\[CapitalDelta]\[CapitalOmega]"}], "+", " ", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[CapitalDelta]\[Delta]0", "+", 
+        RowBox[{"\[CapitalDelta]\[Delta]", "'"}]}], ")"}], "2"], 
+     RowBox[{"2", "\[CapitalOmega]"}]]}], TraditionalForm]]],
+ "\n\n\nfluctuation in rabi rates ~ ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"2", "\[CapitalDelta]\[CapitalOmega]"}], "+", " ", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[CapitalDelta]\[Delta]0", "+", 
+        RowBox[{"\[CapitalDelta]\[Delta]", "'"}]}], ")"}], "2"], 
+     RowBox[{"2", "\[CapitalOmega]"}]]}], TraditionalForm]]],
+ "\n\nby contrast: fluctuation in ramsey rates: \[CapitalDelta]\[Delta]0+\
+\[CapitalDelta]\[Delta]\[CloseCurlyQuote]\n\nBy measuring both, you can \
+deduce if \[CapitalDelta]\[CapitalOmega] is a dominant decoherence mechanism \
+or not. \n\n\n\[CapitalDelta]\[Phi](t) fluctuations in phase of drive: \
+\[CapitalOmega]->\[CapitalOmega]+\[CapitalDelta]\[Phi]\[CloseCurlyQuote](t)\n"
+}], "Text",
+ CellChangeTimes->{{3.688534679839878*^9, 3.688535097303912*^9}, {
+  3.6885351384790125`*^9, 3.6885351973231564`*^9}, {3.6885352819033785`*^9, 
+  3.688535326663495*^9}, {3.688536352946597*^9, 3.6885364671521287`*^9}, {
+  3.6885364972218485`*^9, 3.688536497981892*^9}, {3.6885365455196114`*^9, 
+  3.688536560514469*^9}, {3.6885369670567217`*^9, 3.6885370072960234`*^9}, {
+  3.6885371101199045`*^9, 3.6885371479600687`*^9}, {3.688537591097415*^9, 
+  3.6885376357669697`*^9}}]
+},
+WindowSize->{767, 873},
+WindowMargins->{{Automatic, 487}, {-86, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4056, 102, 640, "Text"]
+}
+]
+*)
+
+(* End of internal cache information *)

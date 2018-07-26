@@ -1,0 +1,85 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2158,         75]
+NotebookOptionsPosition[      1842,         59]
+NotebookOutlinePosition[      2188,         74]
+CellTagsIndexPosition[      2145,         71]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "200", ",", "175", ",", "150", ",", "225", ",", "50", ",", "25", ",", 
+        "100", ",", "75", ",", "125"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "60", ",", "40", ",", "24", ",", "48", ",", "36", ",", "44", ",", "36",
+         ",", "44", ",", "32"}], "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "80"}], "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.631869389348093*^9, 3.6318694611461997`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     PointBox[{{200., 60.}, {175., 40.}, {150., 24.}, {225., 48.}, {50., 
+      36.}, {25., 44.}, {100., 36.}, {75., 44.}, {125., 32.}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{None, None},
+  AxesOrigin->{50., 0},
+  Method->{},
+  PlotRange->{All, {0, 100}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.63186943650179*^9, 3.63186945275972*^9}}]
+}, Open  ]]
+},
+WindowSize->{707, 843},
+WindowMargins->{{Automatic, -963}, {28, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 692, 19, 72, "Input"],
+Cell[1274, 43, 552, 13, 259, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

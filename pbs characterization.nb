@@ -1,0 +1,431 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     15545,        422]
+NotebookOptionsPosition[     14463,        379]
+NotebookOutlinePosition[     14844,        395]
+CellTagsIndexPosition[     14801,        392]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+angle>0 means >45 degrees inc. on PBS interface thingy
+a=between last 2 cubes
+b= reflected port of last cube
+c = transmitted port of last cube\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6387548946775336`*^9, 3.6387549763392043`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"angle", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "92", ",", "94.5", ",", "84", ",", "104", ",", "96", ",", "74", ",", 
+      "64", ",", "89"}], "}"}], "-", "84"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "4.53", ",", "3.98", ",", "2.6", ",", "4.31", ",", "3.63", ",", "2.96", 
+     ",", "4.65"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    ".224", ",", ".239", ",", ".216", ",", ".13", ",", ".225", ",", ".181", 
+     ",", ".15", ",", ".235"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"c", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "4.03", ",", "4.14", ",", "3.7", ",", "2.45", ",", "4.03", ",", "3.33", 
+      ",", "2.76", ",", "4.29"}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6387547468880806`*^9, 3.63875486349375*^9}, {
+  3.638754905663162*^9, 3.6387549066232166`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+normal cubes.
+a could be unreliable b/c the second cube was changign the position of the \
+beam on the power meter. Can use the sum of c and d to check. Also, at large \
+cube angles, the detection cube is no longer normal...\
+\>", "Subtitle",
+ CellChangeTimes->{{3.638767212083049*^9, 3.638767227858951*^9}, {
+  3.638767465883566*^9, 3.638767505810849*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"angle", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "85", ",", "90", ",", "95", ",", "100", ",", "105", ",", "110", ",", 
+      "108", ",", "94.5", ",", "89", ",", "80", ",", "75", ",", "70", ",", 
+      "82", ",", "82", ",", "84", ",", "68", ",", "78", ",", "76", ",", 
+      "74"}], "}"}], "-", "85"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "4.35", ",", "4.75", ",", "4.78", ",", "2.72", ",", "2.78", ",", "3.04", 
+     ",", "4.43", ",", "4.51", ",", "4.65", ",", "4.05", ",", "3.93", ",", 
+     "1.88", ",", "4.23", ",", "3.9", ",", "4.27", ",", "3.43", ",", "4", ",",
+      "3.74", ",", "3.55"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "4.02", ",", "4.4", ",", "4.45", ",", "2.6", ",", "2.68", ",", "2.87", 
+     ",", "4.32", ",", "4.23", ",", "4.3", ",", "3.7", ",", "3.38", ",", 
+     "3.22", ",", "3.92", ",", "3.65", ",", "3.95", ",", "3.25", ",", "3.71", 
+     ",", "3.48", ",", "3.4"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "21", ",", "23", ",", "24", ",", "13", ",", "12", ",", "15.4", ",", "22",
+       ",", "21", ",", "22", ",", "11", ",", "25", ",", "12", ",", "19", ",", 
+      "21", ",", "24", ",", "10", ",", "12", ",", "20", ",", "11"}], "}"}], 
+    "/", "1000"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "405", ",", "73", ",", "54", ",", "1900", ",", "2100", ",", "1800", ",", 
+      "8.7", ",", "21", ",", "10.8", ",", "600", ",", "950", ",", "1200", ",",
+       "590", ",", "550", ",", "520", ",", "1500", ",", "750", ",", "860", 
+      ",", "970"}], "}"}], "/", "1000"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.638767228486987*^9, 3.6387674446383505`*^9}, 
+   3.6387675988171687`*^9, {3.6387692032009344`*^9, 3.6387692561929655`*^9}, {
+   3.6387692896518793`*^9, 3.638769292025015*^9}, {3.6387694343691564`*^9, 
+   3.6387695366290054`*^9}, {3.638769623066949*^9, 3.6387696567538757`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+check that the max and min transmission sum up to a).
+concl: the -15 deg. incidence. the beam must be clipping on the power meter \
+to be less than the sum, for the a) value. \
+\>", "Subtitle",
+ CellChangeTimes->{{3.638767628122845*^9, 3.638767642914691*^9}, {
+  3.6387677742032003`*^9, 3.6387677805635643`*^9}, {3.638767853858756*^9, 
+  3.6387678801392593`*^9}, {3.6387679270909452`*^9, 3.638767938555601*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Sort", "[", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"angle", ",", 
+       RowBox[{"100", " ", 
+        FractionBox[
+         RowBox[{"a", "-", 
+          RowBox[{"(", 
+           RowBox[{"c", "+", "d"}], ")"}]}], 
+         RowBox[{"c", "+", "d"}]]}]}], "}"}], "]"}], "]"}], ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<angle from normal [deg]\>\"", ",", "\"\<percent difference\>\""}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6387676540503283`*^9, 3.6387677219272103`*^9}, {
+  3.6387677844707875`*^9, 3.63876784483224*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQDQGGB048PjrtwW0RBwhf78AvN5EZJa9cDkD4agfe
+ap62v+UjAJVXOSAZsPm16zU9KF/pwKNtube35UpD+TIHFm44UxDzQBbKFzng
+fPCTvbyrEpTPceDZv/xrpz9LwPmLzV5Yfu+Bqf+wP8T6ooXuaRifgSFlg4KM
+yjQ5KF/AQee3Rb95NIwv4mDQ/2vj7Ekw9coO91s/THoRBzNfxaHpm1/aqmiY
++/QcrnxbKmWQCPOPiYO18c2lZ9S4oHxzh1ln7x7dZsYA5Vs6mL1Y8GdmnqgD
+AG2dVq0=
+     "]]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0., 0.},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"percent difference\"", TraditionalForm], None}, {
+     FormBox["\"angle from normal [deg]\"", TraditionalForm], None}},
+  Method->{},
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{{3.6387676617307673`*^9, 3.6387677221642237`*^9}, {
+   3.638767791422185*^9, 3.63876780111874*^9}, 3.638767846370328*^9, 
+   3.638769539616176*^9, 3.6387696591200113`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+as a function of angle, plot the total and percent power reflected by the \
+cube to see the minima in relflection..
+concl: 3 minima, at 4,9,and 25 deg.\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6387679913316193`*^9, 3.638768027338679*^9}, {
+  3.638768107363256*^9, 3.6387681115154934`*^9}, {3.638768149970693*^9, 
+  3.6387681722589684`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ListPlot", "[", 
+      RowBox[{
+       RowBox[{"Sort", "@", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"{", 
+          RowBox[{"angle", ",", " ", "b"}], "}"}], "]"}]}], ",", 
+       RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+       RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+       RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+       RowBox[{"FrameLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<angle [deg]\>\"", ",", "\"\<power refl [uW]\>\""}], 
+         "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ListPlot", "[", 
+      RowBox[{
+       RowBox[{"Sort", "@", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"{", 
+          RowBox[{"angle", ",", " ", 
+           FractionBox["b", 
+            RowBox[{"b", "+", "c", "+", "d"}]]}], "}"}], "]"}]}], ",", 
+       RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+       RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+       RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+       RowBox[{"FrameLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<angle [deg]\>\"", ",", "\"\<% power refl [uW]\>\""}], 
+         "}"}]}]}], "]"}]}], "}"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6387680316909275`*^9, 3.6387680578774257`*^9}, {
+  3.638768114533666*^9, 3.6387681454874363`*^9}, {3.63876818120348*^9, 
+  3.638768191192051*^9}, {3.6387683348882694`*^9, 3.63876839871292*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     GraphicsBox[{{}, 
+       {RGBColor[0.24720000000000014`, 0.24, 0.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQDQGGByD0D3sIrXfAGAw+Q/lqB7iuLy6w5XoP5asc
+SAODd1C+0oHW14E75FpfQ/kyUPNeQPkiUPMeQ/kcB2bNBIGHcP7DKpF17g8f
+Qfkf9i8B2nZ98QN7mAvfgI2/CeULOKy7EV/mL9cGM9/h8dLZRxQ2bILylR2k
+9e+qsDVOhbnX4ea578GPl66G+c8B4v5/UL6Jw9kzIMDgAOGbO6wwPWvtd7ER
+Km8Jlf9jDwACqlUq
+         "]]}, {}},
+      AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+      AxesOrigin->{0., 0},
+      Frame->True,
+      FrameLabel->{{
+         FormBox["\"power refl [uW]\"", TraditionalForm], None}, {
+         FormBox["\"angle [deg]\"", TraditionalForm], None}},
+      Method->{},
+      PlotRange->{{-17., 25.}, {0, 2.1}},
+      PlotRangeClipping->True,
+      PlotRangePadding->{{0.84, 0.84}, {0.042, 0.042}}], {192., -116.80842387373012`},
+      ImageScaled[{0.5, 0.5}], {360., 222.49223594996212`}], InsetBox[
+     GraphicsBox[{{}, 
+       {RGBColor[0.24720000000000014`, 0.24, 0.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQDQGGB0rYtIHoij2Er3dg973JDyRDLkL5agfK30lz
+6YefgfJVDiQYvmhjfnMaylc68GOy6oZM+5NQvsyBP6IGku3lR6F8kQOXpyYf
+nXPhIJTPceD7/El2e9ccgPN3nj3wc9NaGP/D/oLf059pzN9rD3OhfKnmiweB
+26F8AQf++g8mKdkpMPMdvrxuLQ1fMAHKV3ZwEuwKaFEqgbnX4TzjLdnenA6Y
+/xzMuM4IH/54C8o3cbhy/WLxd+47UL65w6O5VwUWJiZA+ZYOt5k057pNu2EP
+AJc1Wh4=
+         "]]}, {}},
+      AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+      AxesOrigin->{0., 0},
+      Frame->True,
+      FrameLabel->{{
+         FormBox["\"% power refl [uW]\"", TraditionalForm], None}, {
+         FormBox["\"angle [deg]\"", TraditionalForm], None}},
+      Method->{},
+      PlotRange->{{-17., 25.}, {0, 0.43823038397328884`}},
+      PlotRangeClipping->True,
+      PlotRangePadding->{{0.84, 0.84}, {0.008764607679465778, 
+       0.008764607679465778}}], {576., -116.80842387373012`}, 
+     ImageScaled[{0.5, 0.5}], {360., 222.49223594996212`}]}, {}},
+  ContentSelectable->True,
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{{3.6387680453807106`*^9, 3.6387680581064386`*^9}, {
+   3.6387681311716175`*^9, 3.638768145982465*^9}, 3.638768191489068*^9, {
+   3.6387683809509044`*^9, 3.638768398986936*^9}, 3.6387696730018053`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+look at extinction as a fn of angle. \
+\>", "Subtitle",
+ CellChangeTimes->{{3.6387682042757993`*^9, 3.63876821110719*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Sort", "@", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"angle", ",", " ", 
+       FractionBox["c", "d"]}], "}"}], "]"}]}], ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<angle [deg]\>\"", ",", "\"\< Tp/Ts (should be 1000)\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Sort", "@", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"angle", ",", "b"}], "}"}], "]"}]}], ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<angle [deg]\>\"", ",", "\"\<% power refl [uW]\>\""}], 
+     "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6387682201247053`*^9, 3.6387682702205706`*^9}, {
+   3.6387683181193104`*^9, 3.6387683250077047`*^9}, {3.6387684121496887`*^9, 
+   3.6387684407943273`*^9}, {3.6387684856258917`*^9, 
+   3.6387685416580963`*^9}, {3.6387698762504306`*^9, 3.638769889930213*^9}, {
+   3.6387699663295827`*^9, 3.638769996330299*^9}, 3.638770634971827*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQDQGGB8BUQIkDhK93IBQEjhZA+WoHLrqKx5YEFkP5
+KgfSQOBZApSvBNF/IBXKlzmwCgSCYOpFDrgBtV9kLYXyOQ7Mf1457/nOVDh/
+4Z62T1KnMqH8D/tXg/RPSnGAufD2ttzb296mQ/kCDnq7XizqzsuAme9w/8sy
+870vYfLKDndA6nVh5qk4gP2jC5PXg9IweRMHsH2vsqF8c4cesAUw8y0dukF8
+73QHAM05Uik=
+     "]]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  AxesOrigin->{0., 135.2},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\" Tp/Ts (should be 1000)\"", TraditionalForm], None}, {
+     FormBox["\"angle [deg]\"", TraditionalForm], None}},
+  ImageSize->{387., Automatic},
+  Method->{},
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{{3.6387682424289813`*^9, 3.638768270341578*^9}, 
+   3.638768325312722*^9, 3.6387684872569847`*^9, {3.638768519678839*^9, 
+   3.638768541940112*^9}, 3.6387696766390133`*^9, {3.6387699715848837`*^9, 
+   3.638769996723321*^9}, 3.638770635172838*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQDQGGByD0D3sIrXfAGAw+Q/lqB7iuLy6w5XoP5asc
+SAODd1C+0oHW14E75FpfQ/kyUPNeQPkiUPMeQ/kcB2bNBIGHcP7DKpF17g8f
+Qfkf9i8B2nZ98QN7mAvfgI2/CeULOKy7EV/mL9cGM9/h8dLZRxQ2bILylR2k
+9e+qsDVOhbnX4ea578GPl66G+c8B4v5/UL6Jw9kzIMDgAOGbO6wwPWvtd7ER
+Km8Jlf9jDwACqlUq
+     "]]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  AxesOrigin->{0., 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"% power refl [uW]\"", TraditionalForm], None}, {
+     FormBox["\"angle [deg]\"", TraditionalForm], None}},
+  ImageSize->{387., Automatic},
+  Method->{},
+  PlotRange->{{-17., 25.}, {0, 2.1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.84, 0.84}, {0.042, 0.042}}]], "Output",
+ CellChangeTimes->{{3.6387682424289813`*^9, 3.638768270341578*^9}, 
+   3.638768325312722*^9, 3.6387684872569847`*^9, {3.638768519678839*^9, 
+   3.638768541940112*^9}, 3.6387696766390133`*^9, {3.6387699715848837`*^9, 
+   3.638769996723321*^9}, 3.6387706351918397`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 867},
+WindowMargins->{{174, Automatic}, {Automatic, 40}},
+Magnification->1.2000000476837158`,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 240, 6, 231, "Subtitle"],
+Cell[822, 30, 1037, 29, 152, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1896, 64, 367, 7, 273, "Subtitle"],
+Cell[2266, 73, 2142, 47, 290, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4445, 125, 421, 7, 151, "Subtitle"],
+Cell[CellGroupData[{
+Cell[4891, 136, 810, 22, 114, "Input"],
+Cell[5704, 160, 947, 21, 297, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6700, 187, 349, 7, 190, "Subtitle"],
+Cell[CellGroupData[{
+Cell[7074, 198, 1473, 35, 226, "Input"],
+Cell[8550, 235, 2219, 46, 160, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10818, 287, 132, 3, 66, "Subtitle"],
+Cell[CellGroupData[{
+Cell[10975, 294, 1410, 33, 201, "Input"],
+Cell[12388, 329, 979, 21, 319, "Output"],
+Cell[13370, 352, 1065, 23, 321, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

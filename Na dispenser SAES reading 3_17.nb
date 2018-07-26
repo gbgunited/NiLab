@@ -1,0 +1,222 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7822,        213]
+NotebookOptionsPosition[      7503,        197]
+NotebookOutlinePosition[      7848,        212]
+CellTagsIndexPosition[      7805,        209]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<ErrorBarPlots`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ints", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1.5", ",", "1.8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.8", ",", "2.0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.8", ",", "2.0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.7", ",", "1.8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.7", ",", "1.8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.5", ",", "1.8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.4", ",", "1.7"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.2", ",", "1.4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.1", ",", "1.2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.0", ",", "1.2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.0", ",", "1.2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1.0", ",", "1.0"}], "}"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"meanpressures", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Mean", "[", "#", "]"}], "&"}], "/@", "Ints"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Errs", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox[
+       RowBox[{"Differences", "[", "#", "]"}], "2"], "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "&"}], "/@", "Ints"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"errbars", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ErrorBar", "[", "#", "]"}], "&"}], "/@", "Errs"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"times", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "10", ",", "27", ",", "36", ",", "46", ",", "54", ",", "69", 
+     ",", "86", ",", "92", ",", "107", ",", "114", ",", "147"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dat", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"times", ",", "meanpressures"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"daterr", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"dat", ",", "errbars"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ErrorListPlot", "[", 
+  RowBox[{"daterr", ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{".8", ",", "2"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<time[min]\>\"", ",", "\"\<SAES reading [e-10 Torr]\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Thickness", "[", "0.01", "]"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6356325504328947`*^9, 3.63563269598822*^9}, {
+  3.6356330826453357`*^9, 3.63563345337554*^9}, {3.6356336306046767`*^9, 
+  3.6356336394991856`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], Thickness[0.01], 
+     PointBox[{{0., 1.65}, {10., 1.9}, {27., 1.9}, {36., 1.75}, {46., 1.75}, {
+      54., 1.65}, {69., 1.5499999999999998`}, {86., 1.2999999999999998`}, {
+      92., 1.15}, {107., 1.1}, {114., 1.1}, {147., 
+      1.}}], {{LineBox[{{0., 1.7999999999999998`}, {0., 1.5}}], 
+       LineBox[{
+        Offset[{1.5, 0}, {0., 1.7999999999999998`}], 
+         Offset[{-1.5, 0}, {0., 1.7999999999999998`}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {0., 1.5}], Offset[{-1.5, 0}, {0., 1.5}]}]}, {
+       LineBox[{{10., 2.}, {10., 1.7999999999999998`}}], 
+       LineBox[{Offset[{1.5, 0}, {10., 2.}], Offset[{-1.5, 0}, {10., 2.}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {10., 1.7999999999999998`}], 
+         Offset[{-1.5, 0}, {10., 1.7999999999999998`}]}]}, {
+       LineBox[{{27., 2.}, {27., 1.7999999999999998`}}], 
+       LineBox[{Offset[{1.5, 0}, {27., 2.}], Offset[{-1.5, 0}, {27., 2.}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {27., 1.7999999999999998`}], 
+         Offset[{-1.5, 0}, {27., 1.7999999999999998`}]}]}, {
+       LineBox[{{36., 1.8}, {36., 1.7}}], 
+       LineBox[{Offset[{1.5, 0}, {36., 1.8}], Offset[{-1.5, 0}, {36., 1.8}]}],
+        LineBox[{
+        Offset[{1.5, 0}, {36., 1.7}], Offset[{-1.5, 0}, {36., 1.7}]}]}, {
+       LineBox[{{46., 1.8}, {46., 1.7}}], 
+       LineBox[{Offset[{1.5, 0}, {46., 1.8}], Offset[{-1.5, 0}, {46., 1.8}]}],
+        LineBox[{
+        Offset[{1.5, 0}, {46., 1.7}], Offset[{-1.5, 0}, {46., 1.7}]}]}, {
+       LineBox[{{54., 1.7999999999999998`}, {54., 1.5}}], 
+       LineBox[{
+        Offset[{1.5, 0}, {54., 1.7999999999999998`}], 
+         Offset[{-1.5, 0}, {54., 1.7999999999999998`}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {54., 1.5}], Offset[{-1.5, 0}, {54., 1.5}]}]}, {
+       LineBox[{{69., 1.6999999999999997`}, {69., 1.4}}], 
+       LineBox[{
+        Offset[{1.5, 0}, {69., 1.6999999999999997`}], 
+         Offset[{-1.5, 0}, {69., 1.6999999999999997`}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {69., 1.4}], Offset[{-1.5, 0}, {69., 1.4}]}]}, {
+       LineBox[{{86., 1.4}, {86., 1.1999999999999997`}}], 
+       LineBox[{Offset[{1.5, 0}, {86., 1.4}], Offset[{-1.5, 0}, {86., 1.4}]}],
+        LineBox[{
+        Offset[{1.5, 0}, {86., 1.1999999999999997`}], 
+         Offset[{-1.5, 0}, {86., 1.1999999999999997`}]}]}, {
+       LineBox[{{92., 1.1999999999999997`}, {92., 1.1}}], 
+       LineBox[{
+        Offset[{1.5, 0}, {92., 1.1999999999999997`}], 
+         Offset[{-1.5, 0}, {92., 1.1999999999999997`}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {92., 1.1}], Offset[{-1.5, 0}, {92., 1.1}]}]}, {
+       LineBox[{{107., 1.2000000000000002`}, {107., 1.}}], 
+       LineBox[{
+        Offset[{1.5, 0}, {107., 1.2000000000000002`}], 
+         Offset[{-1.5, 0}, {107., 1.2000000000000002`}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {107., 1.}], Offset[{-1.5, 0}, {107., 1.}]}]}, {
+       LineBox[{{114., 1.2000000000000002`}, {114., 1.}}], 
+       LineBox[{
+        Offset[{1.5, 0}, {114., 1.2000000000000002`}], 
+         Offset[{-1.5, 0}, {114., 1.2000000000000002`}]}], 
+       LineBox[{
+        Offset[{1.5, 0}, {114., 1.}], 
+         Offset[{-1.5, 0}, {114., 1.}]}]}, {}}}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0, 0.8},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"SAES reading [e-10 Torr]\"", TraditionalForm], None}, {
+     FormBox["\"time[min]\"", TraditionalForm], None}},
+  Method->{},
+  PlotRange->{All, {0.8, 2}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.6356326911599436`*^9, {3.6356331059696693`*^9, 3.6356331121760244`*^9}, {
+   3.6356331619978743`*^9, 3.63563318081295*^9}, 3.6356332467487216`*^9, {
+   3.6356332917802973`*^9, 3.6356334112261295`*^9}, {3.6356334412808485`*^9, 
+   3.6356334539495726`*^9}, 3.635633639719198*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 857},
+WindowMargins->{{558, Automatic}, {Automatic, 64}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 2951, 89, 308, "Input"],
+Cell[3533, 113, 3954, 81, 256, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,218 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      6906,        209]
+NotebookOptionsPosition[      6170,        179]
+NotebookOutlinePosition[      6515,        194]
+CellTagsIndexPosition[      6472,        191]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "expand the potential (~intensity) to second order in the radial and axial \
+directions. (Coefficient of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["r", "2"], ",", " ", 
+      SuperscriptBox["z", "2"]}], " ", ")"}], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "is proportional to ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["k", 
+    RowBox[{"r", ",", "z"}]], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " ~ ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    SubscriptBox["\[Omega]", 
+     RowBox[{"r", ",", "z"}]], "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Subtitle",
+ CellChangeTimes->{{3.6804228473642244`*^9, 3.680422848931314*^9}, {
+  3.680422892674816*^9, 3.6804229630278397`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"w0", ",", "zR", ",", "NA"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Normal", "[", 
+  RowBox[{"Series", "[", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"Exp", "[", 
+      RowBox[{"-", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox["x", "w0"], ")"}], "2"]}], "]"}], "2"], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "2"}], "}"}]}], "]"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Normal", "[", 
+  RowBox[{"Series", "[", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox["1", 
+       SqrtBox[
+        RowBox[{"1", "+", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           FractionBox["z", "zR"], ")"}], "2"]}]]], ")"}], "2"], ",", 
+    RowBox[{"{", 
+     RowBox[{"z", ",", "0", ",", "2"}], "}"}]}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.680421966866863*^9, 3.6804220176697683`*^9}, {
+  3.6804220714948473`*^9, 3.68042207224589*^9}, {3.6804221536385455`*^9, 
+  3.6804221611179733`*^9}, {3.680422196230982*^9, 3.6804222014302793`*^9}, {
+  3.6804224532146807`*^9, 3.6804224573099146`*^9}, {3.6804228406308393`*^9, 
+  3.680422845938143*^9}, {3.6804231348756695`*^9, 3.680423135346696*^9}}],
+
+Cell[BoxData[
+ RowBox[{"1", "-", 
+  FractionBox[
+   RowBox[{"2", " ", 
+    SuperscriptBox["x", "2"]}], 
+   SuperscriptBox["w0", "2"]]}]], "Output",
+ CellChangeTimes->{{3.6804219870500174`*^9, 3.680422017815777*^9}, 
+   3.6804220726159115`*^9, {3.6804221540145674`*^9, 3.6804221613409863`*^9}, {
+   3.680422196361989*^9, 3.680422201549286*^9}, 3.680422457545928*^9, 
+   3.6804228416268964`*^9, {3.680423123334009*^9, 3.6804231356637144`*^9}, 
+   3.6804232054387054`*^9, 3.6804235007035933`*^9}],
+
+Cell[BoxData[
+ RowBox[{"1", "-", 
+  FractionBox[
+   SuperscriptBox["z", "2"], 
+   SuperscriptBox["zR", "2"]]}]], "Output",
+ CellChangeTimes->{{3.6804219870500174`*^9, 3.680422017815777*^9}, 
+   3.6804220726159115`*^9, {3.6804221540145674`*^9, 3.6804221613409863`*^9}, {
+   3.680422196361989*^9, 3.680422201549286*^9}, 3.680422457545928*^9, 
+   3.6804228416268964`*^9, {3.680423123334009*^9, 3.6804231356637144`*^9}, 
+   3.6804232054387054`*^9, 3.680423500707594*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+ratio of trap freqs in terms of NA\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6804236161631975`*^9, 3.68042362128349*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Omega]r", "=", 
+   SqrtBox[
+    FractionBox["2", 
+     SuperscriptBox["w0", "2"]]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Omega]z", "=", 
+   SqrtBox[
+    FractionBox["1", 
+     SuperscriptBox["zR", "2"]]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"zR", " ", "=", 
+   RowBox[{"w0", "/", "NA"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"\[Omega]r", "/", "\[Omega]z"}], ",", 
+   RowBox[{"NA", "\[Element]", "Reals"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"%", "/.", 
+  RowBox[{"NA", "\[Rule]", "0.55"}]}], "\[IndentingNewLine]", 
+ RowBox[{"%%", "/.", 
+  RowBox[{"NA", "\[Rule]", "0.6"}]}]}], "Input",
+ CellChangeTimes->{{3.6804229710793004`*^9, 3.6804231154245567`*^9}, {
+  3.6804231795772257`*^9, 3.6804231949491053`*^9}, {3.6804234981894493`*^9, 
+  3.6804236066636543`*^9}, {3.680423962493006*^9, 3.680423977716877*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  SqrtBox["2"], 
+  RowBox[{"Abs", "[", "NA", "]"}]]], "Output",
+ CellChangeTimes->{{3.680423195152117*^9, 3.6804232062387505`*^9}, {
+  3.680423501764654*^9, 3.6804235272861137`*^9}, {3.6804235743518057`*^9, 
+  3.680423585357435*^9}, {3.68042396273202*^9, 3.6804239797449927`*^9}}],
+
+Cell[BoxData["2.5712973861329003`"], "Output",
+ CellChangeTimes->{{3.680423195152117*^9, 3.6804232062387505`*^9}, {
+  3.680423501764654*^9, 3.6804235272861137`*^9}, {3.6804235743518057`*^9, 
+  3.680423585357435*^9}, {3.68042396273202*^9, 3.680423979746993*^9}}],
+
+Cell[BoxData["2.3570226039551585`"], "Output",
+ CellChangeTimes->{{3.680423195152117*^9, 3.6804232062387505`*^9}, {
+  3.680423501764654*^9, 3.6804235272861137`*^9}, {3.6804235743518057`*^9, 
+  3.680423585357435*^9}, {3.68042396273202*^9, 3.6804239797479935`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+with NA=0.6, adam gets 150/30 = 4.83 (off by factor of 2) 
+with NA = 0.55, we get 76/12 = 6.3
+
+taking into account this mysterious factor of 2 we should get 
+(120/2.57/2)= 23kHz if we do a really good job aligning the objective. 
+currently we probably will get 120*76/12 = 19kHz. worth the extra effort i\
+\[CloseCurlyQuote]d say.\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6804236246036797`*^9, 3.6804236539713593`*^9}, {
+  3.680424023987523*^9, 3.680424073707367*^9}, {3.6804242039308157`*^9, 
+  3.680424267563455*^9}, {3.6804243020294266`*^9, 3.6804243483770776`*^9}}]
+},
+WindowSize->{707, 857},
+WindowMargins->{{Automatic, 173}, {60, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 800, 26, 128, "Subtitle"],
+Cell[CellGroupData[{
+Cell[1404, 52, 1210, 32, 162, "Input"],
+Cell[2617, 86, 493, 10, 50, "Output"],
+Cell[3113, 98, 466, 9, 50, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3628, 113, 129, 3, 56, "Subtitle"],
+Cell[CellGroupData[{
+Cell[3782, 120, 938, 24, 188, "Input"],
+Cell[4723, 146, 308, 6, 53, "Output"],
+Cell[5034, 154, 261, 3, 31, "Output"],
+Cell[5298, 159, 263, 3, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[5588, 166, 578, 11, 301, "Subtitle"]
+}
+]
+*)
+
+(* End of internal cache information *)

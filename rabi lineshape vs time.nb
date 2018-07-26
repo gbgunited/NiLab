@@ -1,0 +1,223 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7841,        214]
+NotebookOptionsPosition[      7413,        194]
+NotebookOutlinePosition[      7758,        209]
+CellTagsIndexPosition[      7715,        206]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fR0", "=", 
+   RowBox[{"500", "/", "30"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f00", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fRSB", "=", 
+   RowBox[{"-", "100"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fBSB", "=", 
+   RowBox[{
+    RowBox[{"2", " ", "78"}], "+", "fRSB"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Eta]", "=", ".25"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"env", "=", 
+   RowBox[{
+    RowBox[{"Exp", "[", 
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"f", "-", "f0"}], ")"}], "2"], 
+       RowBox[{"2", 
+        SuperscriptBox["\[Sigma]", "2"]}]]}], "]"}], "/.", 
+    RowBox[{"\[Sigma]", "\[Rule]", 
+     FractionBox[
+      RowBox[{"2", " ", "fR"}], 
+      RowBox[{"2", 
+       SqrtBox[
+        RowBox[{"2", 
+         RowBox[{"Log", "[", "2", "]"}]}]]}]]}]}]}], ";", 
+  FractionBox[
+   SuperscriptBox["fR", "2"], 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"f", "-", "f0"}], ")"}], "2"], "+", 
+    SuperscriptBox["fR", "2"]}]], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"peaks", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"env", " ", 
+       SuperscriptBox[
+        RowBox[{"Sin", "[", 
+         FractionBox[
+          RowBox[{"2", "\[Pi]", " ", 
+           SqrtBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"f", "-", "f0"}], ")"}], "2"], "+", 
+             SuperscriptBox["fR", "2"]}]], "t"}], "2"], "]"}], "2"]}], "/.", 
+      "#"}], "&"}], "/@", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"fR", "->", "fR0"}], ",", 
+        RowBox[{"f0", "\[Rule]", "0"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"fR", "->", 
+         RowBox[{"\[Eta]", " ", "fR0"}]}], ",", 
+        RowBox[{"f0", "\[Rule]", "fRSB"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"fR", "->", 
+         RowBox[{"\[Eta]", " ", "fR0"}]}], ",", 
+        RowBox[{"f0", "\[Rule]", "fBSB"}]}], "}"}]}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{"%", ",", 
+     RowBox[{"{", 
+      RowBox[{"f", ",", 
+       RowBox[{"1.2", " ", "fRSB"}], ",", 
+       RowBox[{"1.2", " ", "fBSB"}]}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"All", ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", 
+     FractionBox["1", 
+      RowBox[{"2", " ", "\[Eta]", " ", "fR0"}]]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6683871391034155`*^9, 3.668387333543536*^9}, {
+   3.6683873670404525`*^9, 3.6683873678234973`*^9}, {3.668390367986018*^9, 
+   3.6683904041840887`*^9}, {3.6683916267640667`*^9, 3.668391645704094*^9}, {
+   3.6683939244288597`*^9, 3.6683940223470345`*^9}, {3.6683987946682987`*^9, 
+   3.668398823752962*^9}, {3.6706384653367596`*^9, 3.670638484119834*^9}, {
+   3.670650413788172*^9, 3.6706504157682853`*^9}, {3.6706506273243856`*^9, 
+   3.6706506511917505`*^9}, {3.6706984534378853`*^9, 3.670698573901776*^9}, 
+   3.6706987123038096`*^9, {3.670698747432819*^9, 3.670698911540205*^9}, {
+   3.670698968341454*^9, 3.6706990503391438`*^9}, {3.670699082713996*^9, 
+   3.670699096749799*^9}, 3.6706991308187475`*^9, {3.670699188793063*^9, 
+   3.670699264681404*^9}, {3.670699345225011*^9, 3.6706993877244415`*^9}, {
+   3.6706994965356655`*^9, 3.670699571180935*^9}, {3.6706996191336775`*^9, 
+   3.670699619229683*^9}, {3.670699812390731*^9, 3.6706998233263564`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0.0838, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 0.12}}, Typeset`size$$ = {
+    360., {120., 125.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$125108$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$125108$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{2^(Rational[-9, 2500] $CellContext`f^2) 
+         Sin[(Rational[2500, 9] + $CellContext`f^2)^Rational[1, 2] 
+            Pi $CellContext`t$$]^2, 
+         2^((-0.05759999999999999) (100 + $CellContext`f)^2) 
+         Sin[(17.361111111111114` + (100 + $CellContext`f)^2)^Rational[1, 2] 
+            Pi $CellContext`t$$]^2, 
+         2^((-0.05759999999999999) (-56 + $CellContext`f)^2) 
+         Sin[(17.361111111111114` + (-56 + $CellContext`f)^2)^Rational[1, 2] 
+            Pi $CellContext`t$$]^2}, {$CellContext`f, 1.2 $CellContext`fRSB, 
+         1.2 $CellContext`fBSB}, PlotRange -> {All, {0, 1}}], 
+      "Specifications" :> {{$CellContext`t$$, 0, 0.12}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {166., 173.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.6706984300125456`*^9, {3.6706985599929805`*^9, 3.670698574468808*^9}, 
+   3.6706987173640995`*^9, 3.6706987491609173`*^9, {3.670698895137267*^9, 
+   3.6706989130502915`*^9}, {3.6706989830182934`*^9, 3.670699004919546*^9}, {
+   3.670699037728423*^9, 3.6706990508421726`*^9}, {3.670699097280829*^9, 
+   3.6706991314957857`*^9}, {3.6706992227760067`*^9, 3.670699265277438*^9}, {
+   3.670699378017886*^9, 3.6706993884974856`*^9}, 3.6706995721399894`*^9, 
+   3.6706996196827087`*^9, {3.670699800975078*^9, 3.6706998236983776`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FractionBox[
+  SuperscriptBox["fR", "2"], 
+  SuperscriptBox["fR", "2"]]], "Input",
+ CellChangeTimes->{{3.6706996023647184`*^9, 3.6706996131893373`*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.6706996063089437`*^9, 3.6706996134333515`*^9}}]
+}, Open  ]]
+},
+WindowSize->{767, 873},
+WindowMargins->{{88, Automatic}, {31, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3846, 106, 336, "Input"],
+Cell[4429, 130, 2663, 49, 356, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7129, 184, 167, 4, 50, "Input"],
+Cell[7299, 190, 98, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

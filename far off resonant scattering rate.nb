@@ -1,0 +1,126 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3470,        116]
+NotebookOptionsPosition[      3117,         99]
+NotebookOutlinePosition[      3463,        114]
+CellTagsIndexPosition[      3420,        111]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"c", "=", 
+   RowBox[{"3.", " ", 
+    SuperscriptBox["10", "8"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[HBar]", "=", 
+   RowBox[{"6.626", " ", 
+    RowBox[{
+     SuperscriptBox["10", 
+      RowBox[{"-", "34"}]], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "\[Pi]"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kB", "=", 
+   RowBox[{"1.3806", " ", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "23"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mK", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "3"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nm", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "9"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MHz", "=", 
+   SuperscriptBox["10", "6"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ms", "=", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "3"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[CapitalGamma]", "=", 
+    RowBox[{"2", "\[Pi]", " ", "5", "MHz"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ttrap", "=", 
+   RowBox[{"0.6", "mK"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Lambda]", "=", 
+   RowBox[{"852", "nm"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]\[Lambda]", "=", 
+   RowBox[{
+    RowBox[{"975", "nm"}], "-", "\[Lambda]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]", "=", 
+   RowBox[{"c", " ", 
+    FractionBox["\[CapitalDelta]\[Lambda]", 
+     SuperscriptBox["\[Lambda]", "2"]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalGamma]sc", "=", 
+   RowBox[{
+    FractionBox["\[CapitalGamma]", "\[CapitalDelta]"], 
+    FractionBox[
+     RowBox[{"kB", " ", "Ttrap"}], "\[HBar]"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\[Tau]sc", "=", 
+  RowBox[{
+   RowBox[{"1", "/", "\[CapitalGamma]sc"}], "/", "ms"}]}]}], "Input",
+ CellChangeTimes->{{3.672783516561139*^9, 3.6727835295778832`*^9}, {
+  3.672783575585515*^9, 3.672783630170637*^9}, {3.672783822139617*^9, 
+  3.672783923586419*^9}, {3.67278395454119*^9, 3.672783973478273*^9}}],
+
+Cell[BoxData["20.599171230350372`"], "Output",
+ CellChangeTimes->{{3.6727836250383434`*^9, 3.672783630277643*^9}, {
+  3.672783849777198*^9, 3.6727839289767275`*^9}, {3.6727839609315553`*^9, 
+  3.672783973761289*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6727837850514956`*^9, 3.6727838183403997`*^9}, 
+   3.6727838768747473`*^9}]
+},
+WindowSize->{707, 857},
+WindowMargins->{{Automatic, -971}, {Automatic, 12}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 2176, 65, 348, "Input"],
+Cell[2758, 89, 216, 3, 31, "Output"]
+}, Open  ]],
+Cell[2989, 95, 124, 2, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

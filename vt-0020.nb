@@ -1,0 +1,108 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3100,         98]
+NotebookOptionsPosition[      2783,         82]
+NotebookOutlinePosition[      3130,         97]
+CellTagsIndexPosition[      3087,         94]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Lambda]", "=", 
+   RowBox[{"852.", "+", " ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "4902", ",", "4752", ",", "4576", ",", "4380", ",", "4180", ",", "3965",
+        ",", "3777", ",", "3590", ",", "3357", ",", "3220", ",", "3060"}], 
+      "}"}], "/", "10000"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"V", "=", 
+   RowBox[{"Range", "[", 
+    RowBox[{"0", ",", "100", ",", "10"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"V", ",", "\[Lambda]"}], "}"}], "]"}], ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Vpiezo\>\"", ",", "\"\<\[Lambda][nm]\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<VT-0020\>\""}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.667207502213211*^9, 3.6672076505906982`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{0., 852.4902}, {10., 852.4752}, {20., 852.4576}, {30., 
+      852.438}, {40., 852.418}, {50., 852.3965}, {60., 852.3777}, {70., 
+      852.359}, {80., 852.3357}, {90., 852.322}, {100., 852.306}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Vpiezo\"", TraditionalForm], 
+    FormBox["\"\[Lambda][nm]\"", TraditionalForm]},
+  AxesOrigin->{0, 852.2967900000001},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotLabel->FormBox["\"VT-0020\"", TraditionalForm],
+  PlotRange->{{0, 100.}, {852.306, 852.4902}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6672075524130826`*^9, 3.6672076534518614`*^9}}]
+}, Open  ]]
+},
+WindowSize->{767, 873},
+WindowMargins->{{Automatic, 568}, {104, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 956, 25, 92, "Input"],
+Cell[1539, 49, 1228, 30, 243, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

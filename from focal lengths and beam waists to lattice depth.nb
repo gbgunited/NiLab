@@ -1,0 +1,772 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     33292,        763]
+NotebookOptionsPosition[     32704,        737]
+NotebookOutlinePosition[     33047,        752]
+CellTagsIndexPosition[     33004,        749]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+co prop
+
+1.7W
+3.4 vs 3.3 mW/mK
+750 vs 970nm
+
+want the ULat to be much bigger than atom temp... ie 10uK.\
+\>", "Subtitle",
+ CellChangeTimes->{{3.665343750171935*^9, 3.6653437552532263`*^9}, {
+   3.665345125497669*^9, 3.6653451377633705`*^9}, {3.665345218363981*^9, 
+   3.665345220543105*^9}, 3.665345367745525*^9, {3.6654309745950975`*^9, 
+   3.665431001001608*^9}, {3.665431142552704*^9, 3.665431152418268*^9}, 
+   3.6654505821924343`*^9, {3.6663017295736656`*^9, 3.666301745194559*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"1", "=", "forw"}], ",", " ", 
+    RowBox[{"2", "=", "retro"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data", "=", 
+     RowBox[{
+      RowBox[{"Reap", "[", "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"nm", "=", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "9"}]]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"um", "=", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"mW", "=", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "3"}]]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"mK", "=", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "3"}]]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"cm", "=", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "2"}]]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"kHz", "=", 
+           SuperscriptBox["10", "3"]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"amu", "=", 
+           RowBox[{"1.66054", " ", 
+            SuperscriptBox["10", 
+             RowBox[{"-", "27"}]]}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"kB", "=", 
+           RowBox[{"1.38064852", " ", 
+            SuperscriptBox["10", 
+             RowBox[{"-", "23"}]]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"m", "=", 
+           RowBox[{"132.90545", " ", "amu"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"\[Lambda]", "=", 
+           RowBox[{"775", "nm"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"f2", " ", "=", " ", 
+           RowBox[{"50", "mm"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"f1", "=", 
+           RowBox[{"16", "mm"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"R", " ", "=", 
+           RowBox[{"18", 
+            RowBox[{"mm", "/", "2"}]}]}], ";", 
+          RowBox[{"(*", 
+           RowBox[{"aperture", " ", "of", " ", "retro", " ", "lens"}], "*)"}],
+           "\[IndentingNewLine]", 
+          RowBox[{"R", "=", "R"}], ";", 
+          RowBox[{"(*", 
+           RowBox[{
+           "just", " ", "to", " ", "account", " ", "for", " ", "clipping"}], 
+           "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"w2", "=", 
+           RowBox[{"w1", " ", 
+            RowBox[{"f2", "/", "f1"}]}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{
+            "waist", " ", "of", " ", "forward", " ", "beam", " ", "AT", " ", 
+             "retro", " ", "lens"}], " ", "=", " ", 
+            RowBox[{
+            "waist", " ", "of", " ", "retro", " ", "input", " ", "beam"}]}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"NA1", "=", 
+           RowBox[{"w1", "/", "f1"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"NA2", "=", 
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{"w2", "/", "f2"}], ",", 
+             RowBox[{"R", "/", "f2"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"w01", "=", 
+           FractionBox["\[Lambda]", 
+            RowBox[{"\[Pi]", " ", "NA1"}]]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+           "waist", " ", "at", " ", "focus", " ", "of", " ", "forw", " ", 
+            "beam"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"w02", "=", 
+           FractionBox["\[Lambda]", 
+            RowBox[{"\[Pi]", " ", "NA2"}]]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"zR1", "=", 
+           RowBox[{"w01", "/", "NA1"}]}], ";", " ", "\[IndentingNewLine]", 
+          RowBox[{"zR2", "=", 
+           RowBox[{"w01", "/", "NA2"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Pin", " ", "=", " ", 
+           RowBox[{"71.5", "mW"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"U0", "=", 
+           RowBox[{"0.6", "mK", "  ", 
+            RowBox[{"(", 
+             FractionBox["Pin", 
+              RowBox[{"3", " ", "mW"}]], ")"}], 
+            FractionBox["3.3", "2.7"], 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"800", 
+               RowBox[{"nm", "/", "w01"}]}], ")"}], "2"]}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{"bare", " ", "lattice", " ", "beam", " ", 
+            RowBox[{"(", 
+             RowBox[{"no", " ", "retro"}], ")"}]}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"Pretrofrac", "=", 
+             RowBox[{"1", "-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{"2", " ", 
+                  SuperscriptBox["R", "2"]}], 
+                 SuperscriptBox["w2", "2"]]}]]}]}], ";", 
+            RowBox[{"(*", 
+             RowBox[{
+             "fraction", " ", "of", " ", "power", " ", "of", " ", "a", " ", 
+              "beam", " ", "of", " ", "waist", " ", "w", " ", "transmitted", 
+              " ", "thru", " ", "an", " ", "aperture", " ", "of", " ", 
+              "radius", " ", "R"}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"\[Beta]", "=", 
+             RowBox[{
+              SqrtBox["Pretrofrac"], ".5"}]}], " ", ";"}], " ", 
+           RowBox[{"(*", 
+            RowBox[{
+            "ratio", " ", "of", " ", "retro", " ", "E", " ", "field", " ", 
+             "to", " ", "forw", " ", "E", " ", "field", " ", "x", " ", "some",
+              " ", "attenuation", " ", "factor", " ", 
+             RowBox[{"(", "experimental", ")"}]}], "*)"}], 
+           "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"\[Beta]", "=", 
+           SqrtBox[
+            RowBox[{"62.8", "/", "82.3"}]]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+           "actual", " ", "measured", " ", "power", " ", "right", " ", 
+            "before", " ", "retro", " ", 
+            RowBox[{"mirror", "/", " ", "right"}], " ", "before", " ", 
+            "objective"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"ULat", "=", 
+           RowBox[{"4", "U0", 
+            FractionBox[
+             RowBox[{" ", "NA2"}], "NA1"], "\[Beta]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"d", "=", 
+           RowBox[{"2", "U0", 
+            FractionBox[
+             RowBox[{" ", "NA2"}], "NA1"], " ", "\[Beta]", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"4", " ", "\[Pi]", " ", "z"}], "\[Lambda]"], "]"}]}]}], 
+          ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+           "functional", " ", "form", " ", "of", " ", "lattice", " ", 
+            "potential"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"a", "=", 
+           RowBox[{"Normal", "[", 
+            RowBox[{"Series", "[", 
+             RowBox[{"d", ",", 
+              RowBox[{"{", 
+               RowBox[{"z", ",", "0", ",", "2"}], "}"}]}], "]"}], "]"}]}], 
+          ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{"harmonic", " ", "approx"}], "*)"}], "\[IndentingNewLine]",
+           "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "bare", " ", "forward", " ", "lattice", " ", "beam", " ", "only"}],
+            "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"frad", "=", 
+           SqrtBox[
+            FractionBox[
+             RowBox[{"Abs", "[", 
+              RowBox[{"kB", " ", "U0"}], "]"}], 
+             RowBox[{"m", " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"\[Pi]", "  ", "w01"}], ")"}], "2"]}]]]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"fax", "=", 
+           FractionBox[
+            RowBox[{"\[Lambda]", " ", "frad"}], 
+            RowBox[{
+             SqrtBox["2"], "\[Pi]", " ", "w01"}]]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"fLat", "=", 
+           RowBox[{"fLat0", "/.", 
+            RowBox[{
+             RowBox[{"Solve", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox["1", "2"]}], "m", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "\[Pi]", " ", "fLat0"}], ")"}], "2"]}], 
+                "\[Equal]", 
+                RowBox[{"kB", " ", 
+                 RowBox[{"Coefficient", "[", 
+                  RowBox[{"a", ",", 
+                   SuperscriptBox["z", "2"]}], "]"}]}]}], ",", "fLat0"}], 
+              "]"}], "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{"lattice", " ", "freqs"}], "*)"}], "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Sow", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"2", 
+              RowBox[{"w1", "/", "mm"}]}], ",", 
+             RowBox[{"U0", "/", "mK"}], ",", 
+             RowBox[{"ULat", "/", "mK"}], ",", 
+             SuperscriptBox["\[Beta]", "2"], ",", 
+             RowBox[{"w01", "/", "um"}], ",", 
+             RowBox[{"w02", "/", "um"}], ",", 
+             RowBox[{"U0", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"1", "-", 
+                  RowBox[{
+                   FractionBox[
+                    RowBox[{" ", "NA2"}], "NA1"], "\[Beta]"}]}], ")"}], "2"], 
+               "/", "mK"}]}], ",", 
+             RowBox[{"zR1", "/", "um"}], ",", 
+             RowBox[{"zR2", "/", "um"}], ",", 
+             RowBox[{"fLat", "/", "kHz"}], ",", 
+             RowBox[{"frad", "/", "kHz"}]}], "}"}], "]"}]}], 
+         "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"w1", ",", 
+           RowBox[{".8", 
+            RowBox[{"mm", "/", "2"}]}], ",", 
+           RowBox[{"1.3", 
+            RowBox[{"mm", "/", "2"}]}], ",", 
+           RowBox[{".05", "mm"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"GraphicsGrid", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "2"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<U0 [mK]\>\"", ",", 
+             RowBox[{"\"\<f2=\>\"", "<>", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"f2", "/", "mm"}], "]"}], "<>", "\"\<mm\>\""}]}], 
+            "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "3"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<ULat [mK]\>\""}], "}"}]}]}], 
+         "]"}]}], "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "5"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<w01 [um]\>\""}], "}"}]}]}], 
+         "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "6"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<w02 [um]\>\""}], "}"}]}]}], 
+         "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "4"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<d1 [mm]\>\"", ",", 
+             "\"\<\!\(\*SuperscriptBox[\(\[Beta]\), \(2\)]\)\>\""}], 
+            "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "7"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<background [mK]\>\""}], 
+            "}"}]}]}], "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "8"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<zR1 [um]\>\""}], "}"}]}]}], 
+         "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "9"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<zR2 [um]\>\""}], "}"}]}]}], 
+         "]"}]}], "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "10"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<fLat[kHz]\>\""}], "}"}]}]}], 
+         "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "11"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<d1 [mm]\>\"", ",", "\"\<frad[kHz]\>\""}], "}"}]}]}], 
+         "]"}]}], "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6653437360591283`*^9, 3.6653437467707405`*^9}, {
+   3.6653438431389236`*^9, 3.665343918700862*^9}, {3.6653440322631397`*^9, 
+   3.6653440581456203`*^9}, {3.6653444871631584`*^9, 3.665344521524124*^9}, {
+   3.665344781805011*^9, 3.6653449770171766`*^9}, {3.665345042535924*^9, 
+   3.6653451335711308`*^9}, 3.6653451761565666`*^9, {3.665345289773065*^9, 
+   3.6653453159865646`*^9}, {3.6653453693346157`*^9, 
+   3.6653453948530755`*^9}, {3.6653454738175917`*^9, 3.665345607922262*^9}, {
+   3.6653456768082027`*^9, 3.6653457067099123`*^9}, {3.665345739083764*^9, 
+   3.665345813088997*^9}, {3.6653459448335323`*^9, 3.665345945452568*^9}, {
+   3.6653459847308145`*^9, 3.6653460122183867`*^9}, {3.6653460481744432`*^9, 
+   3.665346190297572*^9}, 3.665346571111354*^9, {3.665346648728793*^9, 
+   3.6653466489428053`*^9}, {3.6653467673065753`*^9, 3.665346775728057*^9}, {
+   3.6653468924127307`*^9, 3.665346904952448*^9}, {3.6653472158162284`*^9, 
+   3.665347258774686*^9}, {3.6653478827283735`*^9, 3.6653479370624814`*^9}, {
+   3.6653497641062727`*^9, 3.665349764847315*^9}, {3.6653504886375074`*^9, 
+   3.665350541402526*^9}, {3.665351680530381*^9, 3.6653516850423884`*^9}, {
+   3.6654295979011393`*^9, 3.6654296365982227`*^9}, {3.665430875936455*^9, 
+   3.6654308885521765`*^9}, {3.665431053689622*^9, 3.665431115499157*^9}, {
+   3.665431188428328*^9, 3.6654311919705305`*^9}, {3.6654314074008527`*^9, 
+   3.6654314257389016`*^9}, {3.665450594333256*^9, 3.6654506156708946`*^9}, {
+   3.6654574299579177`*^9, 3.6654574614019756`*^9}, {3.665457724128456*^9, 
+   3.6654578001925764`*^9}, {3.6654579076958256`*^9, 3.665457945580884*^9}, {
+   3.6654940147191553`*^9, 3.6654940450177193`*^9}, {3.6654943806883974`*^9, 
+   3.6654944128620596`*^9}, {3.665496114475054*^9, 3.665496114646654*^9}, {
+   3.6654972438432436`*^9, 3.665497373490097*^9}, {3.666294218665066*^9, 
+   3.6662942339209385`*^9}, {3.6662942861629267`*^9, 3.666294294323394*^9}, {
+   3.6662943647244205`*^9, 3.666294388183762*^9}, {3.6662948768067093`*^9, 
+   3.6662949165819845`*^9}, {3.666294971350117*^9, 3.6662949716661353`*^9}, {
+   3.6662955401396503`*^9, 3.666295570700398*^9}, {3.6662962510993147`*^9, 
+   3.6662963209223084`*^9}, {3.6662975760220957`*^9, 
+   3.6662975988444014`*^9}, {3.666297658381807*^9, 3.666297658567817*^9}, {
+   3.66629775145113*^9, 3.666297938210812*^9}, {3.6662979870356045`*^9, 
+   3.666298014001147*^9}, {3.6662981100726423`*^9, 3.666298114694906*^9}, {
+   3.6662981502559404`*^9, 3.6662981503669467`*^9}, 3.6663017618975143`*^9, {
+   3.6663132124708166`*^9, 3.6663132132018585`*^9}, {3.6663152219637527`*^9, 
+   3.666315259825918*^9}, {3.666315322423499*^9, 3.66631532279752*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 0.11487950216978467`}, {0.9, 0.14539436993363378`}, {
+          1., 0.17949922214028854`}, {1.1, 0.2171940587897493}, {
+          1.2000000000000002`, 0.2584788798820156}, {1.3, 
+          0.3033536854170877}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 0.11487950216978467`},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"U0 [mK]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], 
+          FormBox["\"f2=50mm\"", TraditionalForm]}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {0.11487950216978467`, 0.3033536854170877}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {0.0037694836649460606`, 
+        0.0037694836649460606`}}], {192., -120.51662780622948`}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.4922359499621}], InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 0.4014046881640085}, {0.9, 0.5080278084575734}, {1., 
+          0.6271948252562632}, {1.1, 0.758905738560079}, {1.2000000000000002`,
+           0.9031605483690195}, {1.3, 1.059959254683085}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 0.4014046881640085},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"ULat [mK]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {0.4014046881640085, 1.059959254683085}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {0.013171091330381529`, 
+        0.013171091330381529`}}], {576., -120.51662780622948`}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.4922359499621}]}, {InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 9.867606471697512}, {0.9, 8.77120575262001}, {1., 
+          7.89408517735801}, {1.1, 7.1764410703254615`}, {1.2000000000000002`,
+           6.578404314465007}, {1.3, 6.072373213352314}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 6.072373213352314},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"w01 [um]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {6.072373213352314, 9.867606471697512}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {0.07590466516690395, 
+        0.07590466516690395}}], {192., -361.5498834186884}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.4922359499621}], InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 9.867606471697512}, {0.9, 8.77120575262001}, {1., 
+          7.89408517735801}, {1.1, 7.1764410703254615`}, {1.2000000000000002`,
+           6.578404314465007}, {1.3, 6.072373213352314}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 6.072373213352314},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"w02 [um]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {6.072373213352314, 9.867606471697512}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {0.07590466516690395, 
+        0.07590466516690395}}], {576., -361.5498834186884}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.4922359499621}]}, {InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 0.7630619684082626}, {0.9, 0.7630619684082626}, {1., 
+          0.7630619684082626}, {1.1, 0.7630619684082626}, {
+          1.2000000000000002`, 0.7630619684082626}, {1.3, 
+          0.7630619684082626}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 0},
+       Frame->True,
+       FrameLabel->{{
+          FormBox[
+          "\"\\!\\(\\*SuperscriptBox[\\(\[Beta]\\), \\(2\\)]\\)\"", 
+           TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {0, 1.5261239368165251`}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {0.030522478736330502`, 
+        0.030522478736330502`}}], {192., -602.5831390311473}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.49223594996204`}], InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 0.001837337143217587}, {0.9, 
+          0.0023253798218847593`}, {1., 0.0028708392862774796`}, {1.1, 
+          0.0034737155363957525`}, {1.2000000000000002`, 
+          0.004134008572239572}, {1.3, 0.004851718393808941}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 0.001837337143217587},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"background [mK]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {0.001837337143217587, 0.004851718393808941}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {0.000060287625011827084`, 
+        0.000060287625011827084`}}], {576., -602.5831390311473}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.49223594996204`}]}, {InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 394.7042588679005}, {0.9, 311.86509342648924`}, {1., 
+          252.6107256754563}, {1.1, 208.76919477310432`}, {
+          1.2000000000000002`, 175.42411505240014`}, {1.3, 
+          149.4738021748262}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 149.4738021748262},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"zR1 [um]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {149.4738021748262, 394.7042588679005}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {4.904609133861485, 
+        4.904609133861485}}], {192., -843.6163946436063}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.49223594996215`}], InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 394.7042588679005}, {0.9, 311.86509342648924`}, {1., 
+          252.6107256754563}, {1.1, 208.76919477310432`}, {
+          1.2000000000000002`, 175.42411505240014`}, {1.3, 
+          149.4738021748262}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 149.4738021748262},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"zR2 [um]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {149.4738021748262, 394.7042588679005}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {4.904609133861485, 
+        4.904609133861485}}], {576., -843.6163946436063}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.49223594996215`}]}, {InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 289.16785634327783`}, {0.9, 325.3138383861877}, {1., 
+          361.4598204290973}, {1.1, 397.60580247200716`}, {
+          1.2000000000000002`, 433.75178451491695`}, {1.3, 
+          469.8977665578266}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 289.16785634327783`},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"fLat[kHz]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {289.16785634327783`, 469.8977665578266}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {3.614598204290976, 
+        3.614598204290976}}], {192., -1084.6496502560653`}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.49223594996226`}], InsetBox[
+      GraphicsBox[{{}, 
+        {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+         PointBox[{{0.8, 2.734670958336145}, {0.9, 3.461067931644185}, {1., 
+          4.272923372400225}, {1.1, 5.170237280604277}, {1.2000000000000002`, 
+          6.153009656256329}, {1.3, 7.221240499356384}}]}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       AxesOrigin->{0.8, 2.734670958336145},
+       Frame->True,
+       FrameLabel->{{
+          FormBox["\"frad[kHz]\"", TraditionalForm], None}, {
+          FormBox["\"d1 [mm]\"", TraditionalForm], None}},
+       Method->{},
+       PlotRange->{{0.8, 1.3}, {2.734670958336145, 7.221240499356384}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{0.01, 0.01}, {0.08973139082040478, 
+        0.08973139082040478}}], {576., -1084.6496502560653`}, 
+      ImageScaled[{0.5, 0.5}], {360., 222.49223594996226`}]}}, {}},
+  ContentSelectable->True,
+  ImageSize->{461., Automatic},
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{{3.6653516856823893`*^9, 3.66535171333644*^9}, {
+   3.6654296011471453`*^9, 3.6654296369182234`*^9}, 3.665431125837748*^9, 
+   3.6654311926725707`*^9, 3.665431429665126*^9, 3.6654338284613295`*^9, {
+   3.665457445000951*^9, 3.6654574621419764`*^9}, {3.6654577763635335`*^9, 
+   3.6654578007725773`*^9}, {3.665457909491832*^9, 3.6654579459608846`*^9}, {
+   3.6654940256155787`*^9, 3.665494046031721*^9}, {3.6654943828568015`*^9, 
+   3.66549441334566*^9}, 3.6654961176582613`*^9, 3.6654973753309*^9, 
+   3.6655789340468636`*^9, 3.6657510147434993`*^9, 3.666294296094495*^9, 
+   3.6662943891808195`*^9, 3.6662949552731977`*^9, {3.666296300272127*^9, 
+   3.66629632444951*^9}, {3.666297595466208*^9, 3.666297599483438*^9}, 
+   3.666297658986841*^9, {3.666297795647658*^9, 3.666297814476735*^9}, 
+   3.6662979386418366`*^9, {3.6662979878856535`*^9, 3.666298014260162*^9}, 
+   3.6662981151549325`*^9, 3.666298151056986*^9, 3.6663017622425337`*^9, 
+   3.666313213792892*^9, 3.666315274103735*^9, 3.6663153260787077`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["check scattering rate", "Subtitle",
+ CellChangeTimes->{{3.6662972615971117`*^9, 3.666297264867299*^9}, {
+  3.666297395506771*^9, 3.6662973961068053`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"MHz", "=", 
+   SuperscriptBox["10", "6"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s", "=", 
+   RowBox[{
+    FractionBox["Pin", 
+     RowBox[{"\[Pi]", " ", 
+      SuperscriptBox["w01", "2"]}]], "/", 
+    RowBox[{"(", 
+     RowBox[{"2.7", 
+      FractionBox["mW", 
+       SuperscriptBox["cm", "2"]]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalGamma]", " ", "=", 
+   RowBox[{"32", " ", "MHz"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]", " ", "=", " ", 
+   RowBox[{"2", "\[Pi]", " ", "3.", " ", 
+    SuperscriptBox["10", "8"], 
+    FractionBox[
+     RowBox[{"852", "-", "780"}], 
+     SuperscriptBox["852", "2"]], 
+    FractionBox["1", "nm"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  FractionBox["\[CapitalGamma]", "2"], 
+  FractionBox["s", 
+   RowBox[{"1", "+", "s", "+", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"2", " ", "\[CapitalDelta]"}], "\[CapitalGamma]"], ")"}], 
+     "2"]}]]}]}], "Input",
+ CellChangeTimes->{{3.6657521579758883`*^9, 3.6657521579838886`*^9}, {
+  3.665752190676759*^9, 3.6657522669731226`*^9}, {3.6657523835577908`*^9, 
+  3.665752397404583*^9}, {3.6657525047897253`*^9, 3.6657525425508847`*^9}, {
+  3.6662972704566183`*^9, 3.6662972793941298`*^9}, {3.666297337009425*^9, 
+  3.6662974135568037`*^9}}],
+
+Cell[BoxData["0.3746455076287401`"], "Output",
+ CellChangeTimes->{{3.6657523867299724`*^9, 3.665752397962615*^9}, {
+  3.665752505106743*^9, 3.6657525426508904`*^9}, {3.666297361170807*^9, 
+  3.66629741384882*^9}, {3.666298104160304*^9, 3.666298119288169*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1842, 985},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 497, 13, 266, "Subtitle"],
+Cell[CellGroupData[{
+Cell[1101, 39, 19391, 440, 1812, "Input"],
+Cell[20495, 481, 10314, 197, 782, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30858, 684, 160, 2, 56, "Subtitle"],
+Cell[CellGroupData[{
+Cell[31043, 690, 1371, 38, 172, "Input"],
+Cell[32417, 730, 259, 3, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

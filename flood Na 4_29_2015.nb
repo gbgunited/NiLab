@@ -1,0 +1,285 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10185,        276]
+NotebookOptionsPosition[      9526,        248]
+NotebookOutlinePosition[      9871,        263]
+CellTagsIndexPosition[      9828,        260]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"times", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "3", ",", "57", ",", "4", ",", "00", ",", "4", ",", "04", ",", "4", ",", 
+     "07", ",", "4", ",", "14", ",", "4", ",", "17", ",", "4", ",", "23", ",",
+      "4", ",", "32", ",", "4", ",", "40", ",", "4", ",", "50", ",", "4", ",",
+      "53", ",", "4", ",", "55", ",", "4", ",", "56", ",", "5", ",", "06", 
+     ",", "5", ",", "22", ",", "5", ",", "36", ",", "5", ",", "43", ",", "5", 
+     ",", "56", ",", "5", ",", "58", ",", "6", ",", "07", ",", "6", ",", "10",
+      ",", "6", ",", "15", ",", "6", ",", "24", ",", "6", ",", "36", ",", "6",
+      ",", "56", ",", "7", ",", "06", ",", "7", ",", "17", ",", "7", ",", 
+     "27", ",", "7", ",", "34", ",", "7", ",", "40", ",", "7", ",", "46"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"times", "=", 
+   RowBox[{"Partition", "[", 
+    RowBox[{"times", ",", "2"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"times", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"1", "/", "60"}]}], "}"}], ".", "#"}], "&"}], "/@", 
+    "times"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"times", "=", 
+   RowBox[{"times", "-", 
+    RowBox[{"times", "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pressure", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "3.5", ",", "6.8", ",", "16", ",", "20", ",", "25", ",", "25", ",", "23", 
+     ",", "20", ",", "18", ",", "16", ",", "13", ",", "8.2", ",", "6.3", ",", 
+     "9", ",", "11", ",", "9.8", ",", "9.8", ",", "9.3", ",", "8.5", ",", 
+     "3.4", ",", "2.9", ",", "2.2", ",", "1.7", ",", "1.3", ",", ".95", ",", 
+     ".85", ",", ".74", ",", ".68", ",", ".63", ",", ".54", ",", ".48"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"data", "=", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"times", ",", "pressure"}], "}"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"markers", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.93", ",", "0.98", ",", "2.02", ",", "2.12", ",", "2.22", ",", "3.5"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"markers", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"#", ",", 
+        RowBox[{"Max", "[", "pressure", "]"}]}], "}"}], "&"}], "/@", 
+     "markers"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ListPlot", "[", 
+     RowBox[{"data", ",", 
+      RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+      RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+      RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<time[hr]\>\"", ",", "\"\<SAES [1e-9]\>\""}], "}"}]}]}], 
+     "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ListPlot", "[", 
+     RowBox[{"markers", ",", 
+      RowBox[{"Filling", "\[Rule]", "Axis"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Cases", "[", 
+    RowBox[{"data", ",", 
+     RowBox[{"x_", "/;", 
+      RowBox[{
+       RowBox[{"x", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ">", "2.22"}]}]}], "]"}], ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "2.2"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<time[hrs]\>\"", ",", "\"\<SAES [1e-9]\>\""}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6392919681243773`*^9, 3.639292323168685*^9}, {
+  3.6392926426799603`*^9, 3.639292649863371*^9}, {3.639293995401331*^9, 
+  3.6392941055196295`*^9}, {3.639294379376293*^9, 3.639294386771716*^9}, {
+  3.63929505907417*^9, 3.6392950687217216`*^9}, {3.639295673749327*^9, 
+  3.6392956854869986`*^9}, {3.6392960723881283`*^9, 3.639296077261407*^9}, {
+  3.639296427309428*^9, 3.6392964365729585`*^9}, {3.6392966116199703`*^9, 
+  3.6392966121400003`*^9}, {3.639296831010519*^9, 3.639296838284935*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGCQB2IQjQp4HGbNBIGV9sZgIO1w7y4I7LWHyBs4hILBUSjf
+xEEJDC5B+ZZQ+atw/p7dIHAbyjd3WL0KBB7B9b9/BwLPoHwjBxcweAO3D2L/
+WyhfC6r+nX0aGCg4lIPBe6h7JR0g4p+g6pWg9n2D8tWg8r/sIf5Uhtr3B86H
+uPc/lK8E9R+DA0S/ItR/jA4Q+7ih6mF8dqj5TNBwZITSzFD531B3sjqcPQMC
+X+wh/oPpeweV54Sqf20PcT+Xwzr3h1Ui657bw+Lp8FeNmP5DT+0h4cHjoAnk
+fdV4Yg9xD6+DB0i5+0P7zg4Q4HPYIdf6OnDHPXsAc5G5jA==
+      "]]}, {}}, {{}, 
+    GraphicsComplexBox[{{0.93, 25.}, {0.98, 25.}, {2.02, 25.}, {2.12, 25.}, {
+     2.22, 25.}, {3.5, 25.}, {0.93, 0.}, {0.98, 0.}, {2.02, 0.}, {2.12, 0.}, {
+     2.22, 0.}, {3.5, 0.}, {0.93, 25.}, {0.98, 25.}, {2.02, 25.}, {2.12, 
+     25.}, {2.22, 25.}, {3.5, 25.}}, {{{}, {}, {}, {}, 
+       {Hue[0.67, 0.6, 0.6], Opacity[0.2], LineBox[{7, 1}], LineBox[{8, 2}], 
+        LineBox[{9, 3}], LineBox[{10, 4}], LineBox[{11, 5}], 
+        LineBox[{12, 6}]}}, {{}, 
+       {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+        PointBox[{13, 14, 15, 16, 17, 18}]}, {}}}], {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  AxesOrigin->{0, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"SAES [1e-9]\"", TraditionalForm], None}, {
+     FormBox["\"time[hr]\"", TraditionalForm], None}},
+  Method->{},
+  PlotRange->{{0, 3.816666666666667}, {0, 25.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.07633333333333334, 0.07633333333333334}, {0.5, 
+   0.5}}]], "Output",
+ CellChangeTimes->{{3.6392922619331827`*^9, 3.6392922932119713`*^9}, 
+   3.639292324024734*^9, 3.6392926518514843`*^9, 3.6392940028097553`*^9, {
+   3.6392940994252815`*^9, 3.639294105790645*^9}, 3.6392943869447265`*^9, 
+   3.6392950689687357`*^9, {3.6392956795416584`*^9, 3.6392956857520137`*^9}, 
+   3.6392960781934605`*^9, 3.6392964366899652`*^9, 3.63929661230501*^9, 
+   3.6392968386659565`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     LineBox[{{2.3, 2.2}, {2.45, 1.7}, {2.65, 1.3}, {2.9833333333333334`, 
+      0.95}, {3.15, 0.85}, {3.3333333333333335`, 0.74}, {3.5, 0.68}, {
+      3.6166666666666667`, 0.63}, {3.716666666666667, 0.54}, {
+      3.816666666666667, 0.48}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  AxesOrigin->{2.4000000000000004`, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"SAES [1e-9]\"", TraditionalForm], None}, {
+     FormBox["\"time[hrs]\"", TraditionalForm], None}},
+  Method->{},
+  PlotRange->{All, {0, 2.2}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6392922619331827`*^9, 3.6392922932119713`*^9}, 
+   3.639292324024734*^9, 3.6392926518514843`*^9, 3.6392940028097553`*^9, {
+   3.6392940994252815`*^9, 3.639294105790645*^9}, 3.6392943869447265`*^9, 
+   3.6392950689687357`*^9, {3.6392956795416584`*^9, 3.6392956857520137`*^9}, 
+   3.6392960781934605`*^9, 3.6392964366899652`*^9, 3.63929661230501*^9, 
+   3.639296838671957*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+0, Cs (3.00A), Na (3.80A) on.
+0.93, Cs off.
+0.98, Cs back on 
+2.02, Cs ->2.00A
+2.12, Cs->1.00A
+2.22, Cs-> off
+~3.5, Na off
+\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6392923737405777`*^9, 3.639292454330187*^9}, 
+   3.6392964603543186`*^9, {3.6392965693305516`*^9, 3.6392965705226197`*^9}, {
+   3.639296602275436*^9, 3.6392966050825963`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.639294403476672*^9, 3.63929447845096*^9}, 
+   3.639295683013857*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     LineBox[{{2.3, 2.2}, {2.45, 1.7}, {2.65, 1.3}, {2.9833333333333334`, 
+      0.95}, {3.15, 0.85}, {3.3333333333333335`, 0.74}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  AxesOrigin->{2.4000000000000004`, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"SAES [1e-9]\"", TraditionalForm], None}, {
+     FormBox["\"time[hrs]\"", TraditionalForm], None}},
+  Method->{},
+  PlotRange->{All, {0, 2.2}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.639294416707429*^9, 3.6392944465361347`*^9}, 
+   3.6392944792620063`*^9, 3.639295071561884*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"1.", " ", "7"}], "+", 
+  RowBox[{"30", "/", "60"}], "-", 
+  RowBox[{"(", "4", ")"}]}]], "Input",
+ CellChangeTimes->{{3.6392965860145063`*^9, 3.6392965986682296`*^9}}],
+
+Cell[BoxData["3.5`"], "Output",
+ CellChangeTimes->{{3.639296597016135*^9, 3.639296599569281*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 857},
+WindowMargins->{{Automatic, 243}, {17, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 4341, 107, 452, "Input"],
+Cell[4923, 131, 1868, 35, 254, "Output"],
+Cell[6794, 168, 1112, 22, 282, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7943, 195, 349, 12, 301, "Subtitle"],
+Cell[CellGroupData[{
+Cell[8317, 211, 117, 2, 31, "Input"],
+Cell[8437, 215, 723, 16, 250, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9197, 236, 201, 5, 31, "Input"],
+Cell[9401, 243, 97, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

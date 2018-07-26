@@ -1,0 +1,184 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5571,        174]
+NotebookOptionsPosition[      4997,        148]
+NotebookOutlinePosition[      5341,        163]
+CellTagsIndexPosition[      5298,        160]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+gain profile of tweezer rf network at 5.63 W\t\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6320768124650164`*^9, 3.632076826142799*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ctrl", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "9.4", ",", "1.02", ",", "8.54", ",", "2.00", ",", "7.56", ",", "2.92", 
+     ",", "6.6", ",", "3.84", ",", "4.76", ",", "5.68"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pd", "=", 
+   RowBox[{"{", 
+    RowBox[{"1.27", ",", 
+     RowBox[{"-", ".0054"}], ",", "1.4", ",", ".088", ",", "1.54", ",", ".41",
+      ",", "1.57", ",", ".77", ",", "1.11", ",", "1.4"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"ctrl", ",", " ", "pd"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"data", ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<V_ctrl[V]\>\"", ",", "\"\<photodiode voltage [V]\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<RF network gain profile\>\""}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6320768301060257`*^9, 3.632076995091462*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+    PointBox[{{9.4, 1.27}, {1.02, -0.0054}, {8.54, 1.4}, {2., 0.088}, {7.56, 
+     1.54}, {2.92, 0.41}, {6.6, 1.57}, {3.84, 0.77}, {4.76, 1.11}, {5.68, 
+     1.4}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"V_ctrl[V]\"", TraditionalForm], 
+    FormBox["\"photodiode voltage [V]\"", TraditionalForm]},
+  AxesOrigin->{0, 0.},
+  Method->{},
+  PlotLabel->FormBox["\"RF network gain profile\"", TraditionalForm],
+  PlotRange->{{0, 9.4}, {-0.0054, 1.57}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.188, 0.188}, {0.031508, 0.031508}}]], "Output",
+ CellChangeTimes->{
+  3.6320769242664113`*^9, {3.632076982011714*^9, 3.632076995650494*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["modulation", "Subtitle",
+ CellChangeTimes->{{3.6321200024883447`*^9, 3.632120003247388*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"freq", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"i", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "20", ",", "260", ",", "20"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"amp", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "16", ",", "56", ",", "76", ",", "76", ",", "76", ",", "76", ",", "92", 
+      ",", "92", ",", "80", ",", "40", ",", "60", ",", "68", ",", "68"}], 
+     "}"}], "/", "624"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"freq", ",", "amp"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"data", ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<freq[kHz]\>\"", ",", "\"\<modulation depth [arb]\>\""}], 
+     "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.632120006303563*^9, 3.6321201297146215`*^9}, {
+  3.6321205469954886`*^9, 3.6321205774522305`*^9}, {3.6321237168357935`*^9, 
+  3.6321237270353765`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+    PointBox[{{20., 0.02564102564102564}, {40., 0.08974358974358974}, {60., 
+     0.12179487179487179`}, {80., 0.12179487179487179`}, {100., 
+     0.12179487179487179`}, {120., 0.12179487179487179`}, {140., 
+     0.14743589743589744`}, {160., 0.14743589743589744`}, {180., 
+     0.1282051282051282}, {200., 0.0641025641025641}, {220., 
+     0.09615384615384616}, {240., 0.10897435897435898`}, {260., 
+     0.10897435897435898`}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"freq[kHz]\"", TraditionalForm], 
+    FormBox["\"modulation depth [arb]\"", TraditionalForm]},
+  AxesOrigin->{0, 0.02564102564102564},
+  Method->{},
+  PlotRange->{{0, 260.}, {0.02564102564102564, 0.14743589743589744`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{5.2, 5.2}, {0.002435897435897436, 
+   0.002435897435897436}}]], "Output",
+ CellChangeTimes->{
+  3.6321200432436757`*^9, {3.6321201049022026`*^9, 3.632120129881631*^9}, {
+   3.6321205623743687`*^9, 3.632120579353339*^9}, 3.6321237272683897`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 867},
+WindowMargins->{{48, Automatic}, {58, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 142, 3, 56, "Subtitle"],
+Cell[CellGroupData[{
+Cell[746, 29, 1048, 29, 112, "Input"],
+Cell[1797, 60, 792, 18, 228, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2638, 84, 98, 1, 56, "Subtitle"],
+Cell[CellGroupData[{
+Cell[2761, 89, 1070, 30, 92, "Input"],
+Cell[3834, 121, 1135, 23, 214, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
